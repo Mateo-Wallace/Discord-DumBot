@@ -1,8 +1,8 @@
 // Require the necessary discord.js classes
-import fs from "node:fs";
-import path from "node:path";
-import "dotenv/config";
-import { Client, Events, GatewayIntentBits } from "discord.js";
+const fs = require('node:fs');
+const path = require('node:path');
+const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+require('dotenv').config();
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });

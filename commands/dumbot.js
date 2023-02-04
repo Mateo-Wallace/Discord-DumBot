@@ -5,6 +5,6 @@ module.exports = {
     .setName("dumbot")
     .setDescription("Replies with a dumb message"),
   async execute(interaction) {
-    await interaction.reply(`@${interaction.user.username} \nHello I am **DumBot V2**. I am very dumb.`);
+    await interaction.reply(`${interaction.user} \nHello I am **DumBot V2**. I am very dumb.`);
   },
 };

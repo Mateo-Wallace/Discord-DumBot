@@ -1,7 +1,6 @@
-import { REST, Routes } from 'discord.js';
-// import { clientId, guildId, token } from './config.json';
-import "dotenv/config";
-import fs from 'node:fs';
+const { REST, Routes } = require('discord.js');
+require('dotenv').config();
+const fs = require('node:fs');
 
 const commands = [];
 // Grab all the command files from the commands directory you created earlier
