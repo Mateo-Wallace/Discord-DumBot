@@ -8,7 +8,8 @@ module.exports = {
     await interaction.reply({
       content: `${interaction.user} has used the **/help** command! This is a list of all existing commands and what they do. \n 
       **/help** => shows a list of all commands 
-      **/dumbot** => says a very simple message`,
+      **/dumbot** => says a very simple message
+      **/countdown** => countsdown a number of seconds that the user specifies`,
       ephemeral: true,
     });
   },
