@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "DumBot v2, trying to make a diceroller and a music player",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "deploy": "node deploy-commands.js"
   },
   "repository": {
     "type": "git",
