@@ -8,6 +8,8 @@ module.exports = {
       option
         .setName("seconds")
         .setDescription("The amount of seconds you would like to countdown")
+        .setMaxValue(10)
+        .setMinValue(0)
     ),
   async execute(interaction) {
     const timeLeft = interaction.options.getInteger("seconds");
