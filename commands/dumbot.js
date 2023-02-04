@@ -22,7 +22,7 @@ module.exports = {
       `${interaction.user} \nI'm just happy to be here and to have friends!`
     );
     await wait(4000);
-    await interaction.reply(
+    await interaction.editReply(
       `${interaction.user} \nHello I am **DumBot V2**. I am very dumb.`
     );
   },
