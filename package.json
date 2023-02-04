@@ -2,11 +2,11 @@
   "name": "mp2-discord-dumbot-v2",
   "version": "1.0.0",
   "description": "DumBot v2, trying to make a diceroller and a music player",
-  "main": "app.js",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
