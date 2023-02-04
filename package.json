@@ -24,5 +24,9 @@
   "homepage": "https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2#readme",
   "devDependencies": {
     "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3"
   }
 }
