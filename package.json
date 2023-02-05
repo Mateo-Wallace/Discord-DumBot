@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "deploy": "node deploy-commands.js"
+    "deploy": "node src/deploy-commands.js"
   },
   "repository": {
     "type": "git",

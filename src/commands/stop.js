@@ -5,8 +5,6 @@ module.exports = {
     .setName("stop")
     .setDescription("Stops all bot functions, restart"),
   async execute(interaction) {
-    await interaction.reply(
-      `${interaction.user} \nStopping.`
-    );
+    await interaction.reply(`${interaction.user} \nStopping.`);
   },
 };

@@ -53,7 +53,9 @@ module.exports = {
             rollResults.push(Math.floor(Math.random() * sides) + 1);
           }
           const sum = rollResults.reduce((a, b) => a + b);
-          return interaction.reply(`[${rollResults.toString()}] ${sum} ${rollFlavor}`);
+          return interaction.reply(
+            `[${rollResults.toString()}] ${sum} ${rollFlavor}`
+          );
         } else {
           return interaction.reply(
             Math.floor(Math.random() * sides) + 1 + " " + rollFlavor
