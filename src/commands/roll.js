@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("discord.js");
+const {evaluate} = require("mathjs")
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -113,10 +114,12 @@ module.exports = {
           }
         }
 
+        const sumTotal = evaluate(total.join(" "))
+
         await interaction.reply(
           `${interaction.user} :game_die: \n **Result**: ${result.join(
             " "
-          )} \n **Total**: ${total.join(" ")}`
+          )} \n **Total**: ${sumTotal}`
         );
       }
     }
