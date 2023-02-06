@@ -8,7 +8,8 @@ const text = {
     **/help** :arrow_right: shows a list of all commands 
     **/dumbot** :arrow_right: says a very simple message
     **/countdown** :arrow_right: countsdown a number of seconds that the user specifies
-    **/roll** :arrow_right: Rolls dice. Type in the format of 4d20 + 5. The 4d20 is structured as roll 4 dice, each one with 20 sides. The + 5 is a static modifier. This can be extended as far as you'd like`,
+    **/roll** :arrow_right: Rolls dice. Type in the format of 4d20 + 5. The 4d20 is structured as roll 4 dice, each one with 20 sides. The + 5 is a static modifier. This can be extended as far as you'd like
+    **/hroll** :arrow_right: Rolls a hidden dice only visible to the user.`,
 };
 
 module.exports = { settings, text };

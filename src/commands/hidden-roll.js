@@ -3,8 +3,10 @@ const { evaluate } = require("mathjs");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("roll")
-    .setDescription("Rolls dice based on user input")
+    .setName("hroll")
+    .setDescription(
+      "Rolls dice based on user input. Hidden so only the user can see"
+    )
     .addStringOption((option) =>
       option
         .setName("dice")
@@ -27,11 +29,12 @@ module.exports = {
     if (messageWords.length === 0) {
       // /roll
       const sum = Math.floor(Math.random() * 20) + 1;
-      await interaction.reply(
-        `${interaction.user} :game_die: \n **Result**: 1d20 (${
+      await interaction.reply({
+        content: `${interaction.user} :game_die: \n **Result**: 1d20 (${
           sum == 1 || sum == 20 ? `**${sum}**` : sum
-        }) \n **Total**: ${sum}`
-      );
+        }) \n **Total**: ${sum}`,
+        ephemeral: true,
+      });
     } else {
       var resultWords = [];
       messageWords.map((word) => {
@@ -71,7 +74,10 @@ module.exports = {
         }
       });
       if (resultWords.includes("error")) {
-        await interaction.reply(`Error executing ${interaction.commandName}`);
+        await interaction.reply({
+          content: `Error executing ${interaction.commandName}`,
+          ephemeral: true,
+        });
       } else {
         var result = [];
         var total = [];
@@ -116,13 +122,14 @@ module.exports = {
 
         const sumTotal = evaluate(total.join(" "));
 
-        await interaction.reply(
-          `${
+        await interaction.reply({
+          content: `${
             interaction.user
           } :game_die: \n **Input**: ${message} \n **Result**: ${result.join(
             " "
-          )} \n **Total**: ${sumTotal}`
-        );
+          )} \n **Total**: ${sumTotal}`,
+          ephemeral: true,
+        });
       }
     }
   },
