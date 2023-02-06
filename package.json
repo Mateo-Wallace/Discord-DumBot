@@ -7,7 +7,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "deploy": "node src/deploy-commands.js",
-    "test": "node test2.js"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
