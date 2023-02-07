@@ -65,7 +65,7 @@ module.exports = {
               return resultWords.push(Math.floor(Math.random() * sides) + 1);
             }
           }
-        } else if (word == "+" || word == "-") {
+        } else if (word == "+" || word == "-" || word == "*") {
           return resultWords.push(word);
         } else if (!isNaN(word / 1)) {
           return resultWords.push(word / 1);
@@ -92,7 +92,7 @@ module.exports = {
             total.push(resultWords[i]);
             crit.push(resultWords[i] * 2);
             result.push(`${messageWords[i]} (${boldCrit})`);
-          } else if (resultWords[i] == "+" || resultWords[i] == "-") {
+          } else if (resultWords[i] == "+" || resultWords[i] == "-" || resultWords[i] == "*") {
             total.push(resultWords[i]);
             crit.push(resultWords[i]);
             result.push(`${resultWords[i]}`);
