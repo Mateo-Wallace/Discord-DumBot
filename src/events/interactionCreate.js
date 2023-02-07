@@ -1,24 +1,89 @@
-const { Events } = require("discord.js");
+const { EmbedBuilder, InteractionType } = require("discord.js");
 
-module.exports = {
-  name: Events.InteractionCreate,
-  async execute(interaction) {
-    if (!interaction.isChatInputCommand()) return;
+module.exports = (client, inter) => {
+  if (inter.type === InteractionType.ApplicationCommand) {
+    const DJ = client.config.opt.DJ;
+    const command = client.commands.get(inter.commandName);
 
-    const command = interaction.client.commands.get(interaction.commandName);
-
-    if (!command) {
-      console.error(
-        `No command matching ${interaction.commandName} was found.`
+    if (!command)
+      return (
+        inter.reply({
+          embeds: [
+            new EmbedBuilder()
+              .setColor("#ff0000")
+              .setDescription("❌ | Error! Please contact Developers!"),
+          ],
+          ephemeral: true,
+        }),
+        client.slash.delete(inter.commandName)
       );
-      return;
+    if (
+      command.permissions &&
+      !inter.member.permissions.has(command.permissions)
+    )
+      return inter.reply({
+        embeds: [
+          new EmbedBuilder()
+            .setColor("#ff0000")
+            .setDescription(
+              `❌ | You need do not have the proper permissions to exacute this command`
+            ),
+        ],
+        ephemeral: true,
+      });
+    if (
+      DJ.enabled &&
+      DJ.commands.includes(command) &&
+      !inter.member._roles.includes(
+        inter.guild.roles.cache.find((x) => x.name === DJ.roleName).id
+      )
+    )
+      return inter.reply({
+        embeds: [
+          new EmbedBuilder()
+            .setColor("#ff0000")
+            .setDescription(
+              `❌ | This command is reserved For members with \`${DJ.roleName}\` `
+            ),
+        ],
+        ephemeral: true,
+      });
+    if (command.voiceChannel) {
+      if (!inter.member.voice.channel)
+        return inter.reply({
+          embeds: [
+            new EmbedBuilder()
+              .setColor("#ff0000")
+              .setDescription(`❌ | You are not in a Voice Channel`),
+          ],
+          ephemeral: true,
+        });
+      if (
+        inter.guild.members.me.voice.channel &&
+        inter.member.voice.channel.id !==
+          inter.guild.members.me.voice.channel.id
+      )
+        return inter.reply({
+          embeds: [
+            new EmbedBuilder()
+              .setColor("#ff0000")
+              .setDescription(`❌ | You are not in the same Voice Channel`),
+          ],
+          ephemeral: true,
+        });
     }
-
-    try {
-      await command.execute(interaction);
-    } catch (error) {
-      console.error(`Error executing ${interaction.commandName}`);
-      console.error(error);
+    command.execute({ inter, client });
+  }
+  if (inter.type === InteractionType.MessageComponent) {
+    const customId = JSON.parse(inter.customId);
+    const file_of_button = customId.ffb;
+    const queue = player.getQueue(inter.guildId);
+    if (file_of_button) {
+      delete require.cache[
+        require.resolve(`../utils/buttons/${file_of_button}.js`)
+      ];
+      const button = require(`../utils/buttons/${file_of_button}.js`);
+      if (button) return button({ client, inter, customId, queue });
     }
-  },
+  }
 };
