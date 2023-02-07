@@ -1,19 +1,21 @@
 const { REST, Routes } = require("discord.js");
 require("dotenv").config();
-const fs = require("node:fs");
+const { readdirSync } = require("fs");
 const { settings } = require("../config");
 
 const commands = [];
 // Grab all the command files from the commands directory you created earlier
-const commandFiles = fs
-  .readdirSync("./src/commands")
-  .filter((file) => file.endsWith(".js"));
+readdirSync("./src/commands").forEach((dirs) => {
+  const commandFiles = readdirSync(`./src/commands/${dirs}`).filter((file) =>
+    file.endsWith(".js")
+  );
 
-// Grab the SlashCommandBuilder#toJSON() output of each command's data for deployment
-for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
-  commands.push(command.data.toJSON());
-}
+  // Grab the SlashCommandBuilder#toJSON() output of each command's data for deployment
+  for (const file of commandFiles) {
+    const command = require(`../src/commands/${dirs}/${file}`);
+    commands.push(command.data.toJSON());
+  }
+});
 
 // Construct and prepare an instance of the REST module
 const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_TOKEN);
