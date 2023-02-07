@@ -5,7 +5,9 @@ require("dotenv").config();
 client.commands = new Collection();
 CommandsArray = [];
 
-const events = readdirSync("./src/events/").filter((file) => file.endsWith(".js"));
+const events = readdirSync("./src/events/").filter((file) =>
+  file.endsWith(".js")
+);
 
 console.log(`Loading events...`);
 
@@ -36,9 +38,5 @@ readdirSync("./src/commands/").forEach((dirs) => {
 
 client.on("ready", (client) => {
   if (client.config.app.global) client.application.commands.set(CommandsArray);
-  else
-    client.guilds.cache
-      .get(process.env.GUILD)
-      .commands.set(CommandsArray);
+  else client.guilds.cache.get(process.env.GUILD).commands.set(CommandsArray);
 });
-

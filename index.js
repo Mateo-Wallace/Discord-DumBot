@@ -21,4 +21,3 @@ require("./src/utils/loader");
 require("./src/utils/events");
 
 client.login(process.env.TOKEN);
-
