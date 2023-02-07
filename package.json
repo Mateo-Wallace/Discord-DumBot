@@ -27,8 +27,12 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
-    "discord.js": "^14.7.1",
+    "discord-player": "^5.3.1",
+    "discord.js": "^14.1.2",
     "dotenv": "^16.0.3",
-    "mathjs": "^11.5.1"
+    "ffmpeg-static": "^5.0.2",
+    "mathjs": "^11.5.1",
+    "ms": "^3.0.0-canary.1",
+    "opusscript": "^0.0.8"
   }
 }
