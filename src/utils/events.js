@@ -8,8 +8,8 @@ player.on("connectionError", (queue, error) => {
   console.log(`Error emitted from the connection ${error.message}`);
 });
 
-player.on('trackEnd', async (queue, track) => {
-  if(!queue.connection) await queue.play(track);
+player.on("trackEnd", async (queue, track) => {
+  if (!queue.connection) await queue.play(track);
 });
 
 player.on("trackStart", (queue, track) => {
