@@ -24,7 +24,7 @@ module.exports = {
   },
 
   text: {
-    helpDescription: `This code comes from a GitHub project [Mateo-Wallace/DumBot](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2)\nDumBot is a Dice Rolling and Music Playing Bot.\nThe description for all commands are listed below.`,
+    helpDescription: `DumBot's code can be found at [Mateo-Wallace/DumBot](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2) :smiling_face_with_3_hearts:\nDumBot is open source and ready for you to host yourself!`,
     helpCommandList: 0,
   },
 };
