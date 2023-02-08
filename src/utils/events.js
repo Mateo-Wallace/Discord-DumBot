@@ -9,8 +9,14 @@ player.on("connectionError", (queue, error) => {
 });
 
 player.on("trackEnd", async (queue, track) => {
-  if (!queue.connection) await queue.play(track);
+  if (!client.config.app.doubleSongError) {
+    if (queue.tracks.length >= 1 && queue.tracks[0] !== track) {
+      queue.insert(queue.tracks[0], 0);
+    }
+  }
 });
+
+player.on("pause", async (queue, track) => {});
 
 player.on("trackStart", (queue, track) => {
   if (!client.config.opt.loopMessage && queue.repeatMode !== 0) return;
@@ -56,9 +62,7 @@ player.on("trackStart", (queue, track) => {
   queue.metadata.send({ embeds: [embed], components: [row1] });
 });
 
-player.on("trackAdd", (queue, track) => {
-  queue.metadata.send(`Track ${track.title} added in the queue ✅`);
-});
+player.on("trackAdd", (queue, track) => {});
 
 player.on("botDisconnect", (queue) => {
   queue.metadata.send(

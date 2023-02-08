@@ -2,6 +2,7 @@ module.exports = {
   app: {
     global: 0,
     playing: "/help",
+    doubleSongError: 0,
   },
 
   opt: {
@@ -11,7 +12,7 @@ module.exports = {
       commands: [],
     },
     maxVol: 100,
-    leaveOnEnd: true,
+    leaveOnEnd: 0,
     loopMessage: false,
     spotifyBridge: true,
     defaultvolume: 75,

@@ -51,5 +51,9 @@ module.exports = {
     res.playlist ? queue.addTracks(res.tracks) : queue.addTrack(res.tracks[0]);
 
     if (!queue.playing) await queue.play();
+    if (!res.playlist)
+      await inter.editReply({
+        content: `Track ${res.tracks[0].title} added in the queue ✅`,
+      });
   },
 };

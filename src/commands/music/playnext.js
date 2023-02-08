@@ -46,7 +46,7 @@ module.exports = {
     queue.insert(res.tracks[0], 0);
 
     await inter.editReply({
-      content: `Track has been inserted into the queue... it will play next 🎧`,
+      content: `Track ${res.tracks[0].title} has been inserted into the queue... it will play next 🎧`,
     });
   },
 };
