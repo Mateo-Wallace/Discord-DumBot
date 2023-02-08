@@ -7,7 +7,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-<img src="./src/assets/walrus-face.jpg" alt="Walrus Logo" width="80" height="80" style="border-radius:50%">
+<img src="./src/assets/walrus-face-circle.png" alt="Walrus Logo" width="80" height="80">
 
   <h1 align="center">Discord DumBot</h3>
 
@@ -56,20 +56,19 @@
 ## About The Project
 
 <div align="center">
-<img src="https://via.placeholder.com/550x250" alt="Example of Working Discord App">
+  <br />
+  <img src="https://via.placeholder.com/550x250" alt="Example of Working Discord App">
+  <br />
+  <br />
 </div>
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Have you ever wanted a bot that you had full control over? No worrying about the bot shutting down and having to search for a new one? That's exactly the niche that DumBot is trying to fill! The goal of DumBot is instead of adding a random bot to your server you can host the bot yourself and add it to whatever servers you would like! With basic JavaScript knowledge you can also add your own commands and turn on and off existing commands.
 
-Here's why:
+Main Features:
+- Dice Roller
+- Music Player
 
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+This README will run you through how to download, edit, deploy, and use this code to create a bot of your own. For those of you that do not wish to host the bot yourself you can also simply use my deployed version.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -77,13 +76,13 @@ Use the `BLANK_README.md` to get started.
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-- [![Next][next.js]][next-url]
-- [![React][react.js]][react-url]
-- [![Vue][vue.js]][vue-url]
-- [![Angular][angular.io]][angular-url]
-- [![Svelte][svelte.dev]][svelte-url]
-- [![Laravel][laravel.com]][laravel-url]
-- [![Bootstrap][bootstrap.com]][bootstrap-url]
-- [![JQuery][jquery.com]][jquery-url]
+- nodejs
+ffmpeg
+discord.js
+discord-player
+js
+markdown
+npm
+vs code
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
