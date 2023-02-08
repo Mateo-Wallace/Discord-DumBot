@@ -4,6 +4,7 @@ const { evaluate } = require("mathjs");
 module.exports = {
   name: "roll",
   description: "Rolls dice based on user input",
+  coreHelp: true,
   options: [
     {
       name: "dice",

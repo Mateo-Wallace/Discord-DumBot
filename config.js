@@ -30,5 +30,6 @@ module.exports = {
       **/countdown** :arrow_right: countsdown a number of seconds that the user specifies
       **/roll** :arrow_right: Rolls dice. Type in the format of 4d20 + 5 + ...
       **/hroll** :arrow_right: Rolls a hidden dice only visible to the user.`,
+      githubRepo: `https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2`
   },
 };
