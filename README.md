@@ -2,7 +2,12 @@
 
 <!-- SHIELDS -->
 
-[![Contributors](https://img.shields.io/github/contributors/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge&color=success)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/graphs/contributors) [![Forks Shield](https://img.shields.io/github/forks/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/network/members) [![Stars Shield](https://img.shields.io/github/stars/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge&color=blue)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/stargazers) [![Issues](https://img.shields.io/github/issues/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge&color=yellow)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues) [![License Shield](https://img.shields.io/github/license/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge)](./LICENSE) [![LinkedIn Shield](https://img.shields.io/badge/LinkedIn-555555?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mateo-wallace/)
+[![Contributors](https://img.shields.io/github/contributors/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge&color=success)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/graphs/contributors)
+[![Forks Shield](https://img.shields.io/github/forks/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/network/members)
+[![Stars Shield](https://img.shields.io/github/stars/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge&color=blue)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/stargazers)
+[![Issues](https://img.shields.io/github/issues/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge&color=yellow)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues)
+[![License Shield](https://img.shields.io/github/license/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge)](./LICENSE)
+[![LinkedIn Shield](https://img.shields.io/badge/LinkedIn-555555?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mateo-wallace/)
 
 <!-- PROJECT LOGO -->
 <br />
@@ -65,6 +70,7 @@
 Have you ever wanted a bot that you had full control over? No worrying about the bot shutting down and having to search for a new one? That's exactly the niche that DumBot is trying to fill! The goal of DumBot is instead of adding a random bot to your server you can host the bot yourself and add it to whatever servers you would like! With basic JavaScript knowledge you can also add your own commands and turn on and off existing commands.
 
 Main Features:
+
 - Dice Roller
 - Music Player
 
@@ -74,15 +80,13 @@ This README will run you through how to download, edit, deploy, and use this cod
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-- nodejs
-ffmpeg
-discord.js
-discord-player
-js
-markdown
-npm
-vs code
+[![JavaScript Shield](https://img.shields.io/badge/JavaScript_ES6+-F7DF1E?&style=for-the-badge&logo=javascript&logoColor=272727)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![NPM Shield](https://img.shields.io/badge/NPM-333333?&style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
+[![discord.js Shield](https://img.shields.io/badge/discord.js-5865F2?&style=for-the-badge&logo=discord&logoColor=white)](https://discord.js.org/#/)
+[![discord-player Shield](https://img.shields.io/badge/discord_player-5865F2?&style=for-the-badge&logo=discord&logoColor=white)](https://discord-player.js.org/)
+[![FFmpeg Shield](https://img.shields.io/badge/FFmpeg-007808?&style=for-the-badge&logo=ffmpeg&logoColor=white)](https://ffmpeg.org/)
+[![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
+[![Markdown Shield](https://img.shields.io/badge/Markdown-000000?&style=for-the-badge&logo=markdown)](https://www.markdownguide.org/)
+[![VS Code Shield](https://img.shields.io/badge/VS_Code-007ACC?&style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
