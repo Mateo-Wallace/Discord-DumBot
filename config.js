@@ -24,12 +24,7 @@ module.exports = {
   },
 
   text: {
-    helpCommand: `has used the **/help** command! This is a list of all existing commands and what they do. \n 
-      **/help** :arrow_right: shows a list of all commands 
-      **/dumbot** :arrow_right: says a very simple message
-      **/countdown** :arrow_right: countsdown a number of seconds that the user specifies
-      **/roll** :arrow_right: Rolls dice. Type in the format of 4d20 + 5 + ...
-      **/hroll** :arrow_right: Rolls a hidden dice only visible to the user.`,
-      githubRepo: `https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2`
+    helpDescription: `This code comes from a GitHub project [Mateo-Wallace/DumBot](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2)\nDumBot is a Dice Rolling and Music Playing Bot.\nThe description for all commands are listed below.`,
+    helpCommandList: 0,
   },
 };

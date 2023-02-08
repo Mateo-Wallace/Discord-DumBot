@@ -10,16 +10,14 @@ const events = readdirSync("./src/events/").filter((file) =>
 );
 
 console.log(`Loading events...`);
-
 for (const file of events) {
   const event = require(`../events/${file}`);
-  console.log(`-> [Loaded Event] ${file.split(".")[0]}`);
   client.on(file.split(".")[0], event.bind(null, client));
   delete require.cache[require.resolve(`../events/${file}`)];
 }
+console.log(`-> [Loaded Events]`);
 
 console.log(`Loading commands...`);
-
 readdirSync("./src/commands/").forEach((dirs) => {
   const commands = readdirSync(`./src/commands/${dirs}`).filter((files) =>
     files.endsWith(".js")
@@ -29,12 +27,12 @@ readdirSync("./src/commands/").forEach((dirs) => {
     const command = require(`../commands/${dirs}/${file}`);
     if (command.name && command.description) {
       CommandsArray.push(command);
-      console.log(`-> [Loaded Command] ${command.name.toLowerCase()}`);
       client.commands.set(command.name.toLowerCase(), command);
       delete require.cache[require.resolve(`../commands/${dirs}/${file}`)];
     } else console.log(`[failed Command]  ${command.name.toLowerCase()}`);
   }
 });
+console.log(`-> [Loaded Commands]`);
 
 client.on("ready", (client) => {
   if (client.config.app.global) client.application.commands.set(CommandsArray);
