@@ -9,7 +9,7 @@
 <div align="center">
 <img src="./src/assets/walrus-face-circle.png" alt="Walrus Logo" width="80" height="80">
 
-  <h1 align="center">Discord DumBot</h3>
+  <h3 align="center"><strong>Discord DumBot</strong></h3>
 
   <p align="center">
     <strong>A simple discord bot to build your own on top of</strong>
