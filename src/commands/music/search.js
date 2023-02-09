@@ -89,11 +89,12 @@ module.exports = {
         });
       }
 
-      await inter.followUp(`Loading your search... 🎧`);
-
       queue.addTrack(res.tracks[query.content - 1]);
 
       if (!queue.playing) await queue.play();
+      await inter.followUp(
+        `Track ${res.tracks[query.content - 1].title} added in the queue ✅`
+      );
     });
 
     collector.on("end", (msg, reason) => {
