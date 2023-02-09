@@ -26,6 +26,9 @@
   "devDependencies": {
     "nodemon": "^2.0.20"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "discord-player": "^5.4.0",
     "discord.js": "^14.1.2",
