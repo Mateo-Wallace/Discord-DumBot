@@ -25,7 +25,11 @@ readdirSync("./src/commands/").forEach((dirs) => {
 
   for (const file of commands) {
     const command = require(`../commands/${dirs}/${file}`);
-    if (command.name && command.description) {
+    if (
+      client.config.enabledCommands.enableAll
+        ? command.name && command.description
+        : command.name && command.description && command.enabled
+    ) {
       CommandsArray.push(command);
       client.commands.set(command.name.toLowerCase(), command);
       delete require.cache[require.resolve(`../commands/${dirs}/${file}`)];

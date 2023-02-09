@@ -3,6 +3,7 @@ const wait = require("timers/promises").setTimeout;
 module.exports = {
   name: "dumbot",
   description: "Replies with a dumb message",
+  enabled: client.config.enabledCommands.dumbot,
 
   async execute({ inter }) {
     await inter.reply(

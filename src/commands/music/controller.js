@@ -20,6 +20,7 @@ module.exports = {
     },
   ],
   musicCommand: true,
+  enabled: client.config.enabledCommands.controller,
 
   async execute({ inter, client }) {
     let Channel = inter.options.getChannel("channel");

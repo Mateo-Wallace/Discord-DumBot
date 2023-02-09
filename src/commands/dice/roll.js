@@ -11,6 +11,7 @@ module.exports = {
       type: ApplicationCommandOptionType.String,
     },
   ],
+  enabled: client.config.enabledCommands.roll,
 
   execute({ inter }) {
     diceLogic(inter, false);

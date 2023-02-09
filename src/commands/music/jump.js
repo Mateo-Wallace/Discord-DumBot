@@ -19,6 +19,7 @@ module.exports = {
     },
   ],
   musicCommand: true,
+  enabled: client.config.enabledCommands.jump,
 
   async execute({ inter }) {
     const track = inter.options.getString("song");

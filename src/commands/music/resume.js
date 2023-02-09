@@ -3,6 +3,7 @@ module.exports = {
   description: "play the track",
   voiceChannel: true,
   musicCommand: true,
+  enabled: client.config.enabledCommands.resume,
 
   execute({ inter }) {
     const queue = player.getQueue(inter.guildId);

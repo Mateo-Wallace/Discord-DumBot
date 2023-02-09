@@ -5,6 +5,7 @@ module.exports = {
   description: "veiw what is playing!",
   voiceChannel: true,
   musicCommand: true,
+  enabled: client.config.enabledCommands.nowplaying,
 
   execute({ inter }) {
     const queue = player.getQueue(inter.guildId);

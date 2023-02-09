@@ -3,6 +3,7 @@ const ms = require("ms");
 module.exports = {
   name: "ping",
   description: "Get the ping of the bot!",
+  enabled: client.config.enabledCommands.ping,
 
   async execute({ client, inter }) {
     await inter.reply("Mathing...");

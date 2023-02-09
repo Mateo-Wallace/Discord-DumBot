@@ -48,8 +48,9 @@
       <a href="#documentation">Documentation</a>
       <ul>
         <li><a href="./src/assets/documentation/Existing-Instance.md">Use The Existing Instance of DumBot</a></li>
-        <li><a href="./src/assets/documentation/Your-Instance.md">Host & Deploy Your Own Instance of DumBot</a>
         <li><a href="./src/assets/documentation/Usage.md">Using DumBot And The Existing Commands</a></li>
+        <li><a href="./src/assets/documentation/Your-Instance.md">Host & Deploy Your Own Instance of DumBot</a>
+        <li><a href="./src/assets/documentation/New-Command.md">Creating New Commands</a></li>
       </ul>
     </li>
     <li><a href="#contributing">Contributing</a></li>
@@ -101,8 +102,9 @@ This README will run you through how to download, edit, deploy, and use this cod
 The below documentation detail how to use all versions of the bot and how to get it up and running. Please select the docs that best fit your use case.
 
 - [Use The Existing Instance of DumBot](./src/assets/documentation/Existing-Instance.md)
-- [Host & Deploy Your Own Instance of DumBot](./src/assets/documentation/Your-Instance.md)
 - [Using DumBot And The Existing Commands](./src/assets/documentation/Usage.md)
+- [Host & Deploy Your Own Instance of DumBot](./src/assets/documentation/Your-Instance.md)
+- [Creating New Commands](./src/assets/documentation/New-Command.md)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

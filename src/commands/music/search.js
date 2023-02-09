@@ -14,6 +14,7 @@ module.exports = {
     },
   ],
   musicCommand: true,
+  enabled: client.config.enabledCommands.search,
 
   async execute({ client, inter }) {
     const song = inter.options.getString("song");

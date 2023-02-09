@@ -3,6 +3,7 @@ module.exports = {
   description: "pause the track",
   voiceChannel: true,
   musicCommand: true,
+  enabled: client.config.enabledCommands.pause,
 
   execute({ inter }) {
     const queue = player.getQueue(inter.guildId);

@@ -3,6 +3,7 @@ const { EmbedBuilder } = require("discord.js");
 module.exports = {
   name: "help",
   description: "All the commands this bot has!",
+  enabled: client.config.enabledCommands.help,
 
   execute({ client, inter }) {
     const musicCommands = client.commands.filter((x) => x.musicCommand);

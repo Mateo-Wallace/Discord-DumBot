@@ -17,6 +17,7 @@ module.exports = {
     },
   ],
   musicCommand: true,
+  enabled: client.config.enabledCommands.seek,
   
   async execute({ inter }) {
     const queue = player.getQueue(inter.guildId);

@@ -16,6 +16,7 @@ module.exports = {
     },
   ],
   musicCommand: true,
+  enabled: client.config.enabledCommands.volume,
 
   execute({ inter }) {
     const queue = player.getQueue(inter.guildId);

@@ -3,6 +3,7 @@ module.exports = {
   description: "shuffle the track",
   voiceChannel: true,
   musicCommand: true,
+  enabled: client.config.enabledCommands.shuffle,
 
   async execute({ inter }) {
     const queue = player.getQueue(inter.guildId);

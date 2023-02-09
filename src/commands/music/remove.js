@@ -19,6 +19,7 @@ module.exports = {
     },
   ],
   musicCommand: true,
+  enabled: client.config.enabledCommands.remove,
 
   async execute({ inter }) {
     const number = inter.options.getNumber("number");

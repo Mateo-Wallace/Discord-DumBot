@@ -13,6 +13,7 @@ module.exports = {
     },
   ],
   musicCommand: true,
+  enabled: client.config.enabledCommands.play,
 
   async execute({ inter }) {
     await inter.deferReply();

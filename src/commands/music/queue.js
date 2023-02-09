@@ -5,6 +5,7 @@ module.exports = {
   description: "Get the songs in the queue",
   voiceChannel: true,
   musicCommand: true,
+  enabled: client.config.enabledCommands.queue,
 
   execute({ client, inter }) {
     const queue = player.getQueue(inter.guildId);

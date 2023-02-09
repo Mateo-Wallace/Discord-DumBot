@@ -3,6 +3,7 @@ module.exports = {
   description: "Go back the song before",
   voiceChannel: true,
   musicCommand: true,
+  enabled: client.config.enabledCommands.back,
 
   async execute({ inter }) {
     const queue = player.getQueue(inter.guildId);

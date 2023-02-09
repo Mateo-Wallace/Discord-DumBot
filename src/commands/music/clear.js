@@ -3,6 +3,7 @@ module.exports = {
   description: "clear all the music in the queue",
   voiceChannel: true,
   musicCommand: true,
+  enabled: client.config.enabledCommands.clear,
 
   async execute({ inter }) {
     const queue = player.getQueue(inter.guildId);
