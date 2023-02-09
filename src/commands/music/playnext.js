@@ -13,6 +13,7 @@ module.exports = {
       required: true,
     },
   ],
+  musicCommand: true,
 
   async execute({ inter }) {
     await inter.deferReply();

@@ -4,7 +4,6 @@ const { diceLogic } = require("../../utils/utils");
 module.exports = {
   name: "hroll",
   description: "Rolls hidden dice based on user input.",
-  coreHelp: true,
   options: [
     {
       name: "dice",
@@ -12,6 +11,7 @@ module.exports = {
       type: ApplicationCommandOptionType.String,
     },
   ],
+
   execute({ inter }) {
     diceLogic(inter, true);
   },

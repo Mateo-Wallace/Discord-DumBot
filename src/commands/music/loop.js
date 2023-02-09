@@ -18,6 +18,8 @@ module.exports = {
       ],
     },
   ],
+  musicCommand: true,
+  
   execute({ inter }) {
     const queue = player.getQueue(inter.guildId);
 

@@ -18,6 +18,7 @@ module.exports = {
       required: false,
     },
   ],
+  musicCommand: true,
 
   async execute({ inter }) {
     const track = inter.options.getString("song");

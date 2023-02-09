@@ -4,6 +4,7 @@ module.exports = {
   name: "save",
   description: "save the current track!",
   voiceChannel: true,
+  musicCommand: true,
 
   async execute({ inter }) {
     const queue = player.getQueue(inter.guildId);

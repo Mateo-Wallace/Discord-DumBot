@@ -3,7 +3,8 @@ const wait = require("timers/promises").setTimeout;
 module.exports = {
   name: "dumbot",
   description: "Replies with a dumb message",
-  async execute({inter}) {
+
+  async execute({ inter }) {
     await inter.reply(
       `${inter.user} :wave: \nHello I am **DumBot**. I am very dumb.`
     );

@@ -13,6 +13,7 @@ module.exports = {
       required: true,
     },
   ],
+  musicCommand: true,
 
   async execute({ client, inter }) {
     const song = inter.options.getString("song");

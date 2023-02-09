@@ -19,6 +19,8 @@ module.exports = {
       required: true,
     },
   ],
+  musicCommand: true,
+
   async execute({ inter, client }) {
     let Channel = inter.options.getChannel("channel");
     if (Channel.type !== 0)

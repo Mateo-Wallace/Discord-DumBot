@@ -15,6 +15,7 @@ module.exports = {
       maxValue: maxVol,
     },
   ],
+  musicCommand: true,
 
   execute({ inter }) {
     const queue = player.getQueue(inter.guildId);

@@ -3,11 +3,10 @@ const { EmbedBuilder } = require("discord.js");
 module.exports = {
   name: "help",
   description: "All the commands this bot has!",
-  coreHelp: true,
 
   execute({ client, inter }) {
-    const musicCommands = client.commands.filter((x) => x.coreHelp !== true);
-    const coreCommands = client.commands.filter((x) => x.coreHelp == true);
+    const musicCommands = client.commands.filter((x) => x.musicCommand);
+    const coreCommands = client.commands.filter((x) => !x.musicCommand);
 
     const embed = new EmbedBuilder()
       .setColor("#ff0000")

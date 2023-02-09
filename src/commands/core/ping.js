@@ -3,7 +3,7 @@ const ms = require("ms");
 module.exports = {
   name: "ping",
   description: "Get the ping of the bot!",
-  coreHelp: true,
+
   async execute({ client, inter }) {
     await inter.reply("Mathing...");
     inter.editReply(

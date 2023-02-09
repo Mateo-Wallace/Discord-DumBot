@@ -2,6 +2,7 @@ module.exports = {
   name: "resume",
   description: "play the track",
   voiceChannel: true,
+  musicCommand: true,
 
   execute({ inter }) {
     const queue = player.getQueue(inter.guildId);

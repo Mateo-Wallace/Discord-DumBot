@@ -2,6 +2,7 @@ module.exports = {
   name: "shuffle",
   description: "shuffle the track",
   voiceChannel: true,
+  musicCommand: true,
 
   async execute({ inter }) {
     const queue = player.getQueue(inter.guildId);

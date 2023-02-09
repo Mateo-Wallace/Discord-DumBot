@@ -18,6 +18,7 @@ module.exports = {
       required: false,
     },
   ],
+  musicCommand: true,
 
   async execute({ inter }) {
     const number = inter.options.getNumber("number");
