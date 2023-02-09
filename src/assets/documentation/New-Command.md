@@ -1,0 +1,3 @@
+- [Use The Existing Instance of DumBot](./src/assets/documentation/Existing-Instance.md)
+- [Host & Deploy Your Own Instance of DumBot](./src/assets/documentation/Your-Instance.md)
+- [Using DumBot And The Existing Commands](./src/assets/documentation/Usage.md)
