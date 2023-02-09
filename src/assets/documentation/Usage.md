@@ -36,8 +36,6 @@ Wonderful! Now you have a list of commands and possibly a description for those 
 
 ## Description of All DumBot Commands
 
-### Music Commands
-
 <details>
   <summary><strong>Table of Contents</strong></summary>
   <ol>
@@ -79,9 +77,17 @@ Wonderful! Now you have a list of commands and possibly a description for those 
   </ol>
 </details>
 
+### Music Commands
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Core Commands
+
+#### /dumbot
+
+`/dumbot` displays a simple message when called. He essentially says `Hello I am DumBot. I am very dumb`. 
+
+DumBot began as a simple project where I wanted to see if I could add a bot to a server and have it respond with the most simple command possible. It has since turned into a new beast to where DumBot isn't so dumb anymore!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
