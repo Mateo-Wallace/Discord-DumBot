@@ -1,5 +1,7 @@
 <a name="readme-top"></a>
 
+[![Home Shield](https://img.shields.io/badge/%E2%86%90_Home-345289?&style=for-the-badge)](../../../README.md)
+
 # Using DumBot And The Existing Commands
 
 This file assumes you have already added a version of DumBot to your discord server. In order to accomplish that if you haven't already please reference either of these files before continuing:
@@ -18,7 +20,7 @@ This file assumes you have already added a version of DumBot to your discord ser
 >
 > It is possible that the first 2 or 3 times you try to call DumBot it will say "`The application did not respond`" like this:
 >
-> ![dumbot application did not respond](../images/dumbot-no-response.png)
+> ![dumbot application did not respond](../images/dumbot-no-response-msg.png)
 >
 > This is happening because without paying a subscription for DumBot to be up at all times he will go into sleep mode. After 2 or 3 tries this will resolve itself for about 30 minutes of use.
 >
@@ -26,9 +28,9 @@ This file assumes you have already added a version of DumBot to your discord ser
 
 ## The Help Command
 
-Now that DumBot has been added to your server, lets test that he is working. You should see underneath DumBot that he is `playing /help`. This is your indicator to type `/help` in the chat in order to find out what he can do! It should look like one of the the following images depending on your configuration of DumBot:
+Now that DumBot has been added to your server, lets test that he is working. You should see underneath DumBot that he is `playing /help`. This is your indicator to type `/help` in the chat in order to find out what he can do! It should look like the following image:
 
-![/help command extended](../images/dumbot-large-help.png) ![/help command short](../images/dumbot-small-help.png)
+![/help command short](../images/dumbot-small-help.png)
 
 Wonderful! Now you have a list of commands and possibly a description for those commands. Every single DumBot command begins with the `/` prefix, examples are `/roll`, `/play`, and `/dumbot`.
 
@@ -46,24 +48,43 @@ Wonderful! Now you have a list of commands and possibly a description for those 
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#music-commands">Music Commands</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="">/back</a></li>
+        <li><a href="">/clear</a>
+        <li><a href="">/controller</a></li>
+        <li><a href="">/filter</a></li>
+        <li><a href="">/jump</a></li>
+        <li><a href="">/loop</a></li>
+        <li><a href="">/nowplaying</a></li>
+        <li><a href="">/pause</a></li>
+        <li><a href="">/play</a></li>
+        <li><a href="">/playnext</a></li>
+        <li><a href="">/queue</a></li>
+        <li><a href="">/remove</a></li>
+        <li><a href="">/resume</a></li>
+        <li><a href="">/save</a></li>
+        <li><a href="">/search</a></li>
+        <li><a href="">/seek</a></li>
+        <li><a href="">/shuffle</a></li>
+        <li><a href="">/skip</a></li>
+        <li><a href="">/stop</a></li>
+        <li><a href="">/volume</a></li>
       </ul>
     </li>
     <li>
-      <a href="#documentation">Music Commands</a>
+      <a href="#core-commands">Core Commands</a>
       <ul>
-        <li><a href="./src/assets/documentation/Existing-Instance.md">Use The Existing Instance of DumBot</a></li>
-        <li><a href="./src/assets/documentation/Your-Instance.md">Host & Deploy Your Own Instance of DumBot</a>
-        <li><a href="./src/assets/documentation/Usage.md">Using DumBot And The Existing Commands</a></li>
+        <li><a href="">/dumbot</a></li>
+        <li><a href="">/help</a>
+        <li><a href="">/ping</a></li>
+        <li><a href="">/hroll</a></li>
+        <li><a href="">/roll</a></li>
       </ul>
     </li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+[![Home Shield](https://img.shields.io/badge/%E2%86%90_Home-345289?&style=for-the-badge)](../../../README.md)

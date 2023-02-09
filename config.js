@@ -25,7 +25,7 @@ module.exports = {
   },
 
   text: {
-    helpDescription: `DumBot's code can be found at [Mateo-Wallace/DumBot](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2) :smiling_face_with_3_hearts:\nDumBot is open source and ready for you to host yourself!`,
-    helpCommandList: 0,
+    helpDescription: `DumBot's code can be found at [Mateo-Wallace/DumBot](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2) :smiling_face_with_3_hearts:\nDumBot is open source and ready for you to host yourself! \n For a full description of each command you can go to the [DumDocs](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/blob/main/src/assets/documentation/Usage.md)`,
+    helpCommandList: 1,
   },
 };
