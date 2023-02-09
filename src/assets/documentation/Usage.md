@@ -42,26 +42,26 @@ Wonderful! Now you have a list of commands and possibly a description for those 
     <li>
       <a href="#music-commands">Music Commands</a>
       <ul>
-        <li><a href="">/back</a></li>
-        <li><a href="">/clear</a>
-        <li><a href="">/controller</a></li>
-        <li><a href="">/filter</a></li>
-        <li><a href="">/jump</a></li>
-        <li><a href="">/loop</a></li>
-        <li><a href="">/nowplaying</a></li>
-        <li><a href="">/pause</a></li>
-        <li><a href="">/play</a></li>
-        <li><a href="">/playnext</a></li>
-        <li><a href="">/queue</a></li>
-        <li><a href="">/remove</a></li>
-        <li><a href="">/resume</a></li>
-        <li><a href="">/save</a></li>
-        <li><a href="">/search</a></li>
-        <li><a href="">/seek</a></li>
-        <li><a href="">/shuffle</a></li>
-        <li><a href="">/skip</a></li>
-        <li><a href="">/stop</a></li>
-        <li><a href="">/volume</a></li>
+        <li><a href="#back">/back</a></li>
+        <li><a href="#clear">/clear</a>
+        <li><a href="#controller">/controller</a></li>
+        <li><a href="#filter">/filter</a></li>
+        <li><a href="#jump">/jump</a></li>
+        <li><a href="#loop">/loop</a></li>
+        <li><a href="#nowplaying">/nowplaying</a></li>
+        <li><a href="#pause">/pause</a></li>
+        <li><a href="#play">/play</a></li>
+        <li><a href="#playnext">/playnext</a></li>
+        <li><a href="#queue">/queue</a></li>
+        <li><a href="#remove">/remove</a></li>
+        <li><a href="#resume">/resume</a></li>
+        <li><a href="#save">/save</a></li>
+        <li><a href="#search">/search</a></li>
+        <li><a href="#seek">/seek</a></li>
+        <li><a href="#shuffle">/shuffle</a></li>
+        <li><a href="#skip">/skip</a></li>
+        <li><a href="#stop">/stop</a></li>
+        <li><a href="#volume">/volume</a></li>
       </ul>
     </li>
     <li>
@@ -77,9 +77,143 @@ Wonderful! Now you have a list of commands and possibly a description for those 
   </ol>
 </details>
 
+---
+
 ### Music Commands
 
+---
+
+#### back
+
+`/back` goes to the previous song played in your instance of DumBot. If DumBot was disconnected from chat this song will be lost. Be aware it will not go to the previous songs that were in queue but literally the LAST song played. So hitting back twice will return you to the song currently being played, not the song played 2 songs ago.
+
+---
+
+#### clear
+
+`/clear` removes all songs from the queue. Meaning no song will play next and any songs you had set up to play next will be deleted.
+
+---
+
+#### controller
+
+`/controller` allows the user to select a [text channel](https://support.discord.com/hc/en-us/articles/4412085582359-Text-Channels-Text-Chat-In-Voice-Channels) for a music controller to show up in. This controller allows the user to use many of the existing commands in button format. Here is an example of what the controller looks like:
+
+![example of the music controller showing back, queue, resume & pause, now playing, skip, volume down, loop, save, and volume up](../images/dumbot-controller.png)
+
+---
+
+#### filter
+
+`/filter` allows the user to add an audio filter to the music being played. The options are as follows:
+
+`bassboost_low` | `bassboost` | `bassboost_high` | `8D` | `vaporwave` | `nightcore` | `phaser` | `tremolo` | `vibrato` | `reverse` | `treble` | `normalizer2` | `normalizer` | `surrounding` | `pulsator` | `subboost` | `karaoke` | `flanger` | `gate` | `haas` | `mcompand` | `mono` | `mstlr` | `mstrr` | `compressor`
+
+---
+
+#### jump
+
+`/jump` allows the user to jump to a specific song in queue. It allows for 2 types of input. Either the `song` or `number` input. It's reccomended you use `number` as it is more accuracte.
+
+- `number` allows you to type the position of the song you'd like to jump to in queue. You kind find out it's position in queue by using the [`/queue` command](#queue).
+- `song` allows you to type in the name of the song you'd like to skip to. It must match the name you see in queue exactly or else it will not work. 
+
+---
+
+#### loop
+
+`/loop` allows the user to repeat songs. This has 3 itterations.
+
+- `Song` allows the user to loop the current song
+- `Queue` allows the user to loop all songs in Queue
+- `Disable` allows the user to stop the loop function
+
+---
+
+#### nowplaying
+
+`/nowplaying` displays the currently playing song along with some extra information. It is formatted as follows:
+
+![example of what the nowplaying command looks like](../images/dumbot-nowplaying.png)
+
+---
+
+#### pause
+
+`/pause` pauses the current track. It remembers at what point in the song it paused. When you type the command `/resume` it will continue from the point in time that you pressed `/pause`.
+
+---
+
+#### play
+
+`/play` allows the user to play a song based on either `search input`, a `link`, or a `playlist link`. It can work from various sites so try a few different links from various music sites to see if they work.
+
+---
+
+#### playnext
+
+`/playnext` works the same as [`/play`](#play) except it does not accept a `playlist link`. It adds the song you type in to be added to the next position in queue.
+
+---
+
+#### queue
+
+`/queue` shows you all songs that will be played next. 
+
+![an example of what the queue command looks like](../images/dumbot-queue.png)
+
+---
+
+#### remove
+
+`/remove` allows the user to remove a song from queue. You can either type the `number` of the song in queue or the `name` of the song. It's recommended to type the `number` as it is more accurate. To find out the `number` in queue simply type [/queue](#queue)
+
+---
+
+#### resume
+
+`/resume` works hand in hand with the [/pause](#pause) command. If the song has been paused, then using the resume command begins the song at the point at which the song was stopped.
+
+---
+
+#### save
+
+`/save` sends a direct message to the user that used the save command. That message contains information about the currently playing song for the user to reference later.
+
+---
+
+#### search
+
+`/search` allows the user to type a description of the song theyd wish to play such as an artist or the song title. DumBot will respond with 10 options for you to choose from. Answer relatively quickly as DumBot will time out. 
+
+Type your song choice in chat without any commands and the song will be added to queue.
+
+![]()
+
+---
+
+#### seek
+
+---
+
+#### shuffle
+
+---
+
+#### skip
+
+---
+
+#### stop
+
+--- 
+
+#### volume
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
 
 ### Core Commands
 
