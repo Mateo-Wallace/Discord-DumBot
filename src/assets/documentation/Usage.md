@@ -85,13 +85,44 @@ Wonderful! Now you have a list of commands and possibly a description for those 
 
 #### /dumbot
 
-`/dumbot` displays a simple message when called. He essentially says `Hello I am DumBot. I am very dumb`. 
+`/dumbot` displays a simple message when called. He essentially says `Hello I am DumBot. I am very dumb`. It will then edit that message 4 times with new information before finally stopping on the original message.
 
 DumBot began as a simple project where I wanted to see if I could add a bot to a server and have it respond with the most simple command possible. It has since turned into a new beast to where DumBot isn't so dumb anymore!
 
 #### /help
 
-`/help` displays a hidden message that displays all possible commands in a list. 
+`/help` displays a hidden message that shows all possible commands in a list. It also links back to this repo and this page for full descriptions of what each command does.
+
+#### /ping
+
+`/ping` displays the [latency](https://www.cloudflare.com/learning/performance/glossary/what-is-latency/), or ping, of DumBot and his responses.
+
+#### /hroll
+
+`/hroll` is the exact same as [/roll](#roll) but it is a hidden message. This means that only the user who used the command can see the outcome. Perfect for a Dungeon Master or someone who is running a game.
+
+#### /roll
+
+`/roll` allows the user to input a string of numbers and dice in order to randomly calculate a total. One thing to note is that every input must be followed by a space. So `1d20+1` is invalid, while `1d20 + 1` is valid. 
+
+The bot will then display the users `Input`, the `Result` of each dice rolled, the `Total` of all dice and numbers using relevant math, and the `Crit Total` which displays the value of all dice rolled times 2 plus all relevant math.
+
+Valid inputs are as follows:
+
+- No input rolls a 20 sided die
+- 1d20 or some variation. The number before the `d` determines how many dice are to be rolled. The number after the `d` determines how many sides the dice would have. Ex. 5d10 would roll 5 dice of 10 sides. So therefore 1d20 rolls 1 die of 20 sides
+- Math such as `+`, `-`, or `*`. The star `*` represents multiplication.
+- Integer such as any whole number (Ex. `5`)
+
+Here a few example inputs:
+
+- `/roll`
+- `/roll 1d20 + 1`
+- `/roll 5 - 1d6 + 4d10 * 2d2`
+
+This is what the output should look like:
+
+![example output for rolling 2d6 + 5 + 1d4](../images/dumbot-dice-roll.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
