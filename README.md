@@ -15,7 +15,7 @@
 
 <br />
 <div align="center">
-<img src="./src/assets/images/walrus-face-circle.png" alt="Walrus Logo" width="80" height="80">
+<img src="./src/assets/images/dumbot-face-circle.png" alt="Walrus Logo" width="80" height="80">
 
   <h3 align="center"><strong>Discord DumBot</strong></h3>
 
