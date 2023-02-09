@@ -1,6 +1,6 @@
 module.exports = {
   app: {
-    global: 0,
+    global: 1,
     playing: "/help",
     doubleSongError: 0, //discord-player has an issue with skipping two songs. I've handled this by making it so when a song end the player loads the next song in queue a second time. If discord-player resolves this issue and you begin getting double songs in your queue simply turn this on.
   },
