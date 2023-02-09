@@ -45,10 +45,11 @@
       </ul>
     </li>
     <li>
-      <a href="#libraries">Libraries</a>
+      <a href="#documentation">Documentation</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="./src/assets/documentation/Existing-Instance.md">Use The Existing Instance of DumBot</a></li>
+        <li><a href="./src/assets/documentation/Your-Instance.md">Host & Deploy Your Own Instance of DumBot</a>
+        <li><a href="./src/assets/documentation/Usage.md">Using DumBot And The Existing Commands</a></li>
       </ul>
     </li>
     <li><a href="#contributing">Contributing</a></li>
@@ -93,15 +94,15 @@ This README will run you through how to download, edit, deploy, and use this cod
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIBRARIES -->
+<!-- DOCUMENTATION -->
 
-## Libraries
+## Documentation
 
-The below libraries detail how to use all versions of the bot and how to get it up and running. Please select the library that best fits your use case.
+The below documentation detail how to use all versions of the bot and how to get it up and running. Please select the docs that best fit your use case.
 
-- [deploy your version]()
-- [use my version in your discord]()
-- [using the bot in discord]()
+- [Use The Existing Instance of DumBot](./src/assets/documentation/Existing-Instance.md)
+- [Host & Deploy Your Own Instance of DumBot](./src/assets/documentation/Your-Instance.md)
+- [Using DumBot And The Existing Commands](./src/assets/documentation/Usage.md)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
