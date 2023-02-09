@@ -67,11 +67,11 @@ Wonderful! Now you have a list of commands and possibly a description for those 
     <li>
       <a href="#core-commands">Core Commands</a>
       <ul>
-        <li><a href="#dumbot">/dumbot</a></li>
-        <li><a href="">/help</a>
-        <li><a href="">/ping</a></li>
-        <li><a href="">/hroll</a></li>
-        <li><a href="">/roll</a></li>
+        <li><a href="#/dumbot">/dumbot</a></li>
+        <li><a href="#/help">/help</a>
+        <li><a href="#/ping">/ping</a></li>
+        <li><a href="#/hroll">/hroll</a></li>
+        <li><a href="#/roll">/roll</a></li>
       </ul>
     </li>
   </ol>
@@ -83,23 +83,33 @@ Wonderful! Now you have a list of commands and possibly a description for those 
 
 ### Core Commands
 
+---
+
 #### /dumbot
 
 `/dumbot` displays a simple message when called. He essentially says `Hello I am DumBot. I am very dumb`. It will then edit that message 4 times with new information before finally stopping on the original message.
 
 DumBot began as a simple project where I wanted to see if I could add a bot to a server and have it respond with the most simple command possible. It has since turned into a new beast to where DumBot isn't so dumb anymore!
 
+---
+
 #### /help
 
 `/help` displays a hidden message that shows all possible commands in a list. It also links back to this repo and this page for full descriptions of what each command does.
+
+---
 
 #### /ping
 
 `/ping` displays the [latency](https://www.cloudflare.com/learning/performance/glossary/what-is-latency/), or ping, of DumBot and his responses.
 
+---
+
 #### /hroll
 
 `/hroll` is the exact same as [/roll](#roll) but it is a hidden message. This means that only the user who used the command can see the outcome. Perfect for a Dungeon Master or someone who is running a game.
+
+---
 
 #### /roll
 
