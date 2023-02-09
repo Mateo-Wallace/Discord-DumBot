@@ -188,27 +188,39 @@ Wonderful! Now you have a list of commands and possibly a description for those 
 
 Type your song choice in chat without any commands and the song will be added to queue.
 
-![]()
+![example of dumbot search command](../images/dumbot-search.png)
 
 ---
 
 #### seek
 
+`/seek` moves the user to a specific time in the song. This is calculated in milliseconds. 
+
+So if the user types `/seek 1000` that would place the song at 1 second. If the user types `/seek 10000` that would place the song at 10 seconds.
+
 ---
 
 #### shuffle
+
+`/shuffle` will randomize the current queue of songs. To see how the songs have been shuffled simply type `/queue`
 
 ---
 
 #### skip
 
+`/skip` will end the current song and begin the next song in queue.
+
 ---
 
 #### stop
 
+`/stop` will end the current song, clear the queue, and disconnect DumBot from voice.
+
 --- 
 
 #### volume
+
+`/volume` allows the user to set the volume. DumBot will typically play at 75% volume. You can change DumBot's volume from anywhere between 1-100%.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
