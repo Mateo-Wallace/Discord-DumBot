@@ -13,8 +13,6 @@ This file assumes you have already added a version of DumBot to your discord ser
 
 - [The Help Command](#the-help-command)
 - [Description of All DumBot Commands](#description-of-all-dumbot-commands)
-  - [Music Commands](#music-commands)
-  - [Core Commands](#core-commands)
 
 > **Note**
 >
@@ -40,12 +38,8 @@ Wonderful! Now you have a list of commands and possibly a description for those 
 
 ### Music Commands
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### Core Commands
-
 <details>
-  <summary>Table of Contents</summary>
+  <summary><strong>Table of Contents</strong></summary>
   <ol>
     <li>
       <a href="#music-commands">Music Commands</a>
@@ -84,6 +78,10 @@ Wonderful! Now you have a list of commands and possibly a description for those 
     </li>
   </ol>
 </details>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Core Commands
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
