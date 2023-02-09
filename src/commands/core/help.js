@@ -20,20 +20,20 @@ module.exports = {
           ? [
               {
                 name: `Enabled - ${client.commands.size}`,
-                value: client.commands.map((x) => `\`${x.name}\``).join(" | "),
+                value: client.commands.map((x) => `\`/${x.name}\``).join(" | "),
               },
             ]
           : [
               {
                 name: `Music Commands`,
                 value: musicCommands
-                  .map((x) => `*${x.name}* | \`${x.description}\``)
+                  .map((x) => `*/${x.name}* | \`${x.description}\``)
                   .join(" \n "),
               },
               {
                 name: `Core Commands `,
                 value: coreCommands
-                  .map((x) => `*${x.name}* | \`${x.description}\``)
+                  .map((x) => `*/${x.name}* | \`${x.description}\``)
                   .join(" \n "),
               },
             ]

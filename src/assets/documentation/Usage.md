@@ -67,7 +67,7 @@ Wonderful! Now you have a list of commands and possibly a description for those 
     <li>
       <a href="#core-commands">Core Commands</a>
       <ul>
-        <li><a href="">/dumbot</a></li>
+        <li><a href="#dumbot">/dumbot</a></li>
         <li><a href="">/help</a>
         <li><a href="">/ping</a></li>
         <li><a href="">/hroll</a></li>
@@ -88,6 +88,10 @@ Wonderful! Now you have a list of commands and possibly a description for those 
 `/dumbot` displays a simple message when called. He essentially says `Hello I am DumBot. I am very dumb`. 
 
 DumBot began as a simple project where I wanted to see if I could add a bot to a server and have it respond with the most simple command possible. It has since turned into a new beast to where DumBot isn't so dumb anymore!
+
+#### /help
+
+`/help` displays a hidden message that displays all possible commands in a list. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
