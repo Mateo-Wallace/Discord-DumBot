@@ -23,11 +23,11 @@
     Pre loaded with dice rolling and music functionality
     <br />
     <br />
-    <a href="#documentation">View Docs</a>
-    ·
-    <a href="https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot">Add To Discord</a>
+    <a href="#documentation">View DumDocs</a>
     ·
     <a href="https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues">Report Bug</a>
+    ·
+    <a href="https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot">Add To Discord</a>
   </p>
 </div>
 
