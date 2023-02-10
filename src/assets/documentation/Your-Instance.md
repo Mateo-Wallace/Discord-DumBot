@@ -22,7 +22,6 @@ This document will set you up to have your own version of DumBot that you can fu
 
 TO BE COMPLETED:
 
-USE DISCORD DEV PORTAL TO MAKE BOT
 FORK REPO
 CHANGE ENV.SAMPLE TO ENV AND ADD TOKEN VARIABLE AND GUILD VARIABLE
 CHANGE CONFIG FILE GLOBAL FROM 0 TO 1
@@ -30,9 +29,61 @@ CONNECT TO HEROKU
 
 ## Setting Up A Discord Bot
 
+Setting up a Discord Bot is extremely well detailed through the [Official Discord Developer Portal Documentation](https://discord.com/developers/docs/getting-started). Feel free to follow along both here and on those docs in order to accomplish setting up your bot.
+
+1. Go to the [Discord Dev Portal Applications Tab](https://discord.com/developers/applications) and sign in if you aren't already. It should look something like this:
+
+    ![dev portal applications tab](../images/discord-dev-applications-tab.png)
+
+1. From that screen in the top right corner you should see a button called `New Application`. It's circled in red on the image above. Click that button and fill out the Name of your bot and agree to their terms of service. Then hit the `Create` button:
+
+    ![creating a new bot](../images/discord-dev-new-bot.png)
+
+    Now you will be presented with a screen where you can customize the bot, the `General Information Tab`. Feel free to play around with settings such as `App Icon`, `Description`, and Tags. Nothing on this page is vital to our purposes. 
+
+1. On the left hand side of the screen you will see tabs, click on the one that says `Bot` and click it. You will see a button on this screen that says `Add Bot` under the `Build-A-Bot` section, click it. You will be presented with a screen that looks like this:
+
+    ![example of what creating the bot looks like](../images/discord-dev-create-bot.png)
+
+    From this screen you can add the actual `Profile Photo` that will show up in discord for your bot, and you can change the `Username` of the bot that will show up in discord.
+
+    From here scroll down a bit until you find the `Privileged Gateway Intents` section. Turn on the priveleges called `Server Members Intent` and `Message Content Intent`, then save your changes:
+
+    ![shows what the turned on priveleges look like.](../images/discord-dev-priveleges.png)
+
+1. Now we will move on to actually adding your bot to a discord server. On the tabs at the left click on `OAuth2` just above the `Bot` tab and select `URL Generator`. From here we will be turning on various permissions for the bot. Here they are in order:
+
+    - Scopes
+        - `bot`
+        - `applications.commands`
+    - Bot Permissions
+        - General Permissions
+            - `Read Messages/View Channels`
+        - Text Permissions
+            - `Send Messages`
+            - `Embed Links`
+            - `Attach Files`
+        - Voice Permissions
+            - `Connect`
+            - `Speak`
+    
+    Below is an example of what the screen should look like after selecting all of these options:
+
+    ![example of turned on commands to make the url](../images/discord-dev-url-creator.png)
+
+    At the bottom of the screen you should see a link with a copy button to the right of it. This is circled in red in the above image. Copy your link and save it somewhere where you can remember. Once we are done this is the link you will use and share with your friends to add your bot to a server.
+
+1. Now go to that link. You will be brought to your typical page to add a bot to a server. Select which server you would like to add your bot to, authorize the permissions, and prove your a human.
+
+    ![showing how to add bot to server through link](../images/discord-add-bot-to-server.gif)
+
+    Congratulations! You've just added a bot to your server. No code is connected to your bot yet so it wont do anything but the first step is now complete. Time to add some code.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Forking The Repo
+
+Forking the Repo. If you don't know what that means essentially its copying my code to make your own editable version. For more information on this see the [GitHub Docs](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
