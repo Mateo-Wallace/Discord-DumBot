@@ -17,8 +17,10 @@ This document will set you up to have your own version of DumBot that you can fu
 - [Setting Up A Discord Bot](#setting-up-a-discord-bot)
 - [Forking The Repo](#forking-the-repo)
 - [Customizing The Code](#customizing-the-code)
+    - [The Bare Minimum Requirements](#the-bare-minimum-requirements)
+    - [Playing With The Config File](#playing-with-the-config-file)
+    - [Advanced Development (New Commands)](#advanced-development-new-commands)
 - [Deploy Through Heroku](#deploy-through-heroku)
-- [How To Make Custom Commands](#how-to-make-custom-commands)
 
 TO BE COMPLETED:
 
@@ -100,6 +102,40 @@ Congratulations! You have successfully copied your own version of the code. Time
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Customizing The Code
+
+Now that you have forked the repo you will be presented with your instance of the code. In order to customize your bot we need to open `config.js`. The below image shows you where that can be located from the home screen:
+
+![example of forked repo with config.js circled](../images/github-open-config-file.png)
+
+Once you have clicked on config.js you will be presented with a large screen of code. At the top of that code you will see some buttons that say `Raw`, `Blame`, and a `Pen Emoji`. Select the `Pen Emoji` in order to edit your code:
+
+![config file with a pen image circled](../images/github-config-click-edit.png)
+
+Perfect! Now you are editing the file. This section will now break up into variations of what to do.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### The Bare Minimum Requirements
+
+If you just want to use DumBot as is but own your own instance of him your in luck! All you have to do is change a `0` to a `1` and your code editing is complete. 
+
+Somewhere between line 1 - 8 you should see the word `global`. In the image below it is on line `4` but further editing might have this change. Currently line `4` should looks like `global: 0,` |  we want to replace that with `global: 1,` . Be aware that there is a comma. That comma is important to keep! Reference the image below to see what it should look like:
+
+![global variable changing from 0 to 1](../images/github-config-change-global.png)
+
+Now scroll all the way down to the bottom of the file and select `Commit changes`:
+
+![config file showing the commit changes button](../images/github-config-commit-changes.png)
+
+That all that we need to do as far as editing files on GitHub. Good job!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Playing With The Config File
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Advanced Development (New Commands)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
