@@ -42,6 +42,10 @@ Setting up a Discord Bot is extremely well detailed through the [Official Discor
 
    From this screen you can add the actual `Profile Photo` that will show up in discord for your bot, and you can change the `Username` of the bot that will show up in discord.
 
+   >**Note**
+   >
+   >Where it says `TOKEN` copy this token and save it for later. DO NOT show anyone your token. This is almost like a password that protects your bot and makes sure only you can edit and manage it. We will use this when we [Deploy Through Heroku](#deploy-through-heroku).
+
    From here scroll down a bit until you find the `Privileged Gateway Intents` section. Turn on the priveleges called `Server Members Intent` and `Message Content Intent`, then save your changes:
 
    ![shows what the turned on priveleges look like.](../images/discord-dev-priveleges.png)
@@ -153,6 +157,34 @@ CHANGE ENV.SAMPLE TO ENV AND ADD TOKEN VARIABLE AND GUILD VARIABLE, SUGGEST VS C
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Deploy Through Heroku
+
+Now that you have customized the code to your liking and set the `global` variable from `0` to `1` it's time to deploy your bot. We will be using [Heroku](https://id.heroku.com/) to deploy your app. Heroku is a payed service that hosts websites and other coding projects. If you don't have an account, set one up and log in. Once logged in you will be presented with a screen like this one:
+
+![example of new project button on heroku dashboard](../images/heroku-new-project.png)
+
+Select the `New` button. You will be prompted to add an `App name`, make it the something simple like your bot name and then select `Create app`. 
+
+You will now be presented with the dashboard for your `App`. If you aren't already loaded onto the `Deploy` tab then go there. Where it says `Deployment Method` select `GitHub`. Where it says `Connect to GitHub` you will see a search field that says `Search for a repository to connect to`. Find your repo and then click the `Connect` button. Below is an example of this:
+
+![example heroku deployment from github](../images/heroku-connect-github.png)
+
+After selecting connect a field called `Automatic Deploys` will show up. Select the branch you would like to deploy from. Yours should only have the branch `main`. My example will be using the `feature/example` branch. Select `Enable Automatic Deploys`. This will make it so anytime you edit the code on your main branch your bot will automatically update. Now a little further below there is a field called `Manual deploy`, select `Deploy Branch` and this will run your code.
+
+![example heroku auto deploy and deploy branch](../images/heroku-auto-deploy.png)
+
+Give heroku a minute to finish running your code. Once it is complete we will be moving to the Resources tab. You will see an `Eco Dynos` section with two commands. We want to disable `web npm start` and enable `worker node index.js`. If you don't see something similar to the image below refresh your screen a few times:
+
+![heroku changing web to worker](../images/heroku-changing-dynos.png)
+
+Now go back to the settings tab and scroll down till you see `Config Vars` and `Reveal Config Vars`. We need to add two variables. A `TOKEN` and `GUILD` variable. Both in all caps. The `TOKEN` is the one we copied and saved somewhere safe back in the section [Setting Up A Discord Bot](#setting-up-a-discord-bot). The `GUILD` variable is unimportant for deployment, just write `dumbotisdumb` because the code will break if nothing is assigned to that variable.
+
+![heroku config variables](../images/heroku-config-vars.png)
+
+Now go back to the `Deploy` tab at the top of the dashboard and scroll all the way down to `Manual Deploy`. Select `Deploy Branch` one last time and our bot should be good to go! Give it a few minutes and then test your bot in discord. It should look something like this:
+
+![working example bot](../images/functioning-dumbot-example.png)
+
+Congratulations! Have fun creating and don't forget to Star the repo!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
