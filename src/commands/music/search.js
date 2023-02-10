@@ -49,10 +49,8 @@ module.exports = {
           maxTracks.length
         }** or **cancel** ⬇️`
       )
-      .setTimestamp()
       .setFooter({
-        text: "Music comes first - Made with heart by Zerio ❤️",
-        iconURL: inter.member.avatarURL({ dynamic: true }),
+        text: "Music code by ZerioDev/Music-bot"
       });
 
     inter.reply({ embeds: [embed] });

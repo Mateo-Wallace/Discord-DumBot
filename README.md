@@ -1,5 +1,3 @@
-# STILL IN DEVELOPMENT
-
 <a name="readme-top"></a>
 
 <!-- SHIELDS -->
@@ -25,11 +23,11 @@
     Pre loaded with dice rolling and music functionality
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="#documentation">View DumDocs</a>
     ·
-    <a href="https://github.com/Mateo-Wallace/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot">Add To Discord</a>
   </p>
 </div>
 
@@ -50,7 +48,6 @@
         <li><a href="./src/assets/documentation/Existing-Instance.md">Use The Existing Instance of DumBot</a></li>
         <li><a href="./src/assets/documentation/Usage.md">Using DumBot And The Existing Commands</a></li>
         <li><a href="./src/assets/documentation/Your-Instance.md">Host & Deploy Your Own Instance of DumBot</a>
-        <li><a href="./src/assets/documentation/New-Command.md">Creating New Commands</a></li>
       </ul>
     </li>
     <li><a href="#contributing">Contributing</a></li>
@@ -66,7 +63,7 @@
 
 <div align="center">
   <br />
-  <img src="https://via.placeholder.com/550x250" alt="Example of Working Discord App">
+  <img src="./src/assets/images/dumbot-full-use-example.gif" alt="Example of Working Discord App">
   <br />
   <br />
 </div>
@@ -90,6 +87,7 @@ This README will run you through how to download, edit, deploy, and use this cod
 [![discord-player Shield](https://img.shields.io/badge/discord_player-5865F2?&style=for-the-badge&logo=discord&logoColor=white)](https://discord-player.js.org/)
 [![FFmpeg Shield](https://img.shields.io/badge/FFmpeg-007808?&style=for-the-badge&logo=ffmpeg&logoColor=white)](https://ffmpeg.org/)
 [![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
+[![Heroku Shield](https://img.shields.io/badge/Heroku-430098?&style=for-the-badge&logo=heroku&logoColor=white)](https://www.heroku.com/what)
 [![Markdown Shield](https://img.shields.io/badge/Markdown-000000?&style=for-the-badge&logo=markdown)](https://www.markdownguide.org/)
 [![VS Code Shield](https://img.shields.io/badge/VS_Code-007ACC?&style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
 
@@ -104,7 +102,6 @@ The below documentation detail how to use all versions of the bot and how to get
 - [Use The Existing Instance of DumBot](./src/assets/documentation/Existing-Instance.md)
 - [Using DumBot And The Existing Commands](./src/assets/documentation/Usage.md)
 - [Host & Deploy Your Own Instance of DumBot](./src/assets/documentation/Your-Instance.md)
-- [Creating New Commands](./src/assets/documentation/New-Command.md)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
