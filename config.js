@@ -1,15 +1,16 @@
 module.exports = {
   app: {
-    global: 0,
+    botName: `DumBot`, //if you want to use a different name i suggest turning off the DumBot command below in enabledCommands
+    global: 0, //determines if bot works in all servers or just 1 server
     playing: "/help",
     doubleSongError: 0, //discord-player has an issue with skipping two songs. I've handled this by making it so when a song end the player loads the next song in queue a second time. If discord-player resolves this issue and you begin getting double songs in your queue simply turn this on.
   },
 
   opt: {
     DJ: {
-      enabled: false,
-      roleName: "DJ",
-      commands: [],
+      enabled: false, //if true only people with the role `roleName` can use the specified commands
+      roleName: "DJ", //the name people need to have to use specified commands
+      commands: [], //the commands only specified people can use. Format like this ["stop", "play", "queue"]
     },
     maxVol: 100,
     leaveOnEnd: 0, //determines if bot leaves voice after queue is finished
@@ -27,10 +28,17 @@ module.exports = {
   text: {
     helpDescription: `DumBot's code can be found at [Mateo-Wallace/DumBot](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2) :smiling_face_with_3_hearts:\nDumBot is open source and ready for you to host yourself! \n For a full description of each command you can go to the [DumDocs](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/blob/main/src/assets/documentation/Usage.md)`,
     helpCommandList: 0, //1 is short help command, 0 is long detailed help command
+    simpleCustomCommandName: `custom`, //all lowercase
+    simpleCustomCommandMessage: `This is a custom command for you to edit. In order to enable go to config.js and go to enabled commands. Switch 'custom' from a 0 to a 1`,
   },
 
+  // determines which commands the bot loads
   enabledCommands: {
-    enableAll: 1, //overrides everything else in enabled commands and allows all commands
+    enableAll: 0, //overrides everything else in enabled commands and allows all commands
+
+    // custom commands
+    custom: 0,
+    //ADD YOUR COMMANDS HERE
 
     // core commands
     dumbot: 1,
