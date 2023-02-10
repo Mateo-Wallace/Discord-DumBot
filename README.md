@@ -1,5 +1,3 @@
-# STILL IN DEVELOPMENT
-
 <a name="readme-top"></a>
 
 <!-- SHIELDS -->
@@ -25,11 +23,11 @@
     Pre loaded with dice rolling and music functionality
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="#documentation">View Docs</a>
     ·
-    <a href="https://github.com/Mateo-Wallace/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues">Request Feature</a>
   </p>
 </div>
 
@@ -66,7 +64,7 @@
 
 <div align="center">
   <br />
-  <img src="https://via.placeholder.com/550x250" alt="Example of Working Discord App">
+  <img src="./src/assets/images/dumbot-full-use-example.gif" alt="Example of Working Discord App">
   <br />
   <br />
 </div>
