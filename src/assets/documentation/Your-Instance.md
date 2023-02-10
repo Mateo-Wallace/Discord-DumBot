@@ -83,7 +83,19 @@ Setting up a Discord Bot is extremely well detailed through the [Official Discor
 
 ## Forking The Repo
 
-Forking the Repo. If you don't know what that means essentially its copying my code to make your own editable version. For more information on this see the [GitHub Docs](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+Forking the Repo. If you don't know what that means essentially its copying my code to make your own editable version. For more information on this see the [GitHub Docs](https://docs.github.com/en/get-started/quickstart/fork-a-repo). To do this you will need to have a GitHub account.
+
+1. At the top of the home page of this Repository you should see a tab called `Fork`:
+
+    ![example of image of fork tab](../images/github-new-fork.png)
+
+    Once you've clicked on that tab you will be presented with the `Create a new fork` page. 
+
+    ![example of create a new fork](../images/github-create-a-new-fork.png)
+
+    Customize the title and description to your liking and then click `Create Fork`.
+
+Congratulations! You have successfully copied your own version of the code. Time to customize it to your liking.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
