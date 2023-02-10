@@ -87,6 +87,7 @@ This README will run you through how to download, edit, deploy, and use this cod
 [![discord-player Shield](https://img.shields.io/badge/discord_player-5865F2?&style=for-the-badge&logo=discord&logoColor=white)](https://discord-player.js.org/)
 [![FFmpeg Shield](https://img.shields.io/badge/FFmpeg-007808?&style=for-the-badge&logo=ffmpeg&logoColor=white)](https://ffmpeg.org/)
 [![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
+[![Heroku Shield](https://img.shields.io/badge/Heroku-430098?&style=for-the-badge&logo=heroku&logoColor=white)](https://www.heroku.com/what)
 [![Markdown Shield](https://img.shields.io/badge/Markdown-000000?&style=for-the-badge&logo=markdown)](https://www.markdownguide.org/)
 [![VS Code Shield](https://img.shields.io/badge/VS_Code-007ACC?&style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
 
