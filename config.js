@@ -1,6 +1,6 @@
 module.exports = {
   app: {
-    botName: `DumBot`, //if you want to use a different name i suggest turning off the DumBot command below in enabledCommands
+    botName: `DumBot`, //if you want to use a different name i suggest turning off the DumBot command below in enabledCommands. also edit the help description below to your new bots name.
     global: 0, //determines if bot works in all servers or just 1 server
     playing: "/help",
     doubleSongError: 0, //discord-player has an issue with skipping two songs. I've handled this by making it so when a song end the player loads the next song in queue a second time. If discord-player resolves this issue and you begin getting double songs in your queue simply turn this on.
