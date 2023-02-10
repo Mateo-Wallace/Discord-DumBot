@@ -128,13 +128,27 @@ That all that we need to do as far as editing files on GitHub. Good job!
 
 This is the real reason to start your own instance of DumBot. This section will describe all of the customization functionality within config.js. In order to edit config.js see the instructions listed above in [The Bare Minimum Requirements](#the-bare-minimum-requirements).
 
+The config file is split into different sections, they are `app`, `opt`, `text`, and `enabledCommands`.
+
+1. The `app` section allows you to edit certain things about your bot. For example customizing the `botName` to your version of the bot.
+
+1. The `opt` section allows you to customize the music portion of the bot. You can turn on a mode where if a user has the `DJ` role, only those users can use music commands in your server.
+
+1. The `text` section allows you to change certain text within the bot. For example you can fully customize the text that shows up on the `/help` command. 
+
+    There is even a way to create your own custom command! Simply adjust `simpleCustomCommandName` to what you would like your command to be, and adjust `simpleCustomCommandMessage` to the message you would like to be played when a user types your command. To enable this command, look within the `enabledCommands` section for `custom` and switch it from `0` to `1`.
+
+1. The `enabledCommands` section allows you to turn on and off every single command. So if you don't want a dice roller for example, you can turn those commands off.
+
+There are various comments within the code to help guide you as well. If you are having trouble feel free to either message me or open a new [discussion](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/discussions).
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Advanced Development (New Commands)
 
 IN DEVELOPMENT
 
-CHANGE ENV.SAMPLE TO ENV AND ADD TOKEN VARIABLE AND GUILD VARIABLE
+CHANGE ENV.SAMPLE TO ENV AND ADD TOKEN VARIABLE AND GUILD VARIABLE, SUGGEST VS CODE, SUGGEST MAKING A DISCORD SERVER FOR PLAYING WITH THE BOT, MAKE THEM INSTALL NODE, POINT TO COMMANDS/CUSTOM AND EVENTS FOLDERS
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
