@@ -25,9 +25,9 @@
     <br />
     <a href="#documentation">View Docs</a>
     ·
-    <a href="https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues">Report Bug</a>
+    <a href="https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot">Add To Discord</a>
     ·
-    <a href="https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues">Request Feature</a>
+    <a href="https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues">Report Bug</a>
   </p>
 </div>
 
@@ -48,7 +48,6 @@
         <li><a href="./src/assets/documentation/Existing-Instance.md">Use The Existing Instance of DumBot</a></li>
         <li><a href="./src/assets/documentation/Usage.md">Using DumBot And The Existing Commands</a></li>
         <li><a href="./src/assets/documentation/Your-Instance.md">Host & Deploy Your Own Instance of DumBot</a>
-        <li><a href="./src/assets/documentation/New-Command.md">Creating New Commands</a></li>
       </ul>
     </li>
     <li><a href="#contributing">Contributing</a></li>
@@ -102,7 +101,6 @@ The below documentation detail how to use all versions of the bot and how to get
 - [Use The Existing Instance of DumBot](./src/assets/documentation/Existing-Instance.md)
 - [Using DumBot And The Existing Commands](./src/assets/documentation/Usage.md)
 - [Host & Deploy Your Own Instance of DumBot](./src/assets/documentation/Your-Instance.md)
-- [Creating New Commands](./src/assets/documentation/New-Command.md)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
