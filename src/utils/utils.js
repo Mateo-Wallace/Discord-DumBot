@@ -16,7 +16,7 @@ const diceLogic = async (inter, hidden) => {
     // /roll
     const sum = Math.floor(Math.random() * 20) + 1;
     await inter.reply({
-      content: `${interaction.user} :game_die: \n **Result**: 1d20 (${
+      content: `${inter.user} :game_die: \n **Result**: 1d20 (${
         sum == 1 || sum == 20 ? `**${sum}**` : sum
       }) \n **Total**: ${sum}     **Crit Total**: ${sum * 2}`,
       ephemeral: hidden ? true : false,
