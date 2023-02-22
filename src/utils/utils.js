@@ -1,7 +1,17 @@
 const { evaluate } = require("mathjs");
 
 const diceLogic = async (inter, hidden) => {
-  const message = inter.options.getString("dice");
+  const originalInput = inter.options.getString("dice");
+  var allSpacesRemoved = originalInput.replaceAll(" ", "");
+  var separators = ["+", "-", "*", "/"];
+
+  for (var i = 0; i < separators.length; i++) {
+    var rg = new RegExp("\\" + separators[i], "g");
+    allSpacesRemoved = allSpacesRemoved.replace(rg, " " + separators[i] + " ");
+  }
+  const message = allSpacesRemoved;
+
+  // const message = inter.options.getString("dice");
   var messageWords = [];
   try {
     var array = message.split(" ");
@@ -52,7 +62,7 @@ const diceLogic = async (inter, hidden) => {
               return resultWords.push(Math.floor(Math.random() * sides) + 1);
             }
           }
-        } else if (word == "+" || word == "-" || word == "*") {
+        } else if (word == "+" || word == "-" || word == "*" || word == "/") {
           return resultWords.push(word);
         } else if (!isNaN(word / 1)) {
           return resultWords.push(word / 1);
@@ -82,7 +92,8 @@ const diceLogic = async (inter, hidden) => {
           } else if (
             resultWords[i] == "+" ||
             resultWords[i] == "-" ||
-            resultWords[i] == "*"
+            resultWords[i] == "*" ||
+            resultWords[i] == "/"
           ) {
             total.push(resultWords[i]);
             crit.push(resultWords[i]);
