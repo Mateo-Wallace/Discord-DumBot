@@ -267,7 +267,7 @@ Valid inputs are as follows:
 
 - No input rolls a 20 sided die
 - 1d20 or some variation. The number before the `d` determines how many dice are to be rolled. The number after the `d` determines how many sides the dice would have. Ex. 5d10 would roll 5 dice of 10 sides. So therefore 1d20 rolls 1 die of 20 sides
-- Math such as `+`, `-`, or `*`. The star `*` represents multiplication.
+- Math such as `+`, `-`, `*`, or `/`. The star `*` represents multiplication.
 - Integer such as any whole number (Ex. `5`)
 
 Here a few example inputs:
