@@ -259,7 +259,7 @@ DumBot began as a simple project where I wanted to see if I could add a bot to a
 
 #### roll
 
-`/roll` allows the user to input a string of numbers and dice in order to randomly calculate a total. One thing to note is that every input must be followed by a space. So `1d20+1` is invalid, while `1d20 + 1` is valid. 
+`/roll` allows the user to input a string of numbers and dice in order to randomly calculate a total.
 
 The bot will then display the users `Input`, the `Result` of each dice rolled, the `Total` of all dice and numbers using relevant math, and the `Crit Total` which displays the value of all dice rolled times 2 plus all relevant math.
 
@@ -274,7 +274,7 @@ Here a few example inputs:
 
 - `/roll`
 - `/roll 1d20 + 1`
-- `/roll 5 - 1d6 + 4d10 * 2d2`
+- `/roll 5 - d6   +4D10*2d2`
 
 This is what the output should look like:
 
