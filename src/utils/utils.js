@@ -2,7 +2,7 @@ const { evaluate } = require("mathjs");
 
 const diceLogic = async (inter, hidden) => {
   const originalInput = inter.options.getString("dice");
-  var allSpacesRemoved = originalInput.replaceAll(" ", "");
+  var allSpacesRemoved = originalInput.replaceAll(" ", "").toLowerCase();
   var separators = ["+", "-", "*", "/"];
 
   for (var i = 0; i < separators.length; i++) {
@@ -44,7 +44,7 @@ const diceLogic = async (inter, hidden) => {
             sides = word.split("d")[1];
           } else if (word[0] == "d") {
             // !roll d20
-            sides = sides.slice(1);
+            sides = word.slice(1);
           }
           sides = sides / 1; // convert to number
           if (isNaN(sides) || isNaN(rolls)) {
