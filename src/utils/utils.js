@@ -11,7 +11,6 @@ const diceLogic = async (inter, hidden) => {
   }
   const message = allSpacesRemoved;
 
-  // const message = inter.options.getString("dice");
   var messageWords = [];
   try {
     var array = message.split(" ");
