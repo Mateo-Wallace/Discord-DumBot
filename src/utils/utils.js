@@ -2,13 +2,20 @@ const { evaluate } = require("mathjs");
 
 const diceLogic = async (inter, hidden) => {
   const originalInput = inter.options.getString("dice");
-  var allSpacesRemoved = originalInput.replaceAll(" ", "").toLowerCase();
-  var separators = ["+", "-", "*", "/"];
+  var allSpacesRemoved = null;
+  if (originalInput) {
+    var allSpacesRemoved = originalInput.replaceAll(" ", "").toLowerCase();
+    var separators = ["+", "-", "*", "/"];
 
-  for (var i = 0; i < separators.length; i++) {
-    var rg = new RegExp("\\" + separators[i], "g");
-    allSpacesRemoved = allSpacesRemoved.replace(rg, " " + separators[i] + " ");
+    for (var i = 0; i < separators.length; i++) {
+      var rg = new RegExp("\\" + separators[i], "g");
+      allSpacesRemoved = allSpacesRemoved.replace(
+        rg,
+        " " + separators[i] + " "
+      );
+    }
   }
+
   const message = allSpacesRemoved;
 
   var messageWords = [];
@@ -26,7 +33,7 @@ const diceLogic = async (inter, hidden) => {
       // /roll
       const sum = Math.floor(Math.random() * 20) + 1;
       await inter.reply({
-        content: `${interaction.user} :game_die: \n **Result**: 1d20 (${
+        content: `${inter.user} :game_die: \n **Result**: 1d20 (${
           sum == 1 || sum == 20 ? `**${sum}**` : sum
         }) \n **Total**: ${sum}     **Crit Total**: ${sum * 2}`,
         ephemeral: hidden ? true : false,
