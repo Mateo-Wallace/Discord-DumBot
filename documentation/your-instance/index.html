@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/MP2-Discord-DumBot-V2">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.731198663376">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.731199274892">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -33,11 +33,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/MP2-Discord-DumBot-V2/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.731198663376" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.731199274892" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.731198663376" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.731199274892" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.731198663376" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.731199274892" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -54,8 +54,8 @@
                     <div class="flex items-center px-2 md:px-6">
                         <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-2xl">
                             <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
-                                <img class="max-h-10 dark:hidden md:inline-block" src="../../img/dumbot-face-circle.png">
-                                <img class="max-h-10 hidden dark:inline-block" src="../../img/dumbot-face-circle.png">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../images/dumbot-face-circle.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../images/dumbot-face-circle.png">
                             </span>
                             <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">DumBot</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
@@ -294,21 +294,21 @@
 <p>Setting up a Discord Bot is extremely well detailed through the <a href="https://discord.com/developers/docs/getting-started">Official Discord Developer Portal Documentation</a>. Feel free to follow along both here and on those docs in order to accomplish setting up your bot.</p>
 <ol>
 <li><p>Go to the <a href="https://discord.com/developers/applications">Discord Dev Portal Applications Tab</a> and sign in if you aren&#x27;t already. It should look something like this:</p>
-<p><img src="../images/discord-dev-applications-tab.png" alt="dev portal applications tab" /></p>
+<p><img src="../../images/discord-dev-applications-tab.png" alt="dev portal applications tab" /></p>
 </li>
 <li><p>From that screen in the top right corner you should see a button called <code v-pre>New Application</code>. It&#x27;s circled in red on the image above. Click that button and fill out the Name of your bot and agree to their terms of service. Then hit the <code v-pre>Create</code> button:</p>
-<p><img src="../images/discord-dev-new-bot.png" alt="creating a new bot" /></p>
+<p><img src="../../images/discord-dev-new-bot.png" alt="creating a new bot" /></p>
 <p>Now you will be presented with a screen where you can customize the bot, the <code v-pre>General Information Tab</code>. Feel free to play around with settings such as <code v-pre>App Icon</code>, <code v-pre>Description</code>, and Tags. Nothing on this page is vital to our purposes.</p>
 </li>
 <li><p>On the left hand side of the screen you will see tabs, click on the one that says <code v-pre>Bot</code> and click it. You will see a button on this screen that says <code v-pre>Add Bot</code> under the <code v-pre>Build-A-Bot</code> section, click it. You will be presented with a screen that looks like this:</p>
-<p><img src="../images/discord-dev-create-bot.png" alt="example of what creating the bot looks like" /></p>
+<p><img src="../../images/discord-dev-create-bot.png" alt="example of what creating the bot looks like" /></p>
 <p>From this screen you can add the actual <code v-pre>Profile Photo</code> that will show up in discord for your bot, and you can change the <code v-pre>Username</code> of the bot that will show up in discord.</p>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>Where it says <code v-pre>TOKEN</code> copy this token and save it for later. DO NOT show anyone your token. This is almost like a password that protects your bot and makes sure only you can edit and manage it. We will use this when we <doc-anchor-trigger to="#deploy-through-heroku">Deploy Through Heroku</doc-anchor-trigger>.</p>
 </blockquote>
 <p>From here scroll down a bit until you find the <code v-pre>Privileged Gateway Intents</code> section. Turn on the priveleges called <code v-pre>Server Members Intent</code> and <code v-pre>Message Content Intent</code>, then save your changes:</p>
-<p><img src="../images/discord-dev-priveleges.png" alt="shows what the turned on priveleges look like." /></p>
+<p><img src="../../images/discord-dev-priveleges.png" alt="shows what the turned on priveleges look like." /></p>
 </li>
 <li><p>Now we will move on to actually adding your bot to a discord server. On the tabs at the left click on <code v-pre>OAuth2</code> just above the <code v-pre>Bot</code> tab and select <code v-pre>URL Generator</code>. From here we will be turning on various permissions for the bot. Here they are in order:</p>
 <ul>
@@ -342,11 +342,11 @@
 </li>
 </ul>
 <p>Below is an example of what the screen should look like after selecting all of these options:</p>
-<p><img src="../images/discord-dev-url-creator.png" alt="example of turned on commands to make the url" /></p>
+<p><img src="../../images/discord-dev-url-creator.png" alt="example of turned on commands to make the url" /></p>
 <p>At the bottom of the screen you should see a link with a copy button to the right of it. This is circled in red in the above image. Copy your link and save it somewhere where you can remember. Once we are done this is the link you will use and share with your friends to add your bot to a server.</p>
 </li>
 <li><p>Now go to that link. You will be brought to your typical page to add a bot to a server. Select which server you would like to add your bot to, authorize the permissions, and prove your a human.</p>
-<p><img src="../images/discord-add-bot-to-server.gif" alt="showing how to add bot to server through link" /></p>
+<p><img src="../../images/discord-add-bot-to-server.gif" alt="showing how to add bot to server through link" /></p>
 <p>Congratulations! You&#x27;ve just added a bot to your server. No code is connected to your bot yet so it wont do anything but the first step is now complete. Time to add some code.</p>
 </li>
 </ol>
@@ -360,9 +360,9 @@
 <p>Forking the Repo. If you don&#x27;t know what that means essentially its copying my code to make your own editable version. For more information on this see the <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">GitHub Docs</a>. To do this you will need to have a GitHub account.</p>
 <ol>
 <li><p>At the top of the home page of this Repository you should see a tab called <code v-pre>Fork</code>:</p>
-<p><img src="../images/github-new-fork.png" alt="example of image of fork tab" /></p>
+<p><img src="../../images/github-new-fork.png" alt="example of image of fork tab" /></p>
 <p>Once you&#x27;ve clicked on that tab you will be presented with the <code v-pre>Create a new fork</code> page.</p>
-<p><img src="../images/github-create-a-new-fork.png" alt="example of create a new fork" /></p>
+<p><img src="../../images/github-create-a-new-fork.png" alt="example of create a new fork" /></p>
 <p>Customize the title and description to your liking and then click <code v-pre>Create Fork</code>.</p>
 </li>
 </ol>
@@ -376,13 +376,13 @@
 </doc-anchor-target>
 <p>Now that you have forked the repo you will be presented with your instance of the code. In order to customize your bot we need to open <code v-pre>config.js</code>. The below image shows you where that can be located from the home screen:</p>
 <p><figure class="content-center">
-    <img src="../images/github-open-config-file.png" alt="example of forked repo with config.js circled" />
+    <img src="../../images/github-open-config-file.png" alt="example of forked repo with config.js circled" />
     <figcaption class="caption">example of forked repo with config.js circled</figcaption>
 </figure>
 </p>
 <p>Once you have clicked on config.js you will be presented with a large screen of code. At the top of that code you will see some buttons that say <code v-pre>Raw</code>, <code v-pre>Blame</code>, and a <code v-pre>Pen Emoji</code>. Select the <code v-pre>Pen Emoji</code> in order to edit your code:</p>
 <p><figure class="content-center">
-    <img src="../images/github-config-click-edit.png" alt="config file with a pen image circled" />
+    <img src="../../images/github-config-click-edit.png" alt="config file with a pen image circled" />
     <figcaption class="caption">config file with a pen image circled</figcaption>
 </figure>
 </p>
@@ -397,13 +397,13 @@
 <p>If you just want to use DumBot as is but own your own instance of him your in luck! All you have to do is change a <code v-pre>0</code> to a <code v-pre>1</code> and your code editing is complete.</p>
 <p>Somewhere between line 1 - 8 you should see the word <code v-pre>global</code>. In the image below it is on line <code v-pre>4</code> but further editing might have this change. Currently line <code v-pre>4</code> should looks like <code v-pre>global: 0,</code> | we want to replace that with <code v-pre>global: 1,</code> . Be aware that there is a comma. That comma is important to keep! Reference the image below to see what it should look like:</p>
 <p><figure class="content-center">
-    <img src="../images/github-config-change-global.png" alt="global variable changing from 0 to 1" />
+    <img src="../../images/github-config-change-global.png" alt="global variable changing from 0 to 1" />
     <figcaption class="caption">global variable changing from 0 to 1</figcaption>
 </figure>
 </p>
 <p>Now scroll all the way down to the bottom of the file and select <code v-pre>Commit changes</code>:</p>
 <p><figure class="content-center">
-    <img src="../images/github-config-commit-changes.png" alt="config file showing the commit changes button" />
+    <img src="../../images/github-config-commit-changes.png" alt="config file showing the commit changes button" />
     <figcaption class="caption">config file showing the commit changes button</figcaption>
 </figure>
 </p>
@@ -447,38 +447,38 @@
 </doc-anchor-target>
 <p>Now that you have customized the code to your liking and set the <code v-pre>global</code> variable from <code v-pre>0</code> to <code v-pre>1</code> it&#x27;s time to deploy your bot. We will be using <a href="https://id.heroku.com/">Heroku</a> to deploy your app. Heroku is a payed service that hosts websites and other coding projects. If you don&#x27;t have an account, set one up and log in. Once logged in you will be presented with a screen like this one:</p>
 <p><figure class="content-center">
-    <img src="../images/heroku-new-project.png" alt="example of new project button on heroku dashboard" />
+    <img src="../../images/heroku-new-project.png" alt="example of new project button on heroku dashboard" />
     <figcaption class="caption">example of new project button on heroku dashboard</figcaption>
 </figure>
 </p>
 <p>Select the <code v-pre>New</code> button. You will be prompted to add an <code v-pre>App name</code>, make it the something simple like your bot name and then select <code v-pre>Create app</code>.</p>
 <p>You will now be presented with the dashboard for your <code v-pre>App</code>. If you aren&#x27;t already loaded onto the <code v-pre>Deploy</code> tab then go there. Where it says <code v-pre>Deployment Method</code> select <code v-pre>GitHub</code>. Where it says <code v-pre>Connect to GitHub</code> you will see a search field that says <code v-pre>Search for a repository to connect to</code>. Find your repo and then click the <code v-pre>Connect</code> button. Below is an example of this:</p>
 <p><figure class="content-center">
-    <img src="../images/heroku-connect-github.png" alt="example heroku deployment from github" />
+    <img src="../../images/heroku-connect-github.png" alt="example heroku deployment from github" />
     <figcaption class="caption">example heroku deployment from github</figcaption>
 </figure>
 </p>
 <p>After selecting connect a field called <code v-pre>Automatic Deploys</code> will show up. Select the branch you would like to deploy from. Yours should only have the branch <code v-pre>main</code>. My example will be using the <code v-pre>feature/example</code> branch. Select <code v-pre>Enable Automatic Deploys</code>. This will make it so anytime you edit the code on your main branch your bot will automatically update. Now a little further below there is a field called <code v-pre>Manual deploy</code>, select <code v-pre>Deploy Branch</code> and this will run your code.</p>
 <p><figure class="content-center">
-    <img src="../images/heroku-auto-deploy.png" alt="example heroku auto deploy and deploy branch" />
+    <img src="../../images/heroku-auto-deploy.png" alt="example heroku auto deploy and deploy branch" />
     <figcaption class="caption">example heroku auto deploy and deploy branch</figcaption>
 </figure>
 </p>
 <p>Give heroku a minute to finish running your code. Once it is complete we will be moving to the Resources tab. You will see an <code v-pre>Eco Dynos</code> section with two commands. We want to disable <code v-pre>web npm start</code> and enable <code v-pre>worker node index.js</code>. If you don&#x27;t see something similar to the image below refresh your screen a few times:</p>
 <p><figure class="content-center">
-    <img src="../images/heroku-changing-dynos.png" alt="heroku changing web to worker" />
+    <img src="../../images/heroku-changing-dynos.png" alt="heroku changing web to worker" />
     <figcaption class="caption">heroku changing web to worker</figcaption>
 </figure>
 </p>
 <p>Now go back to the settings tab and scroll down till you see <code v-pre>Config Vars</code> and <code v-pre>Reveal Config Vars</code>. We need to add two variables. A <code v-pre>TOKEN</code> and <code v-pre>GUILD</code> variable. Both in all caps. The <code v-pre>TOKEN</code> is the one we copied and saved somewhere safe back in the section <doc-anchor-trigger to="#setting-up-a-discord-bot">Setting Up A Discord Bot</doc-anchor-trigger>. The <code v-pre>GUILD</code> variable is unimportant for deployment, just write <code v-pre>dumbotisdumb</code> because the code will break if nothing is assigned to that variable.</p>
 <p><figure class="content-center">
-    <img src="../images/heroku-config-vars.png" alt="heroku config variables" />
+    <img src="../../images/heroku-config-vars.png" alt="heroku config variables" />
     <figcaption class="caption">heroku config variables</figcaption>
 </figure>
 </p>
 <p>Now go back to the <code v-pre>Deploy</code> tab at the top of the dashboard and scroll all the way down to <code v-pre>Manual Deploy</code>. Select <code v-pre>Deploy Branch</code> one last time and our bot should be good to go! Give it a few minutes and then test your bot in discord. It should look something like this:</p>
 <p><figure class="content-center">
-    <img src="../images/functioning-dumbot-example.png" alt="working example bot" />
+    <img src="../../images/functioning-dumbot-example.png" alt="working example bot" />
     <figcaption class="caption">working example bot</figcaption>
 </figure>
 </p>
@@ -510,10 +510,10 @@
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../documentation/usage/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../documentation/existing-instance/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Using Dum​Bot And The Existing Commands</span>
+                                                <span class="block mt-1">Use The Existing Instance of Dum​Bot</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
