@@ -1,0 +1,23 @@
+input: .
+output: .retype
+url: https://mateo-wallace.github.io/Test-Docs/ # Add your website address here
+branding:
+  title: DumBot
+  label: Docs
+  logo: img/dumbot-face-circle.png 
+links:
+  - text: Home
+    link: /
+    icon: home
+  - text: Issues
+    link: https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/issues
+    icon: issue-opened
+  - text: GitHub
+    link: https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2
+    icon: mark-github
+    target: blank
+  - text: Add To Your Server
+    icon: download
+    link: https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot
+footer:
+  copyright: "&copy; Copyright Mateo Wallace {{ year }}. All rights reserved."
