@@ -4,11 +4,9 @@ label: Welcome
 icon: home
 ---
 
-# DumDocs
+# Welcome to the DumDocs
 
 <!-- SHIELDS -->
-
-Test contribution test test
 
 [![Contributors](https://img.shields.io/github/contributors/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge&color=success)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/graphs/contributors) [![Forks Shield](https://img.shields.io/github/forks/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/network/members) [![Stars Shield](https://img.shields.io/github/stars/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge&color=blue)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/stargazers) [![Issues](https://img.shields.io/github/issues/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge&color=yellow)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues) [![License Shield](https://img.shields.io/github/license/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge)](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/blob/main/LICENSE) [![LinkedIn Shield](https://img.shields.io/badge/LinkedIn-555555?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mateo-wallace/)
 
@@ -26,39 +24,13 @@ Test contribution test test
     Pre loaded with dice rolling and music functionality
     <br />
     <br />
-    <a href="#documentation">View DumDocs</a>
+    <a href="https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2">View GitHub</a>
     ·
     <a href="https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues">Report Bug</a>
     ·
     <a href="https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot">Add To Discord</a>
   </p>
 </div>
-
-<!-- TABLE OF CONTENTS -->
-
-<details>
-  <summary><strong>Table of Contents</strong></summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#documentation">Documentation</a>
-      <ul>
-        <li><a href="./src/assets/documentation/Existing-Instance.md">Use The Existing Instance of DumBot</a></li>
-        <li><a href="./src/assets/documentation/Usage.md">Using DumBot And The Existing Commands</a></li>
-        <li><a href="./src/assets/documentation/Your-Instance.md">Host & Deploy Your Own Instance of DumBot</a>
-      </ul>
-    </li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
 

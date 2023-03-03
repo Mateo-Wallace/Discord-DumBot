@@ -1,10 +1,10 @@
 input: .
 output: .retype
-url: https://mateo-wallace.github.io/Test-Docs/ # Add your website address here
+url: https://mateo-wallace.github.io/MP2-Discord-DumBot-V2/ # Add your website address here
 branding:
   title: DumBot
   label: Docs
-  logo: img/dumbot-face-circle.png 
+  logo: img/dumbot-face-circle.png
 links:
   - text: Home
     link: /
