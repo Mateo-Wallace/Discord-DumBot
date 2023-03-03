@@ -14,7 +14,7 @@ icon: home
 
 <br />
 <div align="center">
-<img src="./img/dumbot-face-circle.png" alt="Walrus Logo" width="80" height="80">
+<img src="./images/dumbot-face-circle.png" alt="Walrus Logo" width="80" height="80">
 
   <h1 align="center"><strong>Discord DumBot</strong></h1>
 
@@ -38,7 +38,7 @@ icon: home
 
 <div align="center">
   <br />
-  <img src="./src/assets/images/dumbot-full-use-example.gif" alt="Example of Working Discord App">
+  <img src="./images/dumbot-full-use-example.gif" alt="Example of Working Discord App">
   <br />
   <br />
 </div>
@@ -55,13 +55,3 @@ This README will run you through how to download, edit, deploy, and use this cod
 ### Built With
 
 [![JavaScript Shield](https://img.shields.io/badge/JavaScript_ES6+-F7DF1E?&style=for-the-badge&logo=javascript&logoColor=272727)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![NPM Shield](https://img.shields.io/badge/NPM-333333?&style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/) [![discord.js Shield](https://img.shields.io/badge/discord.js-5865F2?&style=for-the-badge&logo=discord&logoColor=white)](https://discord.js.org/#/) [![discord-player Shield](https://img.shields.io/badge/discord_player-5865F2?&style=for-the-badge&logo=discord&logoColor=white)](https://discord-player.js.org/) [![FFmpeg Shield](https://img.shields.io/badge/FFmpeg-007808?&style=for-the-badge&logo=ffmpeg&logoColor=white)](https://ffmpeg.org/) [![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/) [![Heroku Shield](https://img.shields.io/badge/Heroku-430098?&style=for-the-badge&logo=heroku&logoColor=white)](https://www.heroku.com/what) [![Markdown Shield](https://img.shields.io/badge/Markdown-000000?&style=for-the-badge&logo=markdown)](https://www.markdownguide.org/) [![VS Code Shield](https://img.shields.io/badge/VS_Code-007ACC?&style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
-
-<!-- DOCUMENTATION -->
-
-## Documentation
-
-The below documentation detail how to use all versions of the bot and how to get it up and running. Please select the docs that best fit your use case.
-
-- [Use The Existing Instance of DumBot](./src/assets/documentation/Existing-Instance.md)
-- [Using DumBot And The Existing Commands](./src/assets/documentation/Usage.md)
-- [Host & Deploy Your Own Instance of DumBot](./src/assets/documentation/Your-Instance.md)

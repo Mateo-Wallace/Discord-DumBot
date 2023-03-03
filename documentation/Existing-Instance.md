@@ -1,9 +1,3 @@
----
-label: Sample
-layout: page
-order: 2
----
-
 <a name="readme-top"></a>
 
 [![Home Shield](https://img.shields.io/badge/%E2%86%90_Home-345289?&style=for-the-badge)](../../../README.md)

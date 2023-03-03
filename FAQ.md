@@ -1,6 +1,6 @@
 ---
-label: Test
-icon: home
+label: FAQ
+icon: question
 ---
 
 # This is a test

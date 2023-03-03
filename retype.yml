@@ -4,7 +4,7 @@ url: https://mateo-wallace.github.io/MP2-Discord-DumBot-V2/ # Add your website a
 branding:
   title: DumBot
   label: Docs
-  logo: img/dumbot-face-circle.png
+  logo: images/dumbot-face-circle.png
 links:
   - text: Home
     link: /
