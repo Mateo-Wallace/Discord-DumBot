@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mateo-wallace.github.io/Test-Docs/sitemap.xml.gz

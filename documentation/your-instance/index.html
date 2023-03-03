@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-root" content="/Test-Docs">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.731197738773">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 2.4.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Host &amp; Deploy Your Own Instance of DumBot</title>
+    <meta name="title" content="Host & Deploy Your Own Instance of DumBot">
+    <meta name="description" content="Home Shield" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://mateo-wallace.github.io/Test-Docs/documentation/your-instance/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mateo-wallace.github.io/Test-Docs/documentation/your-instance/">
+    <meta property="og:title" content="Host & Deploy Your Own Instance of DumBot">
+    <meta property="og:description" content="Home Shield">
+    <meta property="og:image" content="https://img.shields.io/badge/%E2%86%90_Home-345289?&style=for-the-badge">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mateo-wallace.github.io/Test-Docs/documentation/your-instance/">
+    <meta property="twitter:title" content="Host & Deploy Your Own Instance of DumBot">
+    <meta property="twitter:description" content="Home Shield">
+    <meta property="twitter:image" content="https://img.shields.io/badge/%E2%86%90_Home-345289?&style=for-the-badge">
+
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("/Test-Docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../resources/css/retype.css?v=2.4.0.731197738773" rel="stylesheet" />
+
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.731197738773" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.731197738773" data-turbo-eval="false" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between grow pr-6 md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                            <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../img/dumbot-face-circle.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../img/dumbot-face-circle.png">
+                            </span>
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">DumBot</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="../../">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                        <g fill="currentColor">
+                                            <path fill-rule="evenodd" d="M11.03 2.59a1.5 1.5 0 011.94 0l7.5 6.363a1.5 1.5 0 01.53 1.144V19.5a1.5 1.5 0 01-1.5 1.5h-5.75a.75.75 0 01-.75-.75V14h-2v6.25a.75.75 0 01-.75.75H4.5A1.5 1.5 0 013 19.5v-9.403c0-.44.194-.859.53-1.144l7.5-6.363zM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 01.75-.75h3.5a.75.75 0 01.75.75v6.25h5v-9.403L12 3.734z"/>
+                                        </g>
+                                    </svg>
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/issues">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                        <g fill="currentColor">
+                                            <path fill-rule="evenodd" d="M2.5 12a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0zM12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zm0 13a2 2 0 100-4 2 2 0 000 4z"/>
+                                        </g>
+                                    </svg>
+                                    <span>Issues</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                        <g fill="currentColor">
+                                            <symbol id="mark-github-icon-symbol" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol><use xlink:href="#mark-github-icon-symbol" />
+                                        </g>
+                                    </svg>
+                                    <span>GitHub</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                        <g fill="currentColor">
+                                            <path d="M4.97 11.03a.75.75 0 111.06-1.06L11 14.94V2.75a.75.75 0 011.5 0v12.19l4.97-4.97a.75.75 0 111.06 1.06l-6.25 6.25a.75.75 0 01-1.06 0l-6.25-6.25zm-.22 9.47a.75.75 0 000 1.5h14.5a.75.75 0 000-1.5H4.75z"/>
+                                        </g>
+                                    </svg>
+                                    <span>Add To Your Server</span>
+                                </a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+        
+                            <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                            style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                        </div>
+        
+                        <!-- Mobile search button mock -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placehokder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button mock -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+                </div>
+            
+                <div class="pl-6 mb-4 mt-1">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="../../">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M11.03 2.59a1.5 1.5 0 011.94 0l7.5 6.363a1.5 1.5 0 01.53 1.144V19.5a1.5 1.5 0 01-1.5 1.5h-5.75a.75.75 0 01-.75-.75V14h-2v6.25a.75.75 0 01-.75.75H4.5A1.5 1.5 0 013 19.5v-9.403c0-.44.194-.859.53-1.144l7.5-6.363zM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 01.75-.75h3.5a.75.75 0 01.75.75v6.25h5v-9.403L12 3.734z"/>
+                                                </g>
+                                            </svg>
+                                            <span>Home</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/issues">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M2.5 12a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0zM12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zm0 13a2 2 0 100-4 2 2 0 000 4z"/>
+                                                </g>
+                                            </svg>
+                                            <span>Issues</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentColor">
+                                                    <symbol id="mark-github-icon-symbol" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol><use xlink:href="#mark-github-icon-symbol" />
+                                                </g>
+                                            </svg>
+                                            <span>GitHub</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentColor">
+                                                    <path d="M4.97 11.03a.75.75 0 111.06-1.06L11 14.94V2.75a.75.75 0 011.5 0v12.19l4.97-4.97a.75.75 0 111.06 1.06l-6.25 6.25a.75.75 0 01-1.06 0l-6.25-6.25zm-.22 9.47a.75.75 0 000 1.5h14.5a.75.75 0 000-1.5H4.75z"/>
+                                                </g>
+                                            </svg>
+                                            <span>Add To Your Server</span>
+                                        </a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="grow min-w-0 px-6 md:px-16">
+                        <main class="relative pt-6 pb-16">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                
+                                <!-- Page content  -->
+<p><a name="readme-top"></a></p>
+<p><figure class="content-center">
+    <a href="../../../readme.md">
+        <img src="https://img.shields.io/badge/%E2%86%90_Home-345289?&amp;style=for-the-badge" alt="Home Shield" />
+    </a>
+    <figcaption class="caption">Home Shield</figcaption>
+</figure>
+</p>
+<doc-anchor-target id="host--deploy-your-own-instance-of-dumbot" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#host--deploy-your-own-instance-of-dumbot">#</doc-anchor-trigger>
+        <span>Host &amp; Deploy Your Own Instance of DumBot</span>
+    </h1>
+</doc-anchor-target>
+<p>This document will set you up to have your own version of DumBot that you can fully customize the code of. This documentation will go super in depth so even if you have no coding knowledge you should be able to figure it out. Feel free to open a <a href="https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/discussions">discussion</a> if you are having problems.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Be aware before going through this process my solution to deploying is hosting on <a href="https://www.heroku.com/pricing">Heroku</a> which is a <strong>PAID</strong> service. I researched into free solutions like <a href="https://glitch.com/pricing">Glitch</a> but was unable to make it work. Heroku costs $5 for the lowest tier plan. That plan will put DumBot into sleep mode after 30 minutes. For $7 you can bump up your plan and have DumBot running at all times.</p>
+<p>If you find a way to run DumBot for free, even if it goes into sleep mode, that information would be amazing! Feel free to message me or open a discussion and I will add you as a contributor to the project.</p>
+</blockquote>
+<doc-anchor-target id="table-of-contents">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#table-of-contents">#</doc-anchor-trigger>
+        <span>Table Of Contents</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><doc-anchor-trigger to="#setting-up-a-discord-bot">Setting Up A Discord Bot</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#forking-the-repo">Forking The Repo</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#customizing-the-code">Customizing The Code</doc-anchor-trigger>
+<ul>
+<li><doc-anchor-trigger to="#the-bare-minimum-requirements">The Bare Minimum Requirements</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#playing-with-the-config-file">Playing With The Config File</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#advanced-development-new-commands">Advanced Development (New Commands) IN DEVELOPMENT</doc-anchor-trigger></li>
+</ul>
+</li>
+<li><doc-anchor-trigger to="#deploy-through-heroku">Deploy Through Heroku</doc-anchor-trigger></li>
+</ul>
+<doc-anchor-target id="setting-up-a-discord-bot">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#setting-up-a-discord-bot">#</doc-anchor-trigger>
+        <span>Setting Up A Discord Bot</span>
+    </h2>
+</doc-anchor-target>
+<p>Setting up a Discord Bot is extremely well detailed through the <a href="https://discord.com/developers/docs/getting-started">Official Discord Developer Portal Documentation</a>. Feel free to follow along both here and on those docs in order to accomplish setting up your bot.</p>
+<ol>
+<li><p>Go to the <a href="https://discord.com/developers/applications">Discord Dev Portal Applications Tab</a> and sign in if you aren&#x27;t already. It should look something like this:</p>
+<p><img src="../images/discord-dev-applications-tab.png" alt="dev portal applications tab" /></p>
+</li>
+<li><p>From that screen in the top right corner you should see a button called <code v-pre>New Application</code>. It&#x27;s circled in red on the image above. Click that button and fill out the Name of your bot and agree to their terms of service. Then hit the <code v-pre>Create</code> button:</p>
+<p><img src="../images/discord-dev-new-bot.png" alt="creating a new bot" /></p>
+<p>Now you will be presented with a screen where you can customize the bot, the <code v-pre>General Information Tab</code>. Feel free to play around with settings such as <code v-pre>App Icon</code>, <code v-pre>Description</code>, and Tags. Nothing on this page is vital to our purposes.</p>
+</li>
+<li><p>On the left hand side of the screen you will see tabs, click on the one that says <code v-pre>Bot</code> and click it. You will see a button on this screen that says <code v-pre>Add Bot</code> under the <code v-pre>Build-A-Bot</code> section, click it. You will be presented with a screen that looks like this:</p>
+<p><img src="../images/discord-dev-create-bot.png" alt="example of what creating the bot looks like" /></p>
+<p>From this screen you can add the actual <code v-pre>Profile Photo</code> that will show up in discord for your bot, and you can change the <code v-pre>Username</code> of the bot that will show up in discord.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Where it says <code v-pre>TOKEN</code> copy this token and save it for later. DO NOT show anyone your token. This is almost like a password that protects your bot and makes sure only you can edit and manage it. We will use this when we <doc-anchor-trigger to="#deploy-through-heroku">Deploy Through Heroku</doc-anchor-trigger>.</p>
+</blockquote>
+<p>From here scroll down a bit until you find the <code v-pre>Privileged Gateway Intents</code> section. Turn on the priveleges called <code v-pre>Server Members Intent</code> and <code v-pre>Message Content Intent</code>, then save your changes:</p>
+<p><img src="../images/discord-dev-priveleges.png" alt="shows what the turned on priveleges look like." /></p>
+</li>
+<li><p>Now we will move on to actually adding your bot to a discord server. On the tabs at the left click on <code v-pre>OAuth2</code> just above the <code v-pre>Bot</code> tab and select <code v-pre>URL Generator</code>. From here we will be turning on various permissions for the bot. Here they are in order:</p>
+<ul>
+<li>Scopes
+<ul>
+<li><code v-pre>bot</code></li>
+<li><code v-pre>applications.commands</code></li>
+</ul>
+</li>
+<li>Bot Permissions
+<ul>
+<li>General Permissions
+<ul>
+<li><code v-pre>Read Messages/View Channels</code></li>
+</ul>
+</li>
+<li>Text Permissions
+<ul>
+<li><code v-pre>Send Messages</code></li>
+<li><code v-pre>Embed Links</code></li>
+<li><code v-pre>Attach Files</code></li>
+</ul>
+</li>
+<li>Voice Permissions
+<ul>
+<li><code v-pre>Connect</code></li>
+<li><code v-pre>Speak</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Below is an example of what the screen should look like after selecting all of these options:</p>
+<p><img src="../images/discord-dev-url-creator.png" alt="example of turned on commands to make the url" /></p>
+<p>At the bottom of the screen you should see a link with a copy button to the right of it. This is circled in red in the above image. Copy your link and save it somewhere where you can remember. Once we are done this is the link you will use and share with your friends to add your bot to a server.</p>
+</li>
+<li><p>Now go to that link. You will be brought to your typical page to add a bot to a server. Select which server you would like to add your bot to, authorize the permissions, and prove your a human.</p>
+<p><img src="../images/discord-add-bot-to-server.gif" alt="showing how to add bot to server through link" /></p>
+<p>Congratulations! You&#x27;ve just added a bot to your server. No code is connected to your bot yet so it wont do anything but the first step is now complete. Time to add some code.</p>
+</li>
+</ol>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<doc-anchor-target id="forking-the-repo">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#forking-the-repo">#</doc-anchor-trigger>
+        <span>Forking The Repo</span>
+    </h2>
+</doc-anchor-target>
+<p>Forking the Repo. If you don&#x27;t know what that means essentially its copying my code to make your own editable version. For more information on this see the <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">GitHub Docs</a>. To do this you will need to have a GitHub account.</p>
+<ol>
+<li><p>At the top of the home page of this Repository you should see a tab called <code v-pre>Fork</code>:</p>
+<p><img src="../images/github-new-fork.png" alt="example of image of fork tab" /></p>
+<p>Once you&#x27;ve clicked on that tab you will be presented with the <code v-pre>Create a new fork</code> page.</p>
+<p><img src="../images/github-create-a-new-fork.png" alt="example of create a new fork" /></p>
+<p>Customize the title and description to your liking and then click <code v-pre>Create Fork</code>.</p>
+</li>
+</ol>
+<p>Congratulations! You have successfully copied your own version of the code. Time to customize it to your liking.</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<doc-anchor-target id="customizing-the-code">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#customizing-the-code">#</doc-anchor-trigger>
+        <span>Customizing The Code</span>
+    </h2>
+</doc-anchor-target>
+<p>Now that you have forked the repo you will be presented with your instance of the code. In order to customize your bot we need to open <code v-pre>config.js</code>. The below image shows you where that can be located from the home screen:</p>
+<p><figure class="content-center">
+    <img src="../images/github-open-config-file.png" alt="example of forked repo with config.js circled" />
+    <figcaption class="caption">example of forked repo with config.js circled</figcaption>
+</figure>
+</p>
+<p>Once you have clicked on config.js you will be presented with a large screen of code. At the top of that code you will see some buttons that say <code v-pre>Raw</code>, <code v-pre>Blame</code>, and a <code v-pre>Pen Emoji</code>. Select the <code v-pre>Pen Emoji</code> in order to edit your code:</p>
+<p><figure class="content-center">
+    <img src="../images/github-config-click-edit.png" alt="config file with a pen image circled" />
+    <figcaption class="caption">config file with a pen image circled</figcaption>
+</figure>
+</p>
+<p>Perfect! Now you are editing the file. This section will now break up into variations of what to do.</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<doc-anchor-target id="the-bare-minimum-requirements">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#the-bare-minimum-requirements">#</doc-anchor-trigger>
+        <span>The Bare Minimum Requirements</span>
+    </h3>
+</doc-anchor-target>
+<p>If you just want to use DumBot as is but own your own instance of him your in luck! All you have to do is change a <code v-pre>0</code> to a <code v-pre>1</code> and your code editing is complete.</p>
+<p>Somewhere between line 1 - 8 you should see the word <code v-pre>global</code>. In the image below it is on line <code v-pre>4</code> but further editing might have this change. Currently line <code v-pre>4</code> should looks like <code v-pre>global: 0,</code> | we want to replace that with <code v-pre>global: 1,</code> . Be aware that there is a comma. That comma is important to keep! Reference the image below to see what it should look like:</p>
+<p><figure class="content-center">
+    <img src="../images/github-config-change-global.png" alt="global variable changing from 0 to 1" />
+    <figcaption class="caption">global variable changing from 0 to 1</figcaption>
+</figure>
+</p>
+<p>Now scroll all the way down to the bottom of the file and select <code v-pre>Commit changes</code>:</p>
+<p><figure class="content-center">
+    <img src="../images/github-config-commit-changes.png" alt="config file showing the commit changes button" />
+    <figcaption class="caption">config file showing the commit changes button</figcaption>
+</figure>
+</p>
+<p>That all that we need to do as far as editing files on GitHub. Good job!</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<doc-anchor-target id="playing-with-the-config-file">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#playing-with-the-config-file">#</doc-anchor-trigger>
+        <span>Playing With The Config File</span>
+    </h3>
+</doc-anchor-target>
+<p>This is the real reason to start your own instance of DumBot. This section will describe all of the customization functionality within config.js. In order to edit config.js see the instructions listed above in <doc-anchor-trigger to="#the-bare-minimum-requirements">The Bare Minimum Requirements</doc-anchor-trigger>.</p>
+<p>The config file is split into different sections, they are <code v-pre>app</code>, <code v-pre>opt</code>, <code v-pre>text</code>, and <code v-pre>enabledCommands</code>.</p>
+<ol>
+<li><p>The <code v-pre>app</code> section allows you to edit certain things about your bot. For example customizing the <code v-pre>botName</code> to your version of the bot.</p>
+</li>
+<li><p>The <code v-pre>opt</code> section allows you to customize the music portion of the bot. You can turn on a mode where if a user has the <code v-pre>DJ</code> role, only those users can use music commands in your server.</p>
+</li>
+<li><p>The <code v-pre>text</code> section allows you to change certain text within the bot. For example you can fully customize the text that shows up on the <code v-pre>/help</code> command.</p>
+<p>There is even a way to create your own custom command! Simply adjust <code v-pre>simpleCustomCommandName</code> to what you would like your command to be, and adjust <code v-pre>simpleCustomCommandMessage</code> to the message you would like to be played when a user types your command. To enable this command, look within the <code v-pre>enabledCommands</code> section for <code v-pre>custom</code> and switch it from <code v-pre>0</code> to <code v-pre>1</code>.</p>
+</li>
+<li><p>The <code v-pre>enabledCommands</code> section allows you to turn on and off every single command. So if you don&#x27;t want a dice roller for example, you can turn those commands off.</p>
+</li>
+</ol>
+<p>There are various comments within the code to help guide you as well. If you are having trouble feel free to either message me or open a new <a href="https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/discussions">discussion</a>.</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<doc-anchor-target id="advanced-development-new-commands">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#advanced-development-new-commands">#</doc-anchor-trigger>
+        <span>Advanced Development (New Commands)</span>
+    </h3>
+</doc-anchor-target>
+<p>IN DEVELOPMENT</p>
+<p>CHANGE ENV.SAMPLE TO ENV AND ADD TOKEN VARIABLE AND GUILD VARIABLE, SUGGEST VS CODE, SUGGEST MAKING A DISCORD SERVER FOR PLAYING WITH THE BOT, MAKE THEM INSTALL NODE, POINT TO COMMANDS/CUSTOM AND EVENTS FOLDERS</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<doc-anchor-target id="deploy-through-heroku">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#deploy-through-heroku">#</doc-anchor-trigger>
+        <span>Deploy Through Heroku</span>
+    </h2>
+</doc-anchor-target>
+<p>Now that you have customized the code to your liking and set the <code v-pre>global</code> variable from <code v-pre>0</code> to <code v-pre>1</code> it&#x27;s time to deploy your bot. We will be using <a href="https://id.heroku.com/">Heroku</a> to deploy your app. Heroku is a payed service that hosts websites and other coding projects. If you don&#x27;t have an account, set one up and log in. Once logged in you will be presented with a screen like this one:</p>
+<p><figure class="content-center">
+    <img src="../images/heroku-new-project.png" alt="example of new project button on heroku dashboard" />
+    <figcaption class="caption">example of new project button on heroku dashboard</figcaption>
+</figure>
+</p>
+<p>Select the <code v-pre>New</code> button. You will be prompted to add an <code v-pre>App name</code>, make it the something simple like your bot name and then select <code v-pre>Create app</code>.</p>
+<p>You will now be presented with the dashboard for your <code v-pre>App</code>. If you aren&#x27;t already loaded onto the <code v-pre>Deploy</code> tab then go there. Where it says <code v-pre>Deployment Method</code> select <code v-pre>GitHub</code>. Where it says <code v-pre>Connect to GitHub</code> you will see a search field that says <code v-pre>Search for a repository to connect to</code>. Find your repo and then click the <code v-pre>Connect</code> button. Below is an example of this:</p>
+<p><figure class="content-center">
+    <img src="../images/heroku-connect-github.png" alt="example heroku deployment from github" />
+    <figcaption class="caption">example heroku deployment from github</figcaption>
+</figure>
+</p>
+<p>After selecting connect a field called <code v-pre>Automatic Deploys</code> will show up. Select the branch you would like to deploy from. Yours should only have the branch <code v-pre>main</code>. My example will be using the <code v-pre>feature/example</code> branch. Select <code v-pre>Enable Automatic Deploys</code>. This will make it so anytime you edit the code on your main branch your bot will automatically update. Now a little further below there is a field called <code v-pre>Manual deploy</code>, select <code v-pre>Deploy Branch</code> and this will run your code.</p>
+<p><figure class="content-center">
+    <img src="../images/heroku-auto-deploy.png" alt="example heroku auto deploy and deploy branch" />
+    <figcaption class="caption">example heroku auto deploy and deploy branch</figcaption>
+</figure>
+</p>
+<p>Give heroku a minute to finish running your code. Once it is complete we will be moving to the Resources tab. You will see an <code v-pre>Eco Dynos</code> section with two commands. We want to disable <code v-pre>web npm start</code> and enable <code v-pre>worker node index.js</code>. If you don&#x27;t see something similar to the image below refresh your screen a few times:</p>
+<p><figure class="content-center">
+    <img src="../images/heroku-changing-dynos.png" alt="heroku changing web to worker" />
+    <figcaption class="caption">heroku changing web to worker</figcaption>
+</figure>
+</p>
+<p>Now go back to the settings tab and scroll down till you see <code v-pre>Config Vars</code> and <code v-pre>Reveal Config Vars</code>. We need to add two variables. A <code v-pre>TOKEN</code> and <code v-pre>GUILD</code> variable. Both in all caps. The <code v-pre>TOKEN</code> is the one we copied and saved somewhere safe back in the section <doc-anchor-trigger to="#setting-up-a-discord-bot">Setting Up A Discord Bot</doc-anchor-trigger>. The <code v-pre>GUILD</code> variable is unimportant for deployment, just write <code v-pre>dumbotisdumb</code> because the code will break if nothing is assigned to that variable.</p>
+<p><figure class="content-center">
+    <img src="../images/heroku-config-vars.png" alt="heroku config variables" />
+    <figcaption class="caption">heroku config variables</figcaption>
+</figure>
+</p>
+<p>Now go back to the <code v-pre>Deploy</code> tab at the top of the dashboard and scroll all the way down to <code v-pre>Manual Deploy</code>. Select <code v-pre>Deploy Branch</code> one last time and our bot should be good to go! Give it a few minutes and then test your bot in discord. It should look something like this:</p>
+<p><figure class="content-center">
+    <img src="../images/functioning-dumbot-example.png" alt="working example bot" />
+    <figcaption class="caption">working example bot</figcaption>
+</figure>
+</p>
+<p>Congratulations! Have fun creating and don&#x27;t forget to Star the repo!</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p><figure class="content-center">
+    <a href="../../../readme.md">
+        <img src="https://img.shields.io/badge/%E2%86%90_Home-345289?&amp;style=for-the-badge" alt="Home Shield" />
+    </a>
+    <figcaption class="caption">Home Shield</figcaption>
+</figure>
+</p>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results />
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../test/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Test</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../documentation/usage/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Using Dum​Bot And The Existing Commands</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright Mateo Wallace 2023. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script>window.__DOCS__ = { "title": "Host & Deploy Your Own Instance of DumBot", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+</body>
+</html>

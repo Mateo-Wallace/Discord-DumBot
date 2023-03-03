@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-root" content="/Test-Docs">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.731197738773">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 2.4.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Using DumBot And The Existing Commands</title>
+    <meta name="title" content="Using DumBot And The Existing Commands">
+    <meta name="description" content="Home Shield" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://mateo-wallace.github.io/Test-Docs/documentation/usage/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mateo-wallace.github.io/Test-Docs/documentation/usage/">
+    <meta property="og:title" content="Using DumBot And The Existing Commands">
+    <meta property="og:description" content="Home Shield">
+    <meta property="og:image" content="https://img.shields.io/badge/%E2%86%90_Home-345289?&style=for-the-badge">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mateo-wallace.github.io/Test-Docs/documentation/usage/">
+    <meta property="twitter:title" content="Using DumBot And The Existing Commands">
+    <meta property="twitter:description" content="Home Shield">
+    <meta property="twitter:image" content="https://img.shields.io/badge/%E2%86%90_Home-345289?&style=for-the-badge">
+
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("/Test-Docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../resources/css/retype.css?v=2.4.0.731197738773" rel="stylesheet" />
+
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.731197738773" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.731197738773" data-turbo-eval="false" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between grow pr-6 md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                            <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../img/dumbot-face-circle.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../img/dumbot-face-circle.png">
+                            </span>
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">DumBot</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="../../">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                        <g fill="currentColor">
+                                            <path fill-rule="evenodd" d="M11.03 2.59a1.5 1.5 0 011.94 0l7.5 6.363a1.5 1.5 0 01.53 1.144V19.5a1.5 1.5 0 01-1.5 1.5h-5.75a.75.75 0 01-.75-.75V14h-2v6.25a.75.75 0 01-.75.75H4.5A1.5 1.5 0 013 19.5v-9.403c0-.44.194-.859.53-1.144l7.5-6.363zM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 01.75-.75h3.5a.75.75 0 01.75.75v6.25h5v-9.403L12 3.734z"/>
+                                        </g>
+                                    </svg>
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/issues">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                        <g fill="currentColor">
+                                            <path fill-rule="evenodd" d="M2.5 12a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0zM12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zm0 13a2 2 0 100-4 2 2 0 000 4z"/>
+                                        </g>
+                                    </svg>
+                                    <span>Issues</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                        <g fill="currentColor">
+                                            <symbol id="mark-github-icon-symbol" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol><use xlink:href="#mark-github-icon-symbol" />
+                                        </g>
+                                    </svg>
+                                    <span>GitHub</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                        <g fill="currentColor">
+                                            <path d="M4.97 11.03a.75.75 0 111.06-1.06L11 14.94V2.75a.75.75 0 011.5 0v12.19l4.97-4.97a.75.75 0 111.06 1.06l-6.25 6.25a.75.75 0 01-1.06 0l-6.25-6.25zm-.22 9.47a.75.75 0 000 1.5h14.5a.75.75 0 000-1.5H4.75z"/>
+                                        </g>
+                                    </svg>
+                                    <span>Add To Your Server</span>
+                                </a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+        
+                            <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                            style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                        </div>
+        
+                        <!-- Mobile search button mock -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placehokder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button mock -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+                </div>
+            
+                <div class="pl-6 mb-4 mt-1">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="../../">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M11.03 2.59a1.5 1.5 0 011.94 0l7.5 6.363a1.5 1.5 0 01.53 1.144V19.5a1.5 1.5 0 01-1.5 1.5h-5.75a.75.75 0 01-.75-.75V14h-2v6.25a.75.75 0 01-.75.75H4.5A1.5 1.5 0 013 19.5v-9.403c0-.44.194-.859.53-1.144l7.5-6.363zM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 01.75-.75h3.5a.75.75 0 01.75.75v6.25h5v-9.403L12 3.734z"/>
+                                                </g>
+                                            </svg>
+                                            <span>Home</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/issues">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M2.5 12a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0zM12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zm0 13a2 2 0 100-4 2 2 0 000 4z"/>
+                                                </g>
+                                            </svg>
+                                            <span>Issues</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentColor">
+                                                    <symbol id="mark-github-icon-symbol" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol><use xlink:href="#mark-github-icon-symbol" />
+                                                </g>
+                                            </svg>
+                                            <span>GitHub</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentColor">
+                                                    <path d="M4.97 11.03a.75.75 0 111.06-1.06L11 14.94V2.75a.75.75 0 011.5 0v12.19l4.97-4.97a.75.75 0 111.06 1.06l-6.25 6.25a.75.75 0 01-1.06 0l-6.25-6.25zm-.22 9.47a.75.75 0 000 1.5h14.5a.75.75 0 000-1.5H4.75z"/>
+                                                </g>
+                                            </svg>
+                                            <span>Add To Your Server</span>
+                                        </a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="grow min-w-0 px-6 md:px-16">
+                        <main class="relative pt-6 pb-16">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                
+                                <!-- Page content  -->
+<p><a name="readme-top"></a></p>
+<p><figure class="content-center">
+    <a href="../../../readme.md">
+        <img src="https://img.shields.io/badge/%E2%86%90_Home-345289?&amp;style=for-the-badge" alt="Home Shield" />
+    </a>
+    <figcaption class="caption">Home Shield</figcaption>
+</figure>
+</p>
+<doc-anchor-target id="using-dumbot-and-the-existing-commands" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-dumbot-and-the-existing-commands">#</doc-anchor-trigger>
+        <span>Using DumBot And The Existing Commands</span>
+    </h1>
+</doc-anchor-target>
+<p>This file assumes you have already added a version of DumBot to your discord server. In order to accomplish that if you haven&#x27;t already please reference either of these files before continuing:</p>
+<ul>
+<li><a href="../existing-instance/">Use The Existing Instance of DumBot</a></li>
+<li><a href="../your-instance/">Host &amp; Deploy Your Own Instance of DumBot</a></li>
+</ul>
+<doc-anchor-target id="table-of-contents">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#table-of-contents">#</doc-anchor-trigger>
+        <span>Table of Contents</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><doc-anchor-trigger to="#the-help-command">The Help Command</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#description-of-all-dumbot-commands">Description of All DumBot Commands</doc-anchor-trigger></li>
+</ul>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>It is possible that the first 2 or 3 times you try to call DumBot it will say &quot;<code v-pre>The application did not respond</code>&quot; like this:</p>
+<p><img src="../images/dumbot-no-response-msg.png" alt="dumbot application did not respond" /></p>
+<p>This is happening because without paying a subscription for DumBot to be up at all times he will go into sleep mode. After 2 or 3 tries this will resolve itself for about 30 minutes of use.</p>
+<p>If you would like to stop this from happening I recommend you <a href="../your-instance/">Deploy Your Own Instance of DumBot</a> and pay for his server to be up at all times. It will typically cost about $5 - $8.</p>
+</blockquote>
+<doc-anchor-target id="the-help-command">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#the-help-command">#</doc-anchor-trigger>
+        <span>The Help Command</span>
+    </h2>
+</doc-anchor-target>
+<p>Now that DumBot has been added to your server, lets test that he is working. You should see underneath DumBot that he is <code v-pre>playing /help</code>. This is your indicator to type <code v-pre>/help</code> in the chat in order to find out what he can do! It should look like the following image:</p>
+<p><figure class="content-center">
+    <img src="../images/dumbot-small-help.png" alt="/help command short" />
+    <figcaption class="caption">/help command short</figcaption>
+</figure>
+</p>
+<p>Wonderful! Now you have a list of commands and possibly a description for those commands. Every single DumBot command begins with the <code v-pre>/</code> prefix, examples are <code v-pre>/roll</code>, <code v-pre>/play</code>, and <code v-pre>/dumbot</code>.</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<doc-anchor-target id="description-of-all-dumbot-commands">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#description-of-all-dumbot-commands">#</doc-anchor-trigger>
+        <span>Description of All DumBot Commands</span>
+    </h2>
+</doc-anchor-target>
+<details>
+  <summary><strong>Table of Contents</strong></summary>
+  <ol>
+    <li>
+      <a href="#music-commands">Music Commands</a>
+      <ul>
+        <li><a href="#back">/back</a></li>
+        <li><a href="#clear">/clear</a>
+        <li><a href="#controller">/controller</a></li>
+        <li><a href="#filter">/filter</a></li>
+        <li><a href="#jump">/jump</a></li>
+        <li><a href="#loop">/loop</a></li>
+        <li><a href="#nowplaying">/nowplaying</a></li>
+        <li><a href="#pause">/pause</a></li>
+        <li><a href="#play">/play</a></li>
+        <li><a href="#playnext">/playnext</a></li>
+        <li><a href="#queue">/queue</a></li>
+        <li><a href="#remove">/remove</a></li>
+        <li><a href="#resume">/resume</a></li>
+        <li><a href="#save">/save</a></li>
+        <li><a href="#search">/search</a></li>
+        <li><a href="#seek">/seek</a></li>
+        <li><a href="#shuffle">/shuffle</a></li>
+        <li><a href="#skip">/skip</a></li>
+        <li><a href="#stop">/stop</a></li>
+        <li><a href="#volume">/volume</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#core-commands">Core Commands</a>
+      <ul>
+        <li><a href="#dumbot">/dumbot</a></li>
+        <li><a href="#help">/help</a>
+        <li><a href="#ping">/ping</a></li>
+        <li><a href="#hroll">/hroll</a></li>
+        <li><a href="#roll">/roll</a></li>
+      </ul>
+    </li>
+  </ol>
+</details>
+<hr />
+<doc-anchor-target id="music-commands">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#music-commands">#</doc-anchor-trigger>
+        <span>Music Commands</span>
+    </h3>
+</doc-anchor-target>
+<hr />
+<doc-anchor-target id="back">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#back">#</doc-anchor-trigger>
+        <span>back</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/back</code> goes to the previous song played in your instance of DumBot. If DumBot was disconnected from chat this song will be lost. Be aware it will not go to the previous songs that were in queue but literally the LAST song played. So hitting back twice will return you to the song currently being played, not the song played 2 songs ago.</p>
+<hr />
+<doc-anchor-target id="clear">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#clear">#</doc-anchor-trigger>
+        <span>clear</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/clear</code> removes all songs from the queue. Meaning no song will play next and any songs you had set up to play next will be deleted.</p>
+<hr />
+<doc-anchor-target id="controller">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#controller">#</doc-anchor-trigger>
+        <span>controller</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/controller</code> allows the user to select a <a href="https://support.discord.com/hc/en-us/articles/4412085582359-Text-Channels-Text-Chat-In-Voice-Channels">text channel</a> for a music controller to show up in. This controller allows the user to use many of the existing commands in button format. Here is an example of what the controller looks like:</p>
+<p><figure class="content-center">
+    <img src="../images/dumbot-controller.png" alt="example of the music controller showing back, queue, resume &amp; pause, now playing, skip, volume down, loop, save, and volume up" />
+    <figcaption class="caption">example of the music controller showing back, queue, resume &amp; pause, now playing, skip, volume down, loop, save, and volume up</figcaption>
+</figure>
+</p>
+<hr />
+<doc-anchor-target id="filter">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#filter">#</doc-anchor-trigger>
+        <span>filter</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/filter</code> allows the user to add an audio filter to the music being played. The options are as follows:</p>
+<p><code v-pre>bassboost_low</code> | <code v-pre>bassboost</code> | <code v-pre>bassboost_high</code> | <code v-pre>8D</code> | <code v-pre>vaporwave</code> | <code v-pre>nightcore</code> | <code v-pre>phaser</code> | <code v-pre>tremolo</code> | <code v-pre>vibrato</code> | <code v-pre>reverse</code> | <code v-pre>treble</code> | <code v-pre>normalizer2</code> | <code v-pre>normalizer</code> | <code v-pre>surrounding</code> | <code v-pre>pulsator</code> | <code v-pre>subboost</code> | <code v-pre>karaoke</code> | <code v-pre>flanger</code> | <code v-pre>gate</code> | <code v-pre>haas</code> | <code v-pre>mcompand</code> | <code v-pre>mono</code> | <code v-pre>mstlr</code> | <code v-pre>mstrr</code> | <code v-pre>compressor</code></p>
+<hr />
+<doc-anchor-target id="jump">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#jump">#</doc-anchor-trigger>
+        <span>jump</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/jump</code> allows the user to jump to a specific song in queue. It allows for 2 types of input. Either the <code v-pre>song</code> or <code v-pre>number</code> input. It&#x27;s reccomended you use <code v-pre>number</code> as it is more accuracte.</p>
+<ul>
+<li><code v-pre>number</code> allows you to type the position of the song you&#x27;d like to jump to in queue. You kind find out it&#x27;s position in queue by using the <doc-anchor-trigger to="#queue"><code v-pre>/queue</code> command</doc-anchor-trigger>.</li>
+<li><code v-pre>song</code> allows you to type in the name of the song you&#x27;d like to skip to. It must match the name you see in queue exactly or else it will not work.</li>
+</ul>
+<hr />
+<doc-anchor-target id="loop">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#loop">#</doc-anchor-trigger>
+        <span>loop</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/loop</code> allows the user to repeat songs. This has 3 itterations.</p>
+<ul>
+<li><code v-pre>Song</code> allows the user to loop the current song</li>
+<li><code v-pre>Queue</code> allows the user to loop all songs in Queue</li>
+<li><code v-pre>Disable</code> allows the user to stop the loop function</li>
+</ul>
+<hr />
+<doc-anchor-target id="nowplaying">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#nowplaying">#</doc-anchor-trigger>
+        <span>nowplaying</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/nowplaying</code> displays the currently playing song along with some extra information. It is formatted as follows:</p>
+<p><figure class="content-center">
+    <img src="../images/dumbot-nowplaying.png" alt="example of what the nowplaying command looks like" />
+    <figcaption class="caption">example of what the nowplaying command looks like</figcaption>
+</figure>
+</p>
+<hr />
+<doc-anchor-target id="pause">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#pause">#</doc-anchor-trigger>
+        <span>pause</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/pause</code> pauses the current track. It remembers at what point in the song it paused. When you type the command <code v-pre>/resume</code> it will continue from the point in time that you pressed <code v-pre>/pause</code>.</p>
+<hr />
+<doc-anchor-target id="play">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#play">#</doc-anchor-trigger>
+        <span>play</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/play</code> allows the user to play a song based on either <code v-pre>search input</code>, a <code v-pre>link</code>, or a <code v-pre>playlist link</code>. It can work from various sites so try a few different links from various music sites to see if they work.</p>
+<hr />
+<doc-anchor-target id="playnext">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#playnext">#</doc-anchor-trigger>
+        <span>playnext</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/playnext</code> works the same as <doc-anchor-trigger to="#play"><code v-pre>/play</code></doc-anchor-trigger> except it does not accept a <code v-pre>playlist link</code>. It adds the song you type in to be added to the next position in queue.</p>
+<hr />
+<doc-anchor-target id="queue">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#queue">#</doc-anchor-trigger>
+        <span>queue</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/queue</code> shows you all songs that will be played next.</p>
+<p><figure class="content-center">
+    <img src="../images/dumbot-queue.png" alt="an example of what the queue command looks like" />
+    <figcaption class="caption">an example of what the queue command looks like</figcaption>
+</figure>
+</p>
+<hr />
+<doc-anchor-target id="remove">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#remove">#</doc-anchor-trigger>
+        <span>remove</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/remove</code> allows the user to remove a song from queue. You can either type the <code v-pre>number</code> of the song in queue or the <code v-pre>name</code> of the song. It&#x27;s recommended to type the <code v-pre>number</code> as it is more accurate. To find out the <code v-pre>number</code> in queue simply type <doc-anchor-trigger to="#queue">/queue</doc-anchor-trigger></p>
+<hr />
+<doc-anchor-target id="resume">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#resume">#</doc-anchor-trigger>
+        <span>resume</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/resume</code> works hand in hand with the <doc-anchor-trigger to="#pause">/pause</doc-anchor-trigger> command. If the song has been paused, then using the resume command begins the song at the point at which the song was stopped.</p>
+<hr />
+<doc-anchor-target id="save">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#save">#</doc-anchor-trigger>
+        <span>save</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/save</code> sends a direct message to the user that used the save command. That message contains information about the currently playing song for the user to reference later.</p>
+<hr />
+<doc-anchor-target id="search">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#search">#</doc-anchor-trigger>
+        <span>search</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/search</code> allows the user to type a description of the song theyd wish to play such as an artist or the song title. DumBot will respond with 10 options for you to choose from. Answer relatively quickly as DumBot will time out.</p>
+<p>Type your song choice in chat without any commands and the song will be added to queue.</p>
+<p><figure class="content-center">
+    <img src="../images/dumbot-search.png" alt="example of dumbot search command" />
+    <figcaption class="caption">example of dumbot search command</figcaption>
+</figure>
+</p>
+<hr />
+<doc-anchor-target id="seek">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#seek">#</doc-anchor-trigger>
+        <span>seek</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/seek</code> moves the user to a specific time in the song. This is calculated in milliseconds.</p>
+<p>So if the user types <code v-pre>/seek 1000</code> that would place the song at 1 second. If the user types <code v-pre>/seek 10000</code> that would place the song at 10 seconds.</p>
+<hr />
+<doc-anchor-target id="shuffle">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#shuffle">#</doc-anchor-trigger>
+        <span>shuffle</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/shuffle</code> will randomize the current queue of songs. To see how the songs have been shuffled simply type <code v-pre>/queue</code></p>
+<hr />
+<doc-anchor-target id="skip">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#skip">#</doc-anchor-trigger>
+        <span>skip</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/skip</code> will end the current song and begin the next song in queue.</p>
+<hr />
+<doc-anchor-target id="stop">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#stop">#</doc-anchor-trigger>
+        <span>stop</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/stop</code> will end the current song, clear the queue, and disconnect DumBot from voice.</p>
+<hr />
+<doc-anchor-target id="volume">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#volume">#</doc-anchor-trigger>
+        <span>volume</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/volume</code> allows the user to set the volume. DumBot will typically play at 75% volume. You can change DumBot&#x27;s volume from anywhere between 1-100%.</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<hr />
+<doc-anchor-target id="core-commands">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#core-commands">#</doc-anchor-trigger>
+        <span>Core Commands</span>
+    </h3>
+</doc-anchor-target>
+<hr />
+<doc-anchor-target id="dumbot">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#dumbot">#</doc-anchor-trigger>
+        <span>dumbot</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/dumbot</code> displays a simple message when called. He essentially says <code v-pre>Hello I am DumBot. I am very dumb</code>. It will then edit that message 4 times with new information before finally stopping on the original message.</p>
+<p>DumBot began as a simple project where I wanted to see if I could add a bot to a server and have it respond with the most simple command possible. It has since turned into a new beast to where DumBot isn&#x27;t so dumb anymore!</p>
+<hr />
+<doc-anchor-target id="help">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#help">#</doc-anchor-trigger>
+        <span>help</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/help</code> displays a hidden message that shows all possible commands in a list. It also links back to this repo and this page for full descriptions of what each command does.</p>
+<hr />
+<doc-anchor-target id="ping">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ping">#</doc-anchor-trigger>
+        <span>ping</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/ping</code> displays the <a href="https://www.cloudflare.com/learning/performance/glossary/what-is-latency/">latency</a>, or ping, of DumBot and his responses.</p>
+<hr />
+<doc-anchor-target id="hroll">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#hroll">#</doc-anchor-trigger>
+        <span>hroll</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/hroll</code> is the exact same as <doc-anchor-trigger to="#roll">/roll</doc-anchor-trigger> but it is a hidden message. This means that only the user who used the command can see the outcome. Perfect for a Dungeon Master or someone who is running a game.</p>
+<hr />
+<doc-anchor-target id="roll">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#roll">#</doc-anchor-trigger>
+        <span>roll</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>/roll</code> allows the user to input a string of numbers and dice in order to randomly calculate a total.</p>
+<p>The bot will then display the users <code v-pre>Input</code>, the <code v-pre>Result</code> of each dice rolled, the <code v-pre>Total</code> of all dice and numbers using relevant math, and the <code v-pre>Crit Total</code> which displays the value of all dice rolled times 2 plus all relevant math.</p>
+<p>Valid inputs are as follows:</p>
+<ul>
+<li>No input rolls a 20 sided die</li>
+<li>1d20 or some variation. The number before the <code v-pre>d</code> determines how many dice are to be rolled. The number after the <code v-pre>d</code> determines how many sides the dice would have. Ex. 5d10 would roll 5 dice of 10 sides. So therefore 1d20 rolls 1 die of 20 sides</li>
+<li>Math such as <code v-pre>+</code>, <code v-pre>-</code>, <code v-pre>*</code>, or <code v-pre>/</code>. The star <code v-pre>*</code> represents multiplication.</li>
+<li>Integer such as any whole number (Ex. <code v-pre>5</code>)</li>
+</ul>
+<p>Here a few example inputs:</p>
+<ul>
+<li><code v-pre>/roll</code></li>
+<li><code v-pre>/roll 1d20 + 1</code></li>
+<li><code v-pre>/roll 5 - d6   +4D10*2d2</code></li>
+</ul>
+<p>This is what the output should look like:</p>
+<p><figure class="content-center">
+    <img src="../images/dumbot-dice-roll.png" alt="example output for rolling 2d6 + 5 + 1d4" />
+    <figcaption class="caption">example output for rolling 2d6 + 5 + 1d4</figcaption>
+</figure>
+</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p><figure class="content-center">
+    <a href="../../../readme.md">
+        <img src="https://img.shields.io/badge/%E2%86%90_Home-345289?&amp;style=for-the-badge" alt="Home Shield" />
+    </a>
+    <figcaption class="caption">Home Shield</figcaption>
+</figure>
+</p>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results />
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../documentation/your-instance/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Host & Deploy Your Own Instance of Dum​Bot</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../project-info/acknowledgments/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Acknowledgments</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright Mateo Wallace 2023. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script>window.__DOCS__ = { "title": "Using DumBot And The Existing Commands", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+</body>
+</html>
