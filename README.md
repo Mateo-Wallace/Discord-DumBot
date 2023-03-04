@@ -92,6 +92,8 @@ This README will run you through how to download, edit, deploy, and use this cod
 
 Visit the [DumDocs](https://mateo-wallace.github.io/MP2-Discord-DumBot-V2/) for in depth descriptions on commands, how to add to your server, hosting your version of DumBot, etc.
 
+If you don't want customization and just want to add DumBot to your server use this [invite link](https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot).
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
