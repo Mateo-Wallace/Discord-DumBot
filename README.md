@@ -13,7 +13,7 @@
 
 <br />
 <div align="center">
-<img src="./src/assets/images/dumbot-face-circle.png" alt="Walrus Logo" width="80" height="80">
+<img src="./src/img/dumbot-face-circle.png" alt="Walrus Logo" width="80" height="80">
 
   <h3 align="center"><strong>Discord DumBot</strong></h3>
 
@@ -56,7 +56,7 @@
 
 <div align="center">
   <br />
-  <img src="./src/assets/images/dumbot-full-use-example.gif" alt="Example of Working Discord App">
+  <img src="./src/img/dumbot-full-use-example.gif" alt="Example of Working Discord App">
   <br />
   <br />
 </div>
