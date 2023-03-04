@@ -3,7 +3,7 @@ icon: download
 order: 97
 ---
 
-# Add DumBot To Your Server
+# :icon-download: Add DumBot To Your Server
 
 The existing instance of DumBot does not allow for any customization as all of that is housed within the code. DumBot out of the box comes with all dice rolling and music playing commands. He does not recognize DJ rolls for ease of use.
 

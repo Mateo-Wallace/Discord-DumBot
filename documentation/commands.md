@@ -3,7 +3,7 @@ icon: code-review
 order: 95
 ---
 
-# Commands
+# :icon-code-review: Commands
 
 This file assumes you have already added a version of DumBot to your discord server. In order to accomplish that if you haven't already please reference either of these files before continuing:
 

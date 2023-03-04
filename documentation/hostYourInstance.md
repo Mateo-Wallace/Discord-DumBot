@@ -3,7 +3,7 @@ icon: server
 order: 96
 ---
 
-# Hosting Your Instance of DumBot
+# :icon-server: Hosting Your Instance of DumBot
 
 This document will set you up to have your own version of DumBot that you can fully customize the code of. This documentation will go super in depth so even if you have no coding knowledge you should be able to figure it out. Feel free to open a [discussion](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/discussions) if you are having problems.
 
