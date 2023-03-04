@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/MP2-Discord-DumBot-V2">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.731205992504">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.731211779555">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -33,11 +33,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/MP2-Discord-DumBot-V2/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.731205992504" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.731211779555" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.731205992504" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.731211779555" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.731205992504" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.731211779555" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -315,6 +315,7 @@
     <figcaption class="caption">example of the music controller showing back, queue, resume &amp; pause, now playing, skip, volume down, loop, save, and volume up</figcaption>
 </figure>
 </p>
+<p>In order to use <code v-pre>/controller</code> the user must have the <code v-pre>Manage Messages</code> permission.</p>
 <hr />
 <doc-anchor-target id="filter">
     <h3>
@@ -449,8 +450,7 @@
         <span>seek</span>
     </h3>
 </doc-anchor-target>
-<p><code v-pre>/seek</code> moves the user to a specific time in the song. This is calculated in milliseconds.</p>
-<p>So if the user types <code v-pre>/seek 1000</code> that would place the song at 1 second. If the user types <code v-pre>/seek 10000</code> that would place the song at 10 seconds.</p>
+<p><code v-pre>/seek</code> moves the user to a specific time in the song. A few example inputs are <code v-pre>5s, 10s, 20 seconds, 1m</code></p>
 <hr />
 <doc-anchor-target id="shuffle">
     <h3>
