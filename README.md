@@ -4,7 +4,7 @@ label: Welcome
 icon: home
 ---
 
-# Welcome to the DumDocs
+# :icon-home: Welcome to the DumDocs
 
 <!-- SHIELDS -->
 

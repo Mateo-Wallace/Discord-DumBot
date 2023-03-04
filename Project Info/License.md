@@ -1,3 +1,8 @@
-# License
+---
+icon: law
+order: 91
+---
 
-Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
+# :icon-law: License
+
+Distributed under the MIT License. See [LICENSE](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/blob/main/LICENSE) for more information.
