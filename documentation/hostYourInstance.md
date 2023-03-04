@@ -1,26 +1,17 @@
-<a name="readme-top"></a>
+---
+icon: server
+order: 96
+---
 
-[![Home Shield](https://img.shields.io/badge/%E2%86%90_Home-345289?&style=for-the-badge)](../../../README.md)
-
-# Host & Deploy Your Own Instance of DumBot
+# Hosting Your Instance of DumBot
 
 This document will set you up to have your own version of DumBot that you can fully customize the code of. This documentation will go super in depth so even if you have no coding knowledge you should be able to figure it out. Feel free to open a [discussion](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/discussions) if you are having problems.
 
-> **Note**
+> :icon-info: **Note**
 >
 > Be aware before going through this process my solution to deploying is hosting on [Heroku](https://www.heroku.com/pricing) which is a **PAID** service. I researched into free solutions like [Glitch](https://glitch.com/pricing) but was unable to make it work. Heroku costs $5 for the lowest tier plan. That plan will put DumBot into sleep mode after 30 minutes. For $7 you can bump up your plan and have DumBot running at all times.
 >
 > If you find a way to run DumBot for free, even if it goes into sleep mode, that information would be amazing! Feel free to message me or open a discussion and I will add you as a contributor to the project.
-
-### Table Of Contents
-
-- [Setting Up A Discord Bot](#setting-up-a-discord-bot)
-- [Forking The Repo](#forking-the-repo)
-- [Customizing The Code](#customizing-the-code)
-  - [The Bare Minimum Requirements](#the-bare-minimum-requirements)
-  - [Playing With The Config File](#playing-with-the-config-file)
-  - [Advanced Development (New Commands) IN DEVELOPMENT](#advanced-development-new-commands)
-- [Deploy Through Heroku](#deploy-through-heroku)
 
 ## Setting Up A Discord Bot
 
@@ -78,8 +69,6 @@ Setting up a Discord Bot is extremely well detailed through the [Official Discor
 
    Congratulations! You've just added a bot to your server. No code is connected to your bot yet so it wont do anything but the first step is now complete. Time to add some code.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Forking The Repo
 
 Forking the Repo. If you don't know what that means essentially its copying my code to make your own editable version. For more information on this see the [GitHub Docs](https://docs.github.com/en/get-started/quickstart/fork-a-repo). To do this you will need to have a GitHub account.
@@ -96,8 +85,6 @@ Forking the Repo. If you don't know what that means essentially its copying my c
 
 Congratulations! You have successfully copied your own version of the code. Time to customize it to your liking.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Customizing The Code
 
 Now that you have forked the repo you will be presented with your instance of the code. In order to customize your bot we need to open `config.js`. The below image shows you where that can be located from the home screen:
@@ -109,8 +96,6 @@ Once you have clicked on config.js you will be presented with a large screen of 
 ![config file with a pen image circled](../images/github-config-click-edit.png)
 
 Perfect! Now you are editing the file. This section will now break up into variations of what to do.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### The Bare Minimum Requirements
 
@@ -125,8 +110,6 @@ Now scroll all the way down to the bottom of the file and select `Commit changes
 ![config file showing the commit changes button](../images/github-config-commit-changes.png)
 
 That all that we need to do as far as editing files on GitHub. Good job!
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Playing With The Config File
 
@@ -146,15 +129,11 @@ The config file is split into different sections, they are `app`, `opt`, `text`,
 
 There are various comments within the code to help guide you as well. If you are having trouble feel free to either message me or open a new [discussion](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/discussions).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Advanced Development (New Commands)
 
 IN DEVELOPMENT
 
 CHANGE ENV.SAMPLE TO ENV AND ADD TOKEN VARIABLE AND GUILD VARIABLE, SUGGEST VS CODE, SUGGEST MAKING A DISCORD SERVER FOR PLAYING WITH THE BOT, MAKE THEM INSTALL NODE, POINT TO COMMANDS/CUSTOM AND EVENTS FOLDERS
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Deploy Through Heroku
 
@@ -185,7 +164,3 @@ Now go back to the `Deploy` tab at the top of the dashboard and scroll all the w
 ![working example bot](../images/functioning-dumbot-example.png)
 
 Congratulations! Have fun creating and don't forget to Star the repo!
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-[![Home Shield](https://img.shields.io/badge/%E2%86%90_Home-345289?&style=for-the-badge)](../../../README.md)

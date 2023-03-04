@@ -27,3 +27,10 @@ links:
     target: blank
 footer:
   copyright: "&copy; Copyright Mateo Wallace {{ year }}. All rights reserved."
+
+# -----------------------------------------------------------------------------
+
+meta:
+  title: " | Discord DumBot Docs" # Appended to the <title> element on all pages.
+
+# -----------------------------------------------------------------------------
