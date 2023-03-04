@@ -49,10 +49,7 @@ module.exports = {
         `Current ${queue.current.title}\n\n${tracks
           .slice(0, 5)
           .join("\n")}\n\n${nextSongs}`
-      )
-      .setFooter({
-        text: "Music code by ZerioDev/Music-bot"
-      });
+      );
 
     inter.reply({ embeds: [embed] });
   },

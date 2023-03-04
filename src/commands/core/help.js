@@ -38,8 +38,7 @@ module.exports = {
                   .join(" \n "),
               },
             ]
-      )
-      .setFooter({ text: "Music code by ZerioDev/Music-bot" });
+      );
 
     inter.reply({ embeds: [embed], ephemeral: true });
   },

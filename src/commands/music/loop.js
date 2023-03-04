@@ -20,7 +20,7 @@ module.exports = {
   ],
   musicCommand: true,
   enabled: client.config.enabledCommands.loop,
-  
+
   execute({ inter }) {
     const queue = player.getQueue(inter.guildId);
 
