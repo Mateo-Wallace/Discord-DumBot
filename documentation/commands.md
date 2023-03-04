@@ -36,6 +36,8 @@ Rather than scrolling through this page searching for a specific command I recco
 
 ![example of the music controller showing back, queue, resume & pause, now playing, skip, volume down, loop, save, and volume up](../images/dumbot-controller.png)
 
+In order to use `/controller` the user must have the `Manage Messages` permission.
+
 ---
 
 ### filter
@@ -131,9 +133,7 @@ Type your song choice in chat without any commands and the song will be added to
 
 ### seek
 
-`/seek` moves the user to a specific time in the song. This is calculated in milliseconds. 
-
-So if the user types `/seek 1000` that would place the song at 1 second. If the user types `/seek 10000` that would place the song at 10 seconds.
+`/seek` moves the user to a specific time in the song. A few example inputs are `5s, 10s, 20 seconds, 1m`
 
 ---
 
