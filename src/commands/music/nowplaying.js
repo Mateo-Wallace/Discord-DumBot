@@ -38,14 +38,11 @@ module.exports = {
           queue.volume
         }**%\nDuration **${trackDuration}**\nProgress ${progress}\nLoop mode **${
           methods[queue.repeatMode]
-        }**\nRequested by ${track.requestedBy}`
+        }**\nSong URL: \`${queue.current.url}\`\nRequested by ${
+          track.requestedBy
+        }`
       )
-      .setFooter({
-        text: "Music comes first - Made with heart by Zerio ❤️",
-        iconURL: inter.member.avatarURL({ dynamic: true }),
-      })
-      .setColor("ff0000")
-      .setTimestamp();
+      .setColor("ff0000");
 
     const saveButton = new ButtonBuilder()
       .setLabel("Save this track")

@@ -30,12 +30,7 @@ module.exports = async ({ client, inter, queue }) => {
         methods[queue.repeatMode]
       }**\nRequested by ${track.requestedBy}`
     )
-    .setFooter({
-      text: "Music comes first - Made with heart by Zerio ❤️",
-      iconURL: inter.member.avatarURL({ dynamic: true }),
-    })
-    .setColor("ff0000")
-    .setTimestamp();
+    .setColor("ff0000");
 
   inter.reply({ embeds: [embed], ephemeral: true });
 };

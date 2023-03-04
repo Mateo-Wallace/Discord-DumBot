@@ -48,10 +48,7 @@ module.exports = {
           .join("\n")}\n\nSelect choice between **1** and **${
           maxTracks.length
         }** or **cancel** ⬇️`
-      )
-      .setFooter({
-        text: "Music code by ZerioDev/Music-bot"
-      });
+      );
 
     inter.reply({ embeds: [embed] });
 

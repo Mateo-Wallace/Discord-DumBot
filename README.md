@@ -13,7 +13,7 @@
 
 <br />
 <div align="center">
-<img src="./src/assets/images/dumbot-face-circle.png" alt="Walrus Logo" width="80" height="80">
+<img src="./src/img/dumbot-face-circle.png" alt="Walrus Logo" width="80" height="80">
 
   <h3 align="center"><strong>Discord DumBot</strong></h3>
 
@@ -23,7 +23,7 @@
     Pre loaded with dice rolling and music functionality
     <br />
     <br />
-    <a href="#documentation">View DumDocs</a>
+    <a href="https://mateo-wallace.github.io/MP2-Discord-DumBot-V2/">View DumDocs</a>
     ·
     <a href="https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues">Report Bug</a>
     ·
@@ -42,14 +42,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#documentation">Documentation</a>
-      <ul>
-        <li><a href="./src/assets/documentation/Existing-Instance.md">Use The Existing Instance of DumBot</a></li>
-        <li><a href="./src/assets/documentation/Usage.md">Using DumBot And The Existing Commands</a></li>
-        <li><a href="./src/assets/documentation/Your-Instance.md">Host & Deploy Your Own Instance of DumBot</a>
-      </ul>
-    </li>
+    <li><a href="#documentation">Documentation</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -63,7 +56,7 @@
 
 <div align="center">
   <br />
-  <img src="./src/assets/images/dumbot-full-use-example.gif" alt="Example of Working Discord App">
+  <img src="./src/img/dumbot-full-use-example.gif" alt="Example of Working Discord App">
   <br />
   <br />
 </div>
@@ -97,11 +90,9 @@ This README will run you through how to download, edit, deploy, and use this cod
 
 ## Documentation
 
-The below documentation detail how to use all versions of the bot and how to get it up and running. Please select the docs that best fit your use case.
+Visit the [DumDocs](https://mateo-wallace.github.io/MP2-Discord-DumBot-V2/) for in depth descriptions on commands, how to add to your server, hosting your version of DumBot, etc.
 
-- [Use The Existing Instance of DumBot](./src/assets/documentation/Existing-Instance.md)
-- [Using DumBot And The Existing Commands](./src/assets/documentation/Usage.md)
-- [Host & Deploy Your Own Instance of DumBot](./src/assets/documentation/Your-Instance.md)
+If you don't want customization and just want to add DumBot to your server use this [invite link](https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -149,7 +140,7 @@ Project Link: [MP2-Discord-DumBot-V2](https://github.com/Mateo-Wallace/MP2-Disco
 I am appreciative for the source code, ideas, and inspiration that all of these repos and creators have provided to this project. If you see anything within my code that you recognize as yours and don't see yourself listed here please feel free to open an issue and I will add you!
 
 - [ZerioDev - Music-bot](https://github.com/ZerioDev/Music-bot)
-- [mngyuan - rollbot](https://github.com/mngyuan/rollbot)
+- [retypeapp - retype](https://github.com/retypeapp/retype)
 - [othneildrew - Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
