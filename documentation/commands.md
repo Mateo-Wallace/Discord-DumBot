@@ -83,6 +83,8 @@ Rather than scrolling through this page searching for a specific command I recco
 
 `/play` allows the user to play a song based on either `search input`, a `link`, or a `playlist link`. It can work from various sites so try a few different links from various music sites to see if they work.
 
+![player shows up in chat once /play has been initiated](../images/dumbot-player.png)
+
 ---
 
 ### playnext
