@@ -30,7 +30,8 @@ module.exports = async ({ inter, queue }) => {
               value: `\`${Number(queue.current.views).toLocaleString()}\``,
               inline: true,
             },
-            { name: "Song URL:", value: `\`${queue.current.url}\`` }
+            { name: "Song URL:", value: `\`${queue.current.url}\`` },
+            { name: "Progress ", value: `${queue.createProgressBar()}` }
           )
           .setThumbnail(queue.current.thumbnail)
           .setFooter({
