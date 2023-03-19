@@ -29,12 +29,11 @@
     "node": "16.x"
   },
   "dependencies": {
-    "@mateo-wallace/rpg-dice-js": "^1.0.2",
+    "@mateo-wallace/rpg-dice-js": "^1.0.3",
     "discord-player": "^5.4.0",
     "discord.js": "^14.1.2",
     "dotenv": "^16.0.3",
     "ffmpeg-static": "^5.0.2",
-    "mathjs": "^11.5.1",
     "ms": "^3.0.0-canary.1",
     "opusscript": "^0.0.8"
   }
