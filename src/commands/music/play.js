@@ -1,5 +1,7 @@
 const { QueryType } = require("discord-player");
 const { ApplicationCommandOptionType } = require("discord.js");
+const playdl = require("play-dl");
+
 module.exports = {
   name: "play",
   description: "play a song!",
@@ -18,6 +20,12 @@ module.exports = {
   async execute({ inter }) {
     await inter.deferReply();
     const song = inter.options.getString("song");
+    if (song.includes("spotify"))
+      return inter.editReply({
+        content: `Spotify not supported ❌`,
+        ephemeral: true,
+      });
+
     const res = await player.search(song, {
       requestedBy: inter.member,
       searchEngine: QueryType.AUTO,
@@ -34,6 +42,17 @@ module.exports = {
       spotifyBridge: client.config.opt.spotifyBridge,
       initialVolume: client.config.opt.defaultvolume,
       leaveOnEnd: client.config.opt.leaveOnEnd,
+
+      async onBeforeCreateStream(track, source, _queue) {
+        // only trap youtube source
+        if (source === "youtube") {
+          // track here would be youtube track
+          return (
+            await playdl.stream(track.url, { discordPlayerCompatibility: true })
+          ).stream;
+          // we must return readable stream or void (returning void means telling discord-player to look for default extractor)
+        }
+      },
     });
 
     try {

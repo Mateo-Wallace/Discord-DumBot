@@ -35,6 +35,8 @@
     "dotenv": "^16.0.3",
     "ffmpeg-static": "^5.0.2",
     "ms": "^3.0.0-canary.1",
-    "opusscript": "^0.0.8"
+    "opusscript": "^0.0.8",
+    "play-dl": "^1.9.6",
+    "ytdl-core": "^4.11.3"
   }
 }
