@@ -32,7 +32,19 @@ module.exports = {
 
     const queue = await player.createQueue(inter.guild, {
       metadata: inter.channel,
+      initialVolume: client.config.opt.defaultvolume,
       leaveOnEnd: client.config.opt.leaveOnEnd,
+
+      async onBeforeCreateStream(track, source, _queue) {
+        // only trap youtube source
+        if (source === "youtube") {
+          // track here would be youtube track
+          return (
+            await playdl.stream(track.url, { discordPlayerCompatibility: true })
+          ).stream;
+          // we must return readable stream or void (returning void means telling discord-player to look for default extractor)
+        }
+      },
     });
     const maxTracks = res.tracks.slice(0, 10);
 
