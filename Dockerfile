@@ -1,3 +1,7 @@
+# Docker Initialization instructions can be found in the 
+# discussion found at 
+# https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/discussions/20
+
 FROM node:16-alpine AS BUILD
 WORKDIR /build
 COPY . /build
