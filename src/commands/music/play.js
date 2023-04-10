@@ -20,6 +20,8 @@ module.exports = {
   async execute({ inter }) {
     await inter.deferReply();
     const song = inter.options.getString("song");
+
+    // verifies song is not a spotify link
     if (song.includes("spotify"))
       return inter.editReply({
         content: `Spotify not supported ❌`,
