@@ -10,3 +10,8 @@ I am appreciative for the source code, ideas, and inspiration that all of these 
 - [ZerioDev - Music-bot](https://github.com/ZerioDev/Music-bot)
 - [retypeapp - retype](https://github.com/retypeapp/retype)
 - [othneildrew - Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+
+## Contributors
+
+- [Mateo Wallace](https://github.com/Mateo-Wallace)
+- [DudeShift](https://github.com/DudeShift)
