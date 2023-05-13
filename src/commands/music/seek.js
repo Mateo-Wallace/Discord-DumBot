@@ -28,20 +28,27 @@ module.exports = {
         ephemeral: true,
       });
 
-    const timeToMS = ms(inter.options.getString("time"));
+    try {
+      const timeToMS = ms(inter.options.getString("time"));
 
-    if (timeToMS >= queue.current.durationMS)
-      return inter.reply({
-        content: `The indicated time is higher than the total time of the current song ${inter.member}... try again ? ❌\n*Try for example a valid time like **5s, 10s, 20 seconds, 1m**...*`,
+      if (timeToMS >= queue.current.durationMS)
+        return inter.reply({
+          content: `The indicated time is higher than the total time of the current song ${inter.member}... try again ? ❌\n*Try for example a valid time like **5s, 10s, 20 seconds, 1m**...*`,
+          ephemeral: true,
+        });
+
+      await queue.seek(timeToMS);
+
+      inter.reply({
+        content: `Time set on the current song **${ms(timeToMS, {
+          long: true,
+        })}** ✅`,
+      });
+    } catch {
+      inter.reply({
+        content: `Something went wrong. Try again.`,
         ephemeral: true,
       });
-
-    await queue.seek(timeToMS);
-
-    inter.reply({
-      content: `Time set on the current song **${ms(timeToMS, {
-        long: true,
-      })}** ✅`,
-    });
+    }
   },
 };
