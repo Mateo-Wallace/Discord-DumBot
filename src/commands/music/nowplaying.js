@@ -1,14 +1,15 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require("discord.js");
+const { GuildQueuePlayerNode } = require("discord-player");
 
 module.exports = {
   name: "nowplaying",
-  description: "veiw what is playing!",
+  description: "view what is playing!",
   voiceChannel: true,
   musicCommand: true,
   enabled: client.config.enabledCommands.nowplaying,
 
   execute({ inter }) {
-    const queue = player.getQueue(inter.guildId);
+    const queue = player.nodes.get(inter.guildId);
 
     if (!queue)
       return inter.reply({
@@ -16,16 +17,24 @@ module.exports = {
         ephemeral: true,
       });
 
-    const track = queue.current;
+    const track = queue.currentTrack;
+    
+    if (!track)
+      return inter.reply({
+        content: `No music currently playing ${inter.member}... try again ? ❌`,
+        ephemeral: true,
+      });
 
     const methods = ["disabled", "track", "queue"];
 
-    const timestamp = queue.getPlayerTimestamp();
+    const GuildQueue = new GuildQueuePlayerNode(queue);
+
+    const timestamp = GuildQueue.getTimestamp();
 
     const trackDuration =
       timestamp.progress == "Infinity" ? "infinity (live)" : track.duration;
 
-    const progress = queue.createProgressBar();
+    const progress = GuildQueue.createProgressBar();
 
     const embed = new EmbedBuilder()
       .setAuthor({
@@ -38,9 +47,7 @@ module.exports = {
           queue.volume
         }**%\nDuration **${trackDuration}**\nProgress ${progress}\nLoop mode **${
           methods[queue.repeatMode]
-        }**\nSong URL: \`${queue.current.url}\`\nRequested by ${
-          track.requestedBy
-        }`
+        }**\nSong URL: \`${track.url}\`\nRequested by ${track.requestedBy}`
       )
       .setColor("ff0000");
 

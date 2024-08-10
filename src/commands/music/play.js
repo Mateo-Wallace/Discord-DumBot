@@ -1,4 +1,4 @@
-const { QueryType } = require("discord-player");
+const { QueryType, useMainPlayer } = require("discord-player");
 const { ApplicationCommandOptionType } = require("discord.js");
 
 module.exports = {
@@ -18,46 +18,50 @@ module.exports = {
 
   async execute({ inter }) {
     await inter.deferReply();
-    const song = inter.options.getString("song");
+    const query = inter.options.getString("song");
+    const channel = inter.member?.voice?.channel;
+    const player = useMainPlayer();
 
-    const res = await player.search(song, {
-      requestedBy: inter.member,
-      searchEngine: QueryType.AUTO,
+    let searchEngine = inter.options.getString("source", false);
+    const urlRegex =
+      /^(https?):\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/\S*)?$/;
+    if (!searchEngine || urlRegex.test(query)) searchEngine = QueryType.AUTO;
+
+    const result = await player.search(query, {
+      searchEngine,
+      requestedBy: inter.user,
     });
 
-    if (!res || !res.tracks.length)
+    if (!result.hasTracks()) {
       return inter.editReply({
-        content: `No results found ${inter.member}... try again ? ❌`,
-        ephemeral: true,
-      });
-
-    const queue = await player.createQueue(inter.guild, {
-      metadata: inter.channel,
-      spotifyBridge: client.config.opt.spotifyBridge,
-      initialVolume: client.config.opt.defaultvolume,
-      leaveOnEnd: client.config.opt.leaveOnEnd,
-    });
-
-    try {
-      if (!queue.connection) await queue.connect(inter.member.voice.channel);
-    } catch {
-      await player.deleteQueue(inter.guildId);
-      return inter.editReply({
-        content: `I can't join the voice channel ${inter.member}... try again ? ❌`,
-        ephemeral: true,
+        content: `No results found`,
       });
     }
 
-    await inter.editReply({
-      content: `Loading your ${res.playlist ? "playlist" : "track"}... 🎧`,
-    });
+    try {
+      const { queue, track, searchResult } = await player.play(
+        channel,
+        result,
+        {
+          nodeOptions: {
+            metadata: { channel: inter.channel },
+            spotifyBridge: client.config.opt.spotifyBridge,
+            initialVolume: client.config.opt.defaultvolume,
+            leaveOnEnd: client.config.opt.leaveOnEnd,
+          },
+          requestedBy: inter.user,
+          connectionOptions: { deaf: true },
+        }
+      );
 
-    res.playlist ? queue.addTracks(res.tracks) : queue.addTrack(res.tracks[0]);
-
-    if (!queue.playing) await queue.play();
-    if (!res.playlist)
-      await inter.editReply({
-        content: `Track ${res.tracks[0].title} added in the queue ✅`,
+      return inter.editReply({
+        content: "Added",
       });
+    } catch (e) {
+      console.error(e);
+      return inter.editReply({
+        content: "error",
+      });
+    }
   },
 };
