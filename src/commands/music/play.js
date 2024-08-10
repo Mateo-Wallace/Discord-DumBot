@@ -12,12 +12,37 @@ module.exports = {
       type: ApplicationCommandOptionType.String,
       required: true,
     },
+    {
+      name: "source",
+      description: "The search engine you want to use.",
+      type: ApplicationCommandOptionType.String,
+      required: false,
+      choices: [
+        {
+          name: "YouTube",
+          value: QueryType.YOUTUBE_SEARCH,
+        },
+        {
+          name: "SoundCloud",
+          value: QueryType.SOUNDCLOUD_SEARCH,
+        },
+        {
+          name: "Spotify",
+          value: QueryType.SPOTIFY_SEARCH,
+        },
+        {
+          name: "Apple Music",
+          value: QueryType.APPLE_MUSIC_SEARCH,
+        },
+      ],
+    },
   ],
   musicCommand: true,
   enabled: client.config.enabledCommands.play,
 
   async execute({ inter }) {
     await inter.deferReply();
+    
     const query = inter.options.getString("song");
     const channel = inter.member?.voice?.channel;
     const player = useMainPlayer();
@@ -45,8 +70,7 @@ module.exports = {
         {
           nodeOptions: {
             metadata: { channel: inter.channel },
-            spotifyBridge: client.config.opt.spotifyBridge,
-            initialVolume: client.config.opt.defaultvolume,
+            volume: client.config.opt.defaultvolume,
             leaveOnEnd: client.config.opt.leaveOnEnd,
           },
           requestedBy: inter.user,

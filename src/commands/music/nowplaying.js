@@ -18,38 +18,39 @@ module.exports = {
       });
 
     const track = queue.currentTrack;
-    
-    if (!track)
-      return inter.reply({
-        content: `No music currently playing ${inter.member}... try again ? ❌`,
-        ephemeral: true,
-      });
 
     const methods = ["disabled", "track", "queue"];
 
     const GuildQueue = new GuildQueuePlayerNode(queue);
 
     const timestamp = GuildQueue.getTimestamp();
-
     const trackDuration =
       timestamp.progress == "Infinity" ? "infinity (live)" : track.duration;
 
-    const progress = GuildQueue.createProgressBar();
-
     const embed = new EmbedBuilder()
-      .setAuthor({
-        name: track.title,
-        iconURL: client.user.displayAvatarURL({ size: 1024, dynamic: true }),
-      })
+      .setTitle(`:arrow_forward: ${track.title}`)
+      .setURL(track.url)
       .setThumbnail(track.thumbnail)
-      .setDescription(
-        `Volume **${
-          queue.volume
-        }**%\nDuration **${trackDuration}**\nProgress ${progress}\nLoop mode **${
-          methods[queue.repeatMode]
-        }**\nSong URL: \`${track.url}\`\nRequested by ${track.requestedBy}`
+      .addFields(
+        {
+          name: ":speaker: Volume",
+          value: `\`${queue.options.volume}\``,
+          inline: true,
+        },
+        {
+          name: ":hourglass: Duration:",
+          value: `\`${trackDuration}\``,
+          inline: true,
+        },
+        {
+          name: ":infinity: Loop mode:",
+          value: `\`${methods[queue.repeatMode]}\``,
+          inline: true,
+        },
+        { name: "Progress ", value: `${GuildQueue.createProgressBar()}` },
+        { name: "Requested by ", value: `${track.requestedBy}` }
       )
-      .setColor("ff0000");
+      .setColor("Red");
 
     const saveButton = new ButtonBuilder()
       .setLabel("Save this track")
