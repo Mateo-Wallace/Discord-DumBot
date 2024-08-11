@@ -5,9 +5,7 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.skip,
 
-  execute({ inter }) {
-    const queue = player.nodes.get(inter.guildId);
-
+  execute({ inter, queue }) {
     if (queue.isEmpty())
       return inter.reply({
         content: `No next song to skip ${inter.member}... try again ? ❌`,

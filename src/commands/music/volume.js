@@ -33,8 +33,7 @@ module.exports = {
         content: `The volume you want to change is already the current one ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
-console.log(vol)
-console.log(typeof vol)
+
     const success = queue.node.setVolume(vol);
 
     return inter.reply({

@@ -5,9 +5,7 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.stop,
 
-  execute({ inter }) {
-    const queue = player.nodes.get(inter.guildId);
-
+  execute({ inter, queue }) {
     try {
       queue.delete();
 

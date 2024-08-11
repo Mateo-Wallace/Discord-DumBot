@@ -1,39 +1,68 @@
 const { ApplicationCommandOptionType } = require("discord.js");
-const { QueryType } = require("discord-player");
+const { QueryType, useMainPlayer } = require("discord-player");
 
 module.exports = {
   name: "playnext",
-  description: "song you want to playnext",
+  description: "song you want to play next",
   voiceChannel: true,
   options: [
     {
       name: "song",
-      description: "the song you want to playnext",
+      description: "the song you want to play next",
       type: ApplicationCommandOptionType.String,
       required: true,
+    },
+    {
+      name: "source",
+      description: "The search engine you want to use.",
+      type: ApplicationCommandOptionType.String,
+      required: false,
+      choices: [
+        {
+          name: "YouTube",
+          value: QueryType.YOUTUBE_SEARCH,
+        },
+        {
+          name: "SoundCloud",
+          value: QueryType.SOUNDCLOUD_SEARCH,
+        },
+        {
+          name: "Spotify",
+          value: QueryType.SPOTIFY_SEARCH,
+        },
+        {
+          name: "Apple Music",
+          value: QueryType.APPLE_MUSIC_SEARCH,
+        },
+      ],
     },
   ],
   musicCommand: true,
   enabled: client.config.enabledCommands.playnext,
 
-  async execute({ inter }) {
+  async execute({ inter, queue }) {
     await inter.deferReply();
-    const queue = player.getQueue(inter.guildId);
 
-    if (!queue || !queue.playing)
+    if (!queue)
       return inter.editReply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
 
     const song = inter.options.getString("song");
+    let searchEngine = inter.options.getString("source", false);
+    const urlRegex =
+      /^(https?):\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/\S*)?$/;
+    if (!searchEngine || urlRegex.test(query)) searchEngine = QueryType.AUTO;
+
+    const player = useMainPlayer();
 
     const res = await player.search(song, {
       requestedBy: inter.member,
-      searchEngine: QueryType.AUTO,
+      searchEngine,
     });
 
-    if (!res || !res.tracks.length)
+    if (!res.hasTracks())
       return inter.editReply({
         content: `No results found ${inter.member}... try again ? ❌`,
         ephemeral: true,
@@ -45,7 +74,7 @@ module.exports = {
         ephemeral: true,
       });
 
-    queue.insert(res.tracks[0], 0);
+    queue.node.insert(res.tracks[0], 0);
 
     await inter.editReply({
       content: `Track ${res.tracks[0].title} has been inserted into the queue... it will play next 🎧`,

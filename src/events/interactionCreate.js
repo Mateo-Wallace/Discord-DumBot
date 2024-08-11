@@ -1,4 +1,5 @@
 const { EmbedBuilder, InteractionType } = require("discord.js");
+const { useQueue } = require("discord-player");
 
 module.exports = (client, inter) => {
   if (inter.type === InteractionType.ApplicationCommand) {
@@ -72,7 +73,10 @@ module.exports = (client, inter) => {
           ephemeral: true,
         });
     }
-    command.execute({ inter, client });
+
+    const queue = useQueue(inter.guildId);
+
+    command.execute({ inter, client, queue });
   }
   if (inter.type === InteractionType.MessageComponent) {
     const customId = JSON.parse(inter.customId);

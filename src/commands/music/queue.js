@@ -7,8 +7,7 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.queue,
 
-  execute({ client, inter }) {
-    const queue = player.nodes.get(inter.guildId);
+  execute({ client, inter, queue }) {
     const tracksData = queue.tracks.data;
 
     if (!queue)

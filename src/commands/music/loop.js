@@ -21,14 +21,15 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.loop,
 
-  execute({ inter }) {
-    const queue = player.getQueue(inter.guildId);
-
-    if (!queue || !queue.playing)
+  execute({ inter, queue }) {
+    if (!queue)
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
+
+    const methods = ["disabled", "track", "queue"];
+
     switch (inter.options._hoistedOptions.map((x) => x.value).toString()) {
       case "enable_loop_queue": {
         if (queue.repeatMode === 1)
@@ -37,7 +38,8 @@ module.exports = {
             ephemeral: true,
           });
 
-        const success = queue.setRepeatMode(QueueRepeatMode.QUEUE);
+        queue.setRepeatMode(QueueRepeatMode.QUEUE);
+        const success = methods[queue.repeatMode] === "queue";
 
         return inter.reply({
           content: success
@@ -47,7 +49,8 @@ module.exports = {
         break;
       }
       case "disable_loop": {
-        const success = queue.setRepeatMode(QueueRepeatMode.OFF);
+        queue.setRepeatMode(QueueRepeatMode.OFF);
+        const success = methods[queue.repeatMode] === "disabled";
 
         return inter.reply({
           content: success
@@ -63,7 +66,8 @@ module.exports = {
             ephemeral: true,
           });
 
-        const success = queue.setRepeatMode(QueueRepeatMode.TRACK);
+        queue.setRepeatMode(QueueRepeatMode.TRACK);
+        const success = methods[queue.repeatMode] === "track";
 
         return inter.reply({
           content: success

@@ -8,10 +8,7 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.nowplaying,
 
-  execute({ inter }) {
-    const queue = player.nodes.get(inter.guildId);
-    console.log(queue);
-
+  execute({ inter, queue }) {
     if (!queue)
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
