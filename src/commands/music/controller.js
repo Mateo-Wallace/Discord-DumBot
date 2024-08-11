@@ -1,20 +1,20 @@
-const {
+import {
   ApplicationCommandOptionType,
   ActionRowBuilder,
   ButtonBuilder,
   EmbedBuilder,
   PermissionsBitField,
-} = require("discord.js");
+} from "discord.js";
 
-module.exports = {
+export default {
   name: "controller",
-  description: "set controller channel ",
+  description: "Set controller channel",
   voiceChannel: false,
   permissions: PermissionsBitField.Flags.ManageMessages,
   options: [
     {
       name: "channel",
-      description: "the channel you want to send it to",
+      description: "The channel you want to send it to",
       type: ApplicationCommandOptionType.Channel,
       required: true,
     },
@@ -23,20 +23,22 @@ module.exports = {
   enabled: client.config.enabledCommands.controller,
 
   async execute({ inter }) {
-    let Channel = inter.options.getChannel("channel");
-    if (Channel.type !== 0)
+    const channel = inter.options.getChannel("channel");
+
+    if (channel.type !== 0) {
       return inter.reply({
-        content: `you have to send it to a text channel.. ❌`,
+        content: "You have to send it to a text channel.. ❌",
         ephemeral: true,
       });
+    }
 
     const embed = new EmbedBuilder()
-      .setTitle("control your music from the buttons below")
+      .setTitle("Control your music from the buttons below")
       .setImage(inter.guild.iconURL({ size: 4096, dynamic: true }))
       .setColor("#36393e");
 
-    inter.reply({
-      content: `sending controller to ${Channel}... ✅`,
+    await inter.reply({
+      content: `Sending controller to ${channel}... ✅`,
       ephemeral: true,
     });
 
@@ -61,7 +63,7 @@ module.exports = {
       .setStyle("Success");
 
     const volumeup = new ButtonBuilder()
-      .setLabel("Volume up")
+      .setLabel("Volume Up")
       .setCustomId(JSON.stringify({ ffb: "volumeup" }))
       .setStyle("Primary");
 
@@ -99,6 +101,6 @@ module.exports = {
       volumeup
     );
 
-    Channel.send({ embeds: [embed], components: [row1, row2] });
+    await channel.send({ embeds: [embed], components: [row1, row2] });
   },
 };

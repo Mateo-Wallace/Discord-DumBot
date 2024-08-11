@@ -1,14 +1,14 @@
-const ms = require("ms");
-const { ApplicationCommandOptionType } = require("discord.js");
+import ms from "ms";
+import { ApplicationCommandOptionType } from "discord.js";
 
-module.exports = {
+export default {
   name: "seek",
-  description: "skip back or foward in a song",
+  description: "Skip back or forward in a song",
   voiceChannel: true,
   options: [
     {
       name: "time",
-      description: "time that you want to skip to",
+      description: "Time that you want to skip to",
       type: ApplicationCommandOptionType.String,
       required: true,
     },
@@ -17,19 +17,21 @@ module.exports = {
   enabled: client.config.enabledCommands.seek,
 
   async execute({ inter, queue }) {
-    if (!queue || !queue.node.isPlaying())
+    if (!queue || !queue.node.isPlaying()) {
       return inter.reply({
-        content: `No music currently playing ${inter.reply}... try again ? ❌`,
+        content: `No music currently playing ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
+    }
 
     try {
       const timeToMS = ms(inter.options.getString("time"));
-      if (timeToMS >= queue.currentTrack.durationMS)
+      if (timeToMS >= queue.currentTrack.durationMS) {
         return inter.reply({
-          content: `The indicated time is higher than the total time of the current song ${inter.member}... try again ? ❌\n*Try for example a valid time like **5s, 10s, 20 seconds, 1m**...*`,
+          content: `The indicated time is higher than the total time of the current song ${inter.member}... try again? ❌\n*Try for example a valid time like **5s, 10s, 20 seconds, 1m**...*`,
           ephemeral: true,
         });
+      }
 
       await queue.node.seek(timeToMS);
 
@@ -39,7 +41,7 @@ module.exports = {
         })}** ✅`,
       });
     } catch (e) {
-      console.log(e);
+      console.error(e);
       inter.reply({
         content: `Something went wrong. Try again.`,
         ephemeral: true,

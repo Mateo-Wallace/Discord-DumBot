@@ -1,14 +1,14 @@
-const { ApplicationCommandOptionType } = require("discord.js");
-const { QueryType, useMainPlayer } = require("discord-player");
+import { ApplicationCommandOptionType } from "discord.js";
+import { QueryType, useMainPlayer } from "discord-player";
 
-module.exports = {
+export default {
   name: "playnext",
-  description: "song you want to play next",
+  description: "Play a song next in the queue",
   voiceChannel: true,
   options: [
     {
       name: "song",
-      description: "the song you want to play next",
+      description: "The song you want to play next",
       type: ApplicationCommandOptionType.String,
       required: true,
     },
@@ -43,11 +43,12 @@ module.exports = {
   async execute({ inter, queue }) {
     await inter.deferReply();
 
-    if (!queue || !queue.node.isPlaying())
+    if (!queue || !queue.node.isPlaying()) {
       return inter.editReply({
-        content: `No music currently playing ${inter.member}... try again ? ❌`,
+        content: `No music currently playing ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
+    }
 
     const song = inter.options.getString("song");
     let searchEngine = inter.options.getString("source", false);
@@ -57,27 +58,29 @@ module.exports = {
 
     const player = useMainPlayer();
 
-    const res = await player.search(song, {
+    const result = await player.search(song, {
       requestedBy: inter.member,
       searchEngine,
     });
 
-    if (!res.hasTracks())
+    if (!result.hasTracks()) {
       return inter.editReply({
-        content: `No results found ${inter.member}... try again ? ❌`,
+        content: `No results found ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
+    }
 
-    if (res.playlist)
+    if (result.playlist) {
       return inter.editReply({
-        content: `This command dose not support playlist's ${inter.member}... try again ? ❌`,
+        content: `This command does not support playlists ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
+    }
 
-    queue.node.insert(res.tracks[0], 0);
+    queue.node.insert(result.tracks[0], 0);
 
     await inter.editReply({
-      content: `Track ${res.tracks[0].title} has been inserted into the queue... it will play next 🎧`,
+      content: `Track ${result.tracks[0].title} has been inserted into the queue... it will play next 🎧`,
     });
   },
 };

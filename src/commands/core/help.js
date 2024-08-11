@@ -1,6 +1,6 @@
-const { EmbedBuilder } = require("discord.js");
+import { EmbedBuilder } from "discord.js";
 
-module.exports = {
+export default {
   name: "help",
   description: "All the commands this bot has!",
   enabled: client.config.enabledCommands.help,
@@ -32,7 +32,7 @@ module.exports = {
                   .join(" \n "),
               },
               {
-                name: `Core Commands `,
+                name: `Core Commands`,
                 value: coreCommands
                   .map((x) => `*/${x.name}* | \`${x.description}\``)
                   .join(" \n "),

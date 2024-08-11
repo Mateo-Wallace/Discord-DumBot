@@ -1,14 +1,13 @@
-// actual functionality is in repeatFunctions
-const save = require("../../utils/repeatFunctions/save");
+import save from "../../utils/repeatFunctions/save.js";
 
-module.exports = {
+export default {
   name: "save",
-  description: "save the current track!",
+  description: "Save the current track!",
   voiceChannel: true,
   musicCommand: true,
   enabled: client.config.enabledCommands.save,
 
   async execute({ inter, queue }) {
-    save(inter, queue);
+    await save(inter, queue);
   },
 };

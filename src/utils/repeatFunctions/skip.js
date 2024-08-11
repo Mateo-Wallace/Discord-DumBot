@@ -1,21 +1,23 @@
-module.exports = async (inter, queue) => {
-  if (!queue || !queue.node.isPlaying())
+export default async (inter, queue) => {
+  if (!queue || !queue.node.isPlaying()) {
     return inter.reply({
-      content: `No music currently playing... try again ? ❌`,
+      content: `No music currently playing... try again? ❌`,
       ephemeral: true,
     });
+  }
 
-  if (queue.isEmpty())
+  if (queue.isEmpty()) {
     return inter.reply({
-      content: `No next song to skip ${inter.member}... try again ? ❌`,
+      content: `No next song to skip ${inter.member}... try again? ❌`,
       ephemeral: true,
     });
+  }
 
   const success = queue.node.skip();
 
   return inter.reply({
     content: success
       ? `Current music ${queue.currentTrack.title} skipped ✅`
-      : `Something went wrong ${inter.member}... try again ? ❌`,
+      : `Something went wrong ${inter.member}... try again? ❌`,
   });
 };

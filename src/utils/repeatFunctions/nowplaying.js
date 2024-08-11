@@ -1,4 +1,4 @@
-const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require("discord.js");
+import { EmbedBuilder, ActionRowBuilder, ButtonBuilder } from "discord.js";
 
 const row = () => {
   const saveButton = new ButtonBuilder()
@@ -35,12 +35,13 @@ const row = () => {
   );
 };
 
-module.exports = async (inter, queue, isButton) => {
-  if (!queue)
+export default async (inter, queue, isButton) => {
+  if (!queue) {
     return inter.reply({
-      content: `No music currently playing ${inter.member}... try again ? ❌`,
+      content: `No music currently playing ${inter.member}... try again? ❌`,
       ephemeral: true,
     });
+  }
 
   const track = queue.currentTrack;
 
@@ -48,7 +49,7 @@ module.exports = async (inter, queue, isButton) => {
 
   const timestamp = queue.node.getTimestamp();
   const trackDuration =
-    timestamp.progress == "Infinity" ? "infinity (live)" : track.duration;
+    timestamp.progress === "Infinity" ? "infinity (live)" : track.duration;
 
   const embed = new EmbedBuilder()
     .setTitle(`:arrow_forward: ${track.title}`)
@@ -70,12 +71,14 @@ module.exports = async (inter, queue, isButton) => {
         value: `\`${methods[queue.repeatMode]}\``,
         inline: true,
       },
-      { name: "Progress ", value: `${queue.node.createProgressBar()}` },
-      { name: "Requested by ", value: `${track.requestedBy}` }
+      { name: "Progress", value: `${queue.node.createProgressBar()}` },
+      { name: "Requested by", value: `${track.requestedBy}` }
     )
     .setColor("Red");
 
-  if (isButton) return inter.reply({ embeds: [embed], ephemeral: true });
+  if (isButton) {
+    return inter.reply({ embeds: [embed], ephemeral: true });
+  }
 
   return inter.reply({ embeds: [embed], components: [row()] });
 };

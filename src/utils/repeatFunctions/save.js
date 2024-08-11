@@ -1,17 +1,18 @@
-const { EmbedBuilder } = require("discord.js");
+import { EmbedBuilder } from "discord.js";
 
-module.exports = async (inter, queue) => {
-  if (!queue)
+export default async (inter, queue) => {
+  if (!queue) {
     return inter.reply({
-      content: `No music currently playing ${inter.member}... try again ? ❌`,
+      content: `No music currently playing ${inter.member}... try again? ❌`,
       ephemeral: true,
     });
+  }
 
   const track = queue.currentTrack;
 
   const timestamp = queue.node.getTimestamp();
   const trackDuration =
-    timestamp.progress == "Infinity" ? "infinity (live)" : track.duration;
+    timestamp.progress === "Infinity" ? "infinity (live)" : track.duration;
 
   inter.member
     .send({
@@ -31,8 +32,8 @@ module.exports = async (inter, queue) => {
               value: `\`${track.author}\``,
               inline: true,
             },
-            { name: "Progress ", value: `${queue.node.createProgressBar()}` },
-            { name: "Requested by ", value: `${track.requestedBy}` }
+            { name: "Progress", value: `${queue.node.createProgressBar()}` },
+            { name: "Requested by", value: `${track.requestedBy}` }
           )
           .setFooter({
             text: `from the server ${inter.member.guild.name}`,
@@ -50,7 +51,7 @@ module.exports = async (inter, queue) => {
     .catch((error) => {
       console.error(error);
       return inter.reply({
-        content: `Unable to send you a private message... try again ? ❌`,
+        content: `Unable to send you a private message... try again? ❌`,
         ephemeral: true,
       });
     });
