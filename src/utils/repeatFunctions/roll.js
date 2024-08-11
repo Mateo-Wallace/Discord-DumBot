@@ -1,6 +1,6 @@
 const { Dice } = require("@mateo-wallace/rpg-dice-js");
 
-const diceLogic = async (inter, hidden) => {
+module.exports = async (inter, hidden) => {
   const userInput = inter.options.getString("dice");
 
   const d20 = new Dice({ isBoldCrit: true });
@@ -31,5 +31,3 @@ const diceLogic = async (inter, hidden) => {
     });
   }
 };
-
-module.exports = { diceLogic };

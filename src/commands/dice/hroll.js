@@ -1,5 +1,6 @@
 const { ApplicationCommandOptionType } = require("discord.js");
-const { diceLogic } = require("../../utils/utils");
+// actual functionality is in repeat functions
+const roll = require("../../utils/repeatFunctions/roll");
 
 module.exports = {
   name: "hroll",
@@ -7,13 +8,13 @@ module.exports = {
   options: [
     {
       name: "dice",
-      description: "The amount and type of dice youd like to roll plus mods",
+      description: "The amount and type of dice you'd like to roll plus mods",
       type: ApplicationCommandOptionType.String,
     },
   ],
   enabled: client.config.enabledCommands.hroll,
 
   execute({ inter }) {
-    diceLogic(inter, true);
+    roll(inter, true);
   },
 };
