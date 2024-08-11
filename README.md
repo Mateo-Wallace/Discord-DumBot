@@ -8,7 +8,7 @@ icon: home
 
 <!-- SHIELDS -->
 
-[![Contributors](https://img.shields.io/github/contributors/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge&color=success)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/graphs/contributors) [![Forks Shield](https://img.shields.io/github/forks/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/network/members) [![Stars Shield](https://img.shields.io/github/stars/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge&color=blue)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/stargazers) [![Issues](https://img.shields.io/github/issues/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge&color=yellow)](https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues) [![License Shield](https://img.shields.io/github/license/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2.svg?style=for-the-badge)](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/blob/main/LICENSE) [![LinkedIn Shield](https://img.shields.io/badge/LinkedIn-555555?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mateo-wallace/)
+[![Contributors](https://img.shields.io/github/contributors/Mateo-Wallace/DISCORD-DUMBOT.svg?style=for-the-badge&color=success)](https://github.com/Mateo-Wallace/DISCORD-DUMBOT/graphs/contributors) [![Forks Shield](https://img.shields.io/github/forks/Mateo-Wallace/DISCORD-DUMBOT.svg?style=for-the-badge)](https://github.com/Mateo-Wallace/DISCORD-DUMBOT/network/members) [![Stars Shield](https://img.shields.io/github/stars/Mateo-Wallace/DISCORD-DUMBOT.svg?style=for-the-badge&color=blue)](https://github.com/Mateo-Wallace/DISCORD-DUMBOT/stargazers) [![Issues](https://img.shields.io/github/issues/Mateo-Wallace/DISCORD-DUMBOT.svg?style=for-the-badge&color=yellow)](https://github.com/Mateo-Wallace/DISCORD-DUMBOT/issues) [![License Shield](https://img.shields.io/github/license/Mateo-Wallace/DISCORD-DUMBOT.svg?style=for-the-badge)](https://github.com/Mateo-Wallace/Discord-DumBot/blob/main/LICENSE) [![LinkedIn Shield](https://img.shields.io/badge/LinkedIn-555555?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mateo-wallace/)
 
 <!-- PROJECT LOGO & HEADER -->
 
@@ -24,9 +24,9 @@ icon: home
     Pre loaded with dice rolling and music functionality
     <br />
     <br />
-    <a href="https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2">View GitHub</a>
+    <a href="https://github.com/Mateo-Wallace/Discord-DumBot">View GitHub</a>
     ·
-    <a href="https://github.com/Mateo-Wallace/MP2-DISCORD-DUMBOT-V2/issues">Report Bug</a>
+    <a href="https://github.com/Mateo-Wallace/DISCORD-DUMBOT/issues">Report Bug</a>
     ·
     <a href="https://discord.com/api/oauth2/authorize?client_id=1073372255272317041&permissions=3197952&scope=applications.commands%20bot">Add To Discord</a>
   </p>

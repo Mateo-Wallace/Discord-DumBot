@@ -10,7 +10,7 @@ This file assumes you have already added a version of DumBot to your discord ser
 - [Add DumBot To Your Server](./addToServer.md)
 - [Hosting Your Instance of DumBot](./hostYourInstance.md)
 
-Rather than scrolling through this page searching for a specific command I reccomend using the search bar at the top right of the screen if you are viewing this on the [DumDocs website](https://mateo-wallace.github.io/MP2-Discord-DumBot-V2/).
+Rather than scrolling through this page searching for a specific command I reccomend using the search bar at the top right of the screen if you are viewing this on the [DumDocs website](https://mateo-wallace.github.io/Discord-DumBot/).
 
 ---
 

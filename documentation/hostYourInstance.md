@@ -5,7 +5,7 @@ order: 96
 
 # :icon-server: Hosting Your Instance of DumBot
 
-This document will set you up to have your own version of DumBot that you can fully customize the code of. This documentation will go super in depth so even if you have no coding knowledge you should be able to figure it out. Feel free to open a [discussion](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/discussions) if you are having problems.
+This document will set you up to have your own version of DumBot that you can fully customize the code of. This documentation will go super in depth so even if you have no coding knowledge you should be able to figure it out. Feel free to open a [discussion](https://github.com/Mateo-Wallace/Discord-DumBot/discussions) if you are having problems.
 
 > :icon-info: **Note**
 >
@@ -127,7 +127,7 @@ The config file is split into different sections, they are `app`, `opt`, `text`,
 
 1. The `enabledCommands` section allows you to turn on and off every single command. So if you don't want a dice roller for example, you can turn those commands off.
 
-There are various comments within the code to help guide you as well. If you are having trouble feel free to either message me or open a new [discussion](https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/discussions).
+There are various comments within the code to help guide you as well. If you are having trouble feel free to either message me or open a new [discussion](https://github.com/Mateo-Wallace/Discord-DumBot/discussions).
 
 ### Advanced Development (New Commands)
 

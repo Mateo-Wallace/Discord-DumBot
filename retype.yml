@@ -1,6 +1,6 @@
 input: .
 output: .retype
-url: https://mateo-wallace.github.io/MP2-Discord-DumBot-V2/ # Add your website address here
+url: https://mateo-wallace.github.io/Discord-DumBot/ # Add your website address here
 branding:
   title: DumBot
   label: Docs
@@ -10,15 +10,15 @@ links:
     link: /
     icon: home
   - text: GitHub
-    link: https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2
+    link: https://github.com/Mateo-Wallace/Discord-DumBot
     icon: mark-github
     target: blank
   - text: Issues
-    link: https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/issues
+    link: https://github.com/Mateo-Wallace/Discord-DumBot/issues
     icon: issue-opened
     target: blank
   # - text: Sponsor
-  #   link: https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2
+  #   link: https://github.com/Mateo-Wallace/Discord-DumBot
   #   icon: heart
   #   target: blank
   - text: Add To Your Server
