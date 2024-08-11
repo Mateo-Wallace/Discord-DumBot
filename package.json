@@ -1,5 +1,5 @@
 {
-  "name": "mp2-discord-dumbot-v2",
+  "name": "discord-dumbot",
   "version": "1.0.0",
   "description": "DumBot v2, trying to make a diceroller and a music player",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2.git"
+    "url": "git+https://github.com/Mateo-Wallace/Discord-DumBot.git"
   },
   "keywords": [
     "discord",
@@ -20,9 +20,9 @@
   "author": "Mateo-Wallace",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2/issues"
+    "url": "https://github.com/Mateo-Wallace/Discord-DumBot/issues"
   },
-  "homepage": "https://github.com/Mateo-Wallace/MP2-Discord-DumBot-V2#readme",
+  "homepage": "https://github.com/Mateo-Wallace/Discord-DumBot#readme",
   "devDependencies": {
     "nodemon": "^2.0.20"
   },
