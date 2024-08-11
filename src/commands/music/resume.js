@@ -1,29 +1,31 @@
-module.exports = {
+export default {
   name: "resume",
-  description: "play the track",
+  description: "Resume the currently paused track",
   voiceChannel: true,
   musicCommand: true,
   enabled: client.config.enabledCommands.resume,
 
-  execute({ inter, queue }) {
-    if (!queue || !queue.node.isPlaying())
+  async execute({ inter, queue }) {
+    if (!queue) {
       return inter.reply({
-        content: `No music currently playing ${inter.member}... try again ? ❌`,
+        content: `No music currently playing ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
+    }
 
-    if (queue.node.isPlaying())
+    if (!queue.node.isPaused()) {
       return inter.reply({
-        content: `The track is already running, ${inter.member}... try again ? ❌`,
+        content: `The track is already running, ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
+    }
 
     const success = queue.node.resume();
 
     return inter.reply({
       content: success
         ? `Current music ${queue.currentTrack.title} resumed ✅`
-        : `Something went wrong ${inter.member}... try again ? ❌`,
+        : `Something went wrong ${inter.member}... try again? ❌`,
     });
   },
 };

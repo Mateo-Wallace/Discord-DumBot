@@ -1,6 +1,6 @@
-const ms = require("ms");
+import ms from "ms";
 
-module.exports = {
+export default {
   name: "ping",
   description: "Get the ping of the bot!",
   enabled: client.config.enabledCommands.ping,

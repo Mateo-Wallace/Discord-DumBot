@@ -1,7 +1,6 @@
-// actual functionality is in repeatFunctions
-const loop = require("../repeatFunctions/loop");
+import loop from "../repeatFunctions/loop.js";
 
-module.exports = async ({ inter, queue }) => {
+export default async ({ inter, queue }) => {
   const repeatMode = queue.repeatMode;
   loop(inter, queue, repeatMode);
 };

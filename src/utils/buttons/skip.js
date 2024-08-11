@@ -1,6 +1,5 @@
-// actual functionality is in repeatFunctions
-const skip = require("../repeatFunctions/skip");
+import skip from "../repeatFunctions/skip.js";
 
-module.exports = async ({ inter, queue }) => {
+export default async ({ inter, queue }) => {
   skip(inter, queue);
 };

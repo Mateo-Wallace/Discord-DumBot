@@ -1,14 +1,14 @@
-// actual functionality is in repeatFunctions
-const back = require("../../utils/repeatFunctions/back");
+import back from "../../utils/repeatFunctions/back.js";
 
-module.exports = {
+export default {
   name: "back",
-  description: "Go back the song before",
-  voiceChannel: true,
-  musicCommand: true,
+  description: "Go back to the previous song",
+  voiceChannel: true, // Requires user to be in a voice channel
+  musicCommand: true, // Marks this command as music-related
   enabled: client.config.enabledCommands.back,
 
   async execute({ inter, queue }) {
-    back(inter, queue);
+    // Calls the 'back' function with interaction and queue
+    await back(inter, queue);
   },
 };

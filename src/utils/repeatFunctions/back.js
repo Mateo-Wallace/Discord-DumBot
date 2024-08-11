@@ -1,19 +1,21 @@
-const { useHistory } = require("discord-player");
+import { useHistory } from "discord-player";
 
-module.exports = async (inter, queue) => {
+export default async (inter, queue) => {
   const history = useHistory(inter.guildId);
 
-  if (!queue || !queue.node.isPlaying())
+  if (!queue || !queue.node.isPlaying()) {
     return inter.reply({
-      content: `No music currently playing ${inter.member}... try again ? ❌`,
+      content: `No music currently playing ${inter.member}... try again? ❌`,
       ephemeral: true,
     });
+  }
 
-  if (history.isEmpty())
+  if (history.isEmpty()) {
     return inter.reply({
-      content: `There was no music played before ${inter.member}... try again ? ❌`,
+      content: `There was no music played before ${inter.member}... try again? ❌`,
       ephemeral: true,
     });
+  }
 
   await history.previous();
 

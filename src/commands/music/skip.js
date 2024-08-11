@@ -1,9 +1,9 @@
 // actual functionality is in repeatFunctions
-const skip = require("../../utils/repeatFunctions/skip");
+import skip from "../../utils/repeatFunctions/skip.js";
 
-module.exports = {
+export default {
   name: "skip",
-  description: "stop the track",
+  description: "Stop the track",
   voiceChannel: true,
   musicCommand: true,
   enabled: client.config.enabledCommands.skip,

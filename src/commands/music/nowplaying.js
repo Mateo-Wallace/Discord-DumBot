@@ -1,15 +1,14 @@
-// actual functionality is in repeatFunctions
-const nowPlaying = require("../../utils/repeatFunctions/nowplaying");
+import nowPlaying from "../../utils/repeatFunctions/nowplaying.js";
 
-module.exports = {
+export default {
   name: "nowplaying",
-  description: "view what is playing!",
+  description: "View what is playing!",
   voiceChannel: true,
   musicCommand: true,
   enabled: client.config.enabledCommands.nowplaying,
 
-  execute({ inter, queue }) {
+  async execute({ inter, queue }) {
     const isButton = false;
-    nowPlaying(inter, queue, isButton);
+    await nowPlaying(inter, queue, isButton);
   },
 };

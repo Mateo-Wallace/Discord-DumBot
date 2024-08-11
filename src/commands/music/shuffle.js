@@ -1,22 +1,24 @@
-module.exports = {
+export default {
   name: "shuffle",
-  description: "shuffle the track",
+  description: "Shuffle the track",
   voiceChannel: true,
   musicCommand: true,
   enabled: client.config.enabledCommands.shuffle,
 
   async execute({ inter, queue }) {
-    if (!queue || !queue.node.isPlaying())
+    if (!queue || !queue.node.isPlaying()) {
       return inter.reply({
-        content: `No music currently playing ${inter.member}... try again ? ❌`,
+        content: `No music currently playing ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
+    }
 
-    if (queue.isEmpty())
+    if (queue.isEmpty()) {
       return inter.reply({
-        content: `No music in the queue after the current one ${inter.member}... try again ? ❌`,
+        content: `No music in the queue after the current one ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
+    }
 
     const mode = queue.toggleShuffle();
 

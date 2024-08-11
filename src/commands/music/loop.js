@@ -1,15 +1,14 @@
-const { ApplicationCommandOptionType } = require("discord.js");
-// actual functionality is in repeatFunctions
-const loop = require("../../utils/repeatFunctions/loop");
+import { ApplicationCommandOptionType } from "discord.js";
+import loop from "../../utils/repeatFunctions/loop.js";
 
-module.exports = {
+export default {
   name: "loop",
-  description: "enable or disable looping of song's or the whole queue",
+  description: "Enable or disable looping of songs or the whole queue",
   voiceChannel: true,
   options: [
     {
       name: "action",
-      description: "what action you want to preform on the loop",
+      description: "What action you want to perform on the loop",
       type: ApplicationCommandOptionType.Number,
       required: true,
       choices: [
@@ -22,8 +21,8 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.loop,
 
-  execute({ inter, queue }) {
+  async execute({ inter, queue }) {
     const repeatMode = inter.options.getNumber("action");
-    loop(inter, queue, repeatMode);
+    await loop(inter, queue, repeatMode);
   },
 };
