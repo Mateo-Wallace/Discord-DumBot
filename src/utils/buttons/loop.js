@@ -2,7 +2,7 @@ const { QueueRepeatMode } = require("discord-player");
 module.exports = async ({ inter, queue }) => {
   const methods = ["disabled", "track", "queue"];
 
-  if (!queue || !queue.playing)
+  if (!queue || !queue.node.isPlaying())
     return inter.reply({
       content: `No music currently playing... try again ? ❌`,
       ephemeral: true,

@@ -5,20 +5,24 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.skip,
 
-  execute({ inter }) {
-    const queue = player.getQueue(inter.guildId);
-
-    if (!queue || !queue.playing)
+  execute({ inter, queue }) {
+    if (!queue || !queue.node.isPlaying())
       return inter.reply({
-        content: `No music currently playing ${inter.member}... try again ? ❌`,
+        content: `No music currently playing... try again ? ❌`,
         ephemeral: true,
       });
 
-    const success = queue.skip();
+    if (queue.isEmpty())
+      return inter.reply({
+        content: `No next song to skip ${inter.member}... try again ? ❌`,
+        ephemeral: true,
+      });
+
+    const success = queue.node.skip();
 
     return inter.reply({
       content: success
-        ? `Current music ${queue.current.title} skipped ✅`
+        ? `Current music ${queue.currentTrack.title} skipped ✅`
         : `Something went wrong ${inter.member}... try again ? ❌`,
     });
   },

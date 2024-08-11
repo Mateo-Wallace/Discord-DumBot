@@ -1,3 +1,5 @@
+const { useHistory } = require("discord-player");
+
 module.exports = {
   name: "back",
   description: "Go back the song before",
@@ -5,22 +7,22 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.back,
 
-  async execute({ inter }) {
-    const queue = player.getQueue(inter.guildId);
+  async execute({ inter, queue }) {
+    const history = useHistory(inter.guildId);
 
-    if (!queue || !queue.playing)
+    if (!queue || !queue.node.isPlaying())
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
 
-    if (!queue.previousTracks[1])
+    if (history.isEmpty())
       return inter.reply({
         content: `There was no music played before ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
 
-    await queue.back();
+    await history.previous();
 
     inter.reply({ content: `Playing the **previous** track ✅` });
   },

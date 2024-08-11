@@ -20,23 +20,23 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.filter,
 
-  async execute({ inter, client }) {
-    const queue = player.getQueue(inter.guildId);
-
-    if (!queue || !queue.playing)
+  async execute({ inter, queue }) {
+    if (!queue || !queue.node.isPlaying())
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
 
-    const actualFilter = queue.getFiltersEnabled()[0];
+    const ffmpeg = queue.filters.ffmpeg;
+
+    const actualFilter = ffmpeg.getFiltersEnabled()[0];
 
     const infilter = inter.options.getString("filter");
 
     const filters = [];
 
-    queue.getFiltersEnabled().map((x) => filters.push(x));
-    queue.getFiltersDisabled().map((x) => filters.push(x));
+    ffmpeg.getFiltersEnabled().map((x) => filters.push(x));
+    ffmpeg.getFiltersDisabled().map((x) => filters.push(x));
 
     const filter = filters.find(
       (x) => x.toLowerCase() === infilter.toLowerCase()
@@ -56,15 +56,15 @@ module.exports = {
 
     const filtersUpdated = {};
 
-    filtersUpdated[filter] = queue.getFiltersEnabled().includes(filter)
+    filtersUpdated[filter] = ffmpeg.getFiltersEnabled().includes(filter)
       ? false
       : true;
 
-    await queue.setFilters(filtersUpdated);
+    await ffmpeg.setFilters(filtersUpdated);
 
     inter.reply({
       content: `The filter ${filter} is now **${
-        queue.getFiltersEnabled().includes(filter) ? "enabled" : "disabled"
+        ffmpeg.getFiltersEnabled().includes(filter) ? "enabled" : "disabled"
       }** ✅\n*Reminder the longer the music is, the longer this will take.*`,
     });
   },

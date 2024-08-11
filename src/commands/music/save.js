@@ -7,46 +7,45 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.save,
 
-  async execute({ inter }) {
-    const queue = player.getQueue(inter.guildId);
-
+  async execute({ inter, queue }) {
     if (!queue)
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
 
+    const track = queue.currentTrack;
+
+    const timestamp = queue.node.getTimestamp();
+    const trackDuration =
+      timestamp.progress == "Infinity" ? "infinity (live)" : track.duration;
+
     inter.member
       .send({
         embeds: [
           new EmbedBuilder()
-            .setColor("Red")
-            .setTitle(`:arrow_forward: ${queue.current.title}`)
-            .setURL(queue.current.url)
+            .setTitle(`:arrow_forward: ${track.title}`)
+            .setURL(track.url)
+            .setThumbnail(track.thumbnail)
             .addFields(
               {
                 name: ":hourglass: Duration:",
-                value: `\`${queue.current.duration}\``,
+                value: `\`${trackDuration}\``,
                 inline: true,
               },
               {
                 name: "Song by:",
-                value: `\`${queue.current.author}\``,
+                value: `\`${track.author}\``,
                 inline: true,
               },
-              {
-                name: "Views :eyes:",
-                value: `\`${Number(queue.current.views).toLocaleString()}\``,
-                inline: true,
-              },
-              { name: "Song URL:", value: `\`${queue.current.url}\`` },
-              { name: "Progress ", value: `${queue.createProgressBar()}` }
+              { name: "Progress ", value: `${queue.node.createProgressBar()}` },
+              { name: "Requested by ", value: `${track.requestedBy}` }
             )
-            .setThumbnail(queue.current.thumbnail)
             .setFooter({
               text: `from the server ${inter.member.guild.name}`,
               iconURL: inter.member.guild.iconURL({ dynamic: false }),
-            }),
+            })
+            .setColor("Red"),
         ],
       })
       .then(() => {

@@ -21,15 +21,18 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.jump,
 
-  async execute({ inter }) {
+  async execute({ inter, queue }) {
     const track = inter.options.getString("song");
     const number = inter.options.getNumber("number");
 
-    const queue = player.getQueue(inter.guildId);
-
-    if (!queue || !queue.playing)
+    if (!queue || !queue.node.isPlaying())
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
+        ephemeral: true,
+      });
+    if (queue.isEmpty())
+      return inter.reply({
+        content: `No music in the queue after the current one ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
     if (!track && !number)
@@ -39,10 +42,10 @@ module.exports = {
       });
 
     if (track) {
-      for (let song of queue.tracks) {
+      for (let song of queue.tracks.data) {
         if (song.title === track || song.url === track) {
-          queue.skipTo(song);
-          return inter.reply({ content: `skiped to ${track} ✅` });
+          queue.node.jump(song);
+          return inter.reply({ content: `Jumped to ${track}  ✅` });
         }
       }
       return inter.reply({
@@ -52,14 +55,14 @@ module.exports = {
     }
     if (number) {
       const index = number - 1;
-      const trackname = queue.tracks[index].title;
-      if (!trackname)
+      const trackName = queue.tracks.data[index].title;
+      if (!trackName)
         return inter.reply({
           content: `This track dose not seem to exist ${inter.member}...  try again ?❌`,
           ephemeral: true,
         });
-      queue.skipTo(index);
-      return inter.reply({ content: `Jumped to ${trackname}  ✅` });
+      queue.node.jump(index);
+      return inter.reply({ content: `Jumped to ${trackName}  ✅` });
     }
   },
 };
