@@ -18,9 +18,7 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.volume,
 
-  execute({ inter }) {
-    const queue = player.nodes.get(inter.guildId);
-
+  execute({ inter, queue }) {
     if (!queue || !queue.node.isPlaying())
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
@@ -28,7 +26,7 @@ module.exports = {
       });
     const vol = inter.options.getNumber("volume");
 
-    if (queue.volume === vol)
+    if (queue.node.volume === vol)
       return inter.reply({
         content: `The volume you want to change is already the current one ${inter.member}... try again ? ❌`,
         ephemeral: true,

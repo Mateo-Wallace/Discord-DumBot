@@ -1,14 +1,17 @@
 const { ActionRowBuilder, ButtonBuilder, EmbedBuilder } = require("discord.js");
+const { useMainPlayer } = require("discord-player");
 
-player.on("error", (queue, error) => {
+const player = useMainPlayer();
+
+player.events.on("error", (queue, error) => {
   console.log(`Error emitted from the queue ${error.message}`);
 });
 
-player.on("connectionError", (queue, error) => {
-  console.log(`Error emitted from the connection ${error.message}`);
+player.events.on("playerError", (queue, error) => {
+  console.log(`Error emitted from the player ${error.message}`);
 });
 
-player.on("trackEnd", async (queue, track) => {
+player.events.on("trackEnd", async (queue, track) => {
   if (!client.config.app.doubleSongError) {
     if (queue.tracks.length >= 1 && queue.tracks[0] !== track) {
       queue.insert(queue.tracks[0], 0);
@@ -16,13 +19,13 @@ player.on("trackEnd", async (queue, track) => {
   }
 });
 
-player.on("pause", async (queue, track) => {});
+player.events.on("playerPause", async (queue, track) => {});
 
-player.on("trackStart", (queue, track) => {
+player.events.on("playerStart", (queue, track) => {
   if (!client.config.opt.loopMessage && queue.repeatMode !== 0) return;
   const embed = new EmbedBuilder()
     .setAuthor({
-      name: `Started playing ${track.title} in ${queue.connection.channel.name} 🎧`,
+      name: `Started playing ${track.title} in ${queue.metadata.channel.name} 🎧`,
       iconURL: track.requestedBy.avatarURL(),
     })
     .setColor("#13f857");
@@ -59,42 +62,29 @@ player.on("trackStart", (queue, track) => {
     queuebutton,
     skip
   );
-  queue.metadata.send({ embeds: [embed], components: [row1] });
+  queue.metadata.channel.send({ embeds: [embed], components: [row1] });
 });
 
-player.on("trackAdd", (queue, track) => {});
+player.events.on("audioTrackAdd", (queue, track) => {});
 
-player.on("botDisconnect", (queue) => {
+player.events.on("disconnect", (queue) => {
   queue.metadata.send(
     "I was manually disconnected from the voice channel, clearing queue... ❌"
   );
 });
 
-player.on("channelEmpty", (queue) => {
+player.events.on("emptyChannel", (queue) => {
   queue.metadata.send(
     "Nobody is in the voice channel, leaving the voice channel... ❌"
   );
 });
 
-player.on("queueEnd", (queue) => {
+player.events.on("emptyQueue", (queue) => {
   queue.metadata.send("I finished reading the whole queue ✅");
 });
 
-player.on("tracksAdd", (queue, tracks) => {
+player.events.on("audioTracksAdd", (queue, tracks) => {
   queue.metadata.send(`All the songs in playlist added into the queue ✅`);
 });
 
-player.on("connectionCreate", (queue) => {
-  queue.connection.voiceConnection.on("stateChange", (oldState, newState) => {
-    const oldNetworking = Reflect.get(oldState, "networking");
-    const newNetworking = Reflect.get(newState, "networking");
-
-    const networkStateChangeHandler = (oldNetworkState, newNetworkState) => {
-      const newUdp = Reflect.get(newNetworkState, "udp");
-      clearInterval(newUdp?.keepAliveInterval);
-    };
-
-    oldNetworking?.off("stateChange", networkStateChangeHandler);
-    newNetworking?.on("stateChange", networkStateChangeHandler);
-  });
-});
+player.events.on("connection", (queue) => {});

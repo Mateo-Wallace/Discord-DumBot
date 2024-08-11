@@ -2,6 +2,8 @@ const { EmbedBuilder, InteractionType } = require("discord.js");
 const { useQueue } = require("discord-player");
 
 module.exports = (client, inter) => {
+  const queue = useQueue(inter.guildId);
+
   if (inter.type === InteractionType.ApplicationCommand) {
     const DJ = client.config.opt.DJ;
     const command = client.commands.get(inter.commandName);
@@ -74,14 +76,11 @@ module.exports = (client, inter) => {
         });
     }
 
-    const queue = useQueue(inter.guildId);
-
     command.execute({ inter, client, queue });
   }
   if (inter.type === InteractionType.MessageComponent) {
     const customId = JSON.parse(inter.customId);
     const file_of_button = customId.ffb;
-    const queue = player.getQueue(inter.guildId);
     if (file_of_button) {
       delete require.cache[
         require.resolve(`../utils/buttons/${file_of_button}.js`)
