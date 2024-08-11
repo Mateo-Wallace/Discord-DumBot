@@ -1,8 +1,5 @@
 const ms = require("ms");
-const {
-  ApplicationCommandType,
-  ApplicationCommandOptionType,
-} = require("discord.js");
+const { ApplicationCommandOptionType } = require("discord.js");
 
 module.exports = {
   name: "seek",
@@ -19,10 +16,8 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.seek,
 
-  async execute({ inter }) {
-    const queue = player.getQueue(inter.guildId);
-
-    if (!queue || !queue.playing)
+  async execute({ inter, queue }) {
+    if (!queue || !queue.node.isPlaying())
       return inter.reply({
         content: `No music currently playing ${inter.reply}... try again ? ❌`,
         ephemeral: true,
@@ -30,21 +25,21 @@ module.exports = {
 
     try {
       const timeToMS = ms(inter.options.getString("time"));
-
-      if (timeToMS >= queue.current.durationMS)
+      if (timeToMS >= queue.currentTrack.durationMS)
         return inter.reply({
           content: `The indicated time is higher than the total time of the current song ${inter.member}... try again ? ❌\n*Try for example a valid time like **5s, 10s, 20 seconds, 1m**...*`,
           ephemeral: true,
         });
 
-      await queue.seek(timeToMS);
+      await queue.node.seek(timeToMS);
 
       inter.reply({
         content: `Time set on the current song **${ms(timeToMS, {
           long: true,
         })}** ✅`,
       });
-    } catch {
+    } catch (e) {
+      console.log(e);
       inter.reply({
         content: `Something went wrong. Try again.`,
         ephemeral: true,

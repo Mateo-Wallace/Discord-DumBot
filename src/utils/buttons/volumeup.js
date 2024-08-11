@@ -1,12 +1,12 @@
 const maxVol = client.config.opt.maxVol;
 module.exports = async ({ inter, queue }) => {
-  if (!queue || !queue.playing)
+  if (!queue)
     return inter.reply({
       content: `No music currently playing... try again ? ❌`,
       ephemeral: true,
     });
 
-  const vol = Math.floor(queue.volume + 5);
+  const vol = Math.floor(queue.node.volume + 5);
 
   if (vol > maxVol)
     return inter.reply({
@@ -14,13 +14,13 @@ module.exports = async ({ inter, queue }) => {
       ephemeral: true,
     });
 
-  if (queue.volume === vol)
+  if (queue.node.volume === vol)
     return inter.reply({
       content: `The volume you want to change is already the current one ${inter.member}... try again ? ❌`,
       ephemeral: true,
     });
 
-  const success = queue.setVolume(vol);
+  const success = queue.node.setVolume(vol);
 
   return inter.reply({
     content: success

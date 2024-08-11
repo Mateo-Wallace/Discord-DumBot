@@ -1,3 +1,5 @@
+const { useHistory } = require("discord-player");
+
 module.exports = {
   name: "clear",
   description: "clear all the music in the queue",
@@ -5,22 +7,17 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.clear,
 
-  async execute({ inter }) {
-    const queue = player.getQueue(inter.guildId);
+  async execute({ inter, queue }) {
+    const history = useHistory(inter.guildId);
 
-    if (!queue || !queue.playing)
+    if (!queue || !queue.node.isPlaying())
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
 
-    if (!queue.tracks[0])
-      return inter.reply({
-        content: `No music in the queue after the current one ${inter.member}... try again ? ❌`,
-        ephemeral: true,
-      });
-
-    await queue.clear();
+    if (!queue.isEmpty()) queue.tracks.clear();
+    if (!history.isEmpty()) history.clear();
 
     inter.reply(`The queue has just been cleared 🗑️`);
   },

@@ -1,36 +1,43 @@
 const { EmbedBuilder } = require("discord.js");
 module.exports = async ({ client, inter, queue }) => {
-  if (!queue || !queue.playing)
+  if (!queue)
     return inter.reply({
       content: `No music currently playing... try again ? ❌`,
       ephemeral: true,
     });
 
-  const track = queue.current;
+  const track = queue.currentTrack;
 
   const methods = ["disabled", "track", "queue"];
 
-  const timestamp = queue.getPlayerTimestamp();
-
+  const timestamp = queue.node.getTimestamp();
   const trackDuration =
     timestamp.progress == "Infinity" ? "infinity (live)" : track.duration;
 
-  const progress = queue.createProgressBar();
-
   const embed = new EmbedBuilder()
-    .setAuthor({
-      name: track.title,
-      iconURL: client.user.displayAvatarURL({ size: 1024, dynamic: true }),
-    })
+    .setTitle(`:arrow_forward: ${track.title}`)
+    .setURL(track.url)
     .setThumbnail(track.thumbnail)
-    .setDescription(
-      `Volume **${
-        queue.volume
-      }**%\nDuration **${trackDuration}**\nProgress ${progress}\nLoop mode **${
-        methods[queue.repeatMode]
-      }**\nRequested by ${track.requestedBy}`
+    .addFields(
+      {
+        name: ":speaker: Volume",
+        value: `\`${queue.filters._lastFiltersCache.volume}\``,
+        inline: true,
+      },
+      {
+        name: ":hourglass: Duration:",
+        value: `\`${trackDuration}\``,
+        inline: true,
+      },
+      {
+        name: ":infinity: Loop mode:",
+        value: `\`${methods[queue.repeatMode]}\``,
+        inline: true,
+      },
+      { name: "Progress ", value: `${queue.node.createProgressBar()}` },
+      { name: "Requested by ", value: `${track.requestedBy}` }
     )
-    .setColor("ff0000");
+    .setColor("Red");
 
   inter.reply({ embeds: [embed], ephemeral: true });
 };

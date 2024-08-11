@@ -1,12 +1,14 @@
 const { EmbedBuilder } = require("discord.js");
 module.exports = async ({ client, inter, queue }) => {
-  if (!queue || !queue.playing)
+  const tracksData = queue.tracks.data;
+
+  if (!queue || !queue.node.isPlaying())
     return inter.reply({
       content: `No music currently playing... try again ? ❌`,
       ephemeral: true,
     });
 
-  if (!queue.tracks[0])
+  if (!tracksData[0])
     return inter.reply({
       content: `No music in the queue after the current one ${inter.member}... try again ? ❌`,
       ephemeral: true,
@@ -14,14 +16,14 @@ module.exports = async ({ client, inter, queue }) => {
 
   const methods = ["", "🔁", "🔂"];
 
-  const songs = queue.tracks.length;
+  const songs = tracksData.length;
 
   const nextSongs =
     songs > 5
       ? `And **${songs - 5}** other song(s)...`
       : `In the playlist **${songs}** song(s)...`;
 
-  const tracks = queue.tracks.map(
+  const tracks = tracksData.map(
     (track, i) =>
       `**${i + 1}** - ${track.title} | ${track.author} (requested by : ${
         track.requestedBy.username
@@ -36,7 +38,7 @@ module.exports = async ({ client, inter, queue }) => {
       iconURL: client.user.displayAvatarURL({ size: 1024, dynamic: true }),
     })
     .setDescription(
-      `Current ${queue.current.title}\n\n${tracks
+      `Current ${queue.currentTrack.title}\n\n${tracks
         .slice(0, 5)
         .join("\n")}\n\n${nextSongs}`
     );
