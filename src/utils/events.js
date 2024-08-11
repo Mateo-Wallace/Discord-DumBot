@@ -68,23 +68,23 @@ player.events.on("playerStart", (queue, track) => {
 player.events.on("audioTrackAdd", (queue, track) => {});
 
 player.events.on("disconnect", (queue) => {
-  queue.metadata.send(
+  queue.metadata.channel.send(
     "I was manually disconnected from the voice channel, clearing queue... ❌"
   );
 });
 
 player.events.on("emptyChannel", (queue) => {
-  queue.metadata.send(
+  queue.metadata.channel.send(
     "Nobody is in the voice channel, leaving the voice channel... ❌"
   );
 });
 
 player.events.on("emptyQueue", (queue) => {
-  queue.metadata.send("I finished reading the whole queue ✅");
+  queue.metadata.channel.send("I finished reading the whole queue ✅");
 });
 
 player.events.on("audioTracksAdd", (queue, tracks) => {
-  queue.metadata.send(`All the songs in playlist added into the queue ✅`);
+  queue.metadata.channel.send(`All the songs in playlist added into the queue ✅`);
 });
 
 player.events.on("connection", (queue) => {});
