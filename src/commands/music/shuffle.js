@@ -5,25 +5,23 @@ module.exports = {
   musicCommand: true,
   enabled: client.config.enabledCommands.shuffle,
 
-  async execute({ inter }) {
-    const queue = player.getQueue(inter.guildId);
-
-    if (!queue || !queue.playing)
+  async execute({ inter, queue }) {
+    if (!queue || !queue.node.isPlaying())
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
 
-    if (!queue.tracks[0])
+    if (queue.isEmpty())
       return inter.reply({
         content: `No music in the queue after the current one ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
 
-    await queue.shuffle();
+    const mode = queue.toggleShuffle();
 
     return inter.reply({
-      content: `Queue shuffled **${queue.tracks.length}** song(s) ! ✅`,
+      content: `${mode ? "Enabled" : "Disabled"} shuffle mode.`,
     });
   },
 };

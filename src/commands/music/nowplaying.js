@@ -1,5 +1,4 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require("discord.js");
-const { GuildQueuePlayerNode } = require("discord-player");
 
 module.exports = {
   name: "nowplaying",
@@ -19,9 +18,7 @@ module.exports = {
 
     const methods = ["disabled", "track", "queue"];
 
-    const GuildQueue = new GuildQueuePlayerNode(queue);
-
-    const timestamp = GuildQueue.getTimestamp();
+    const timestamp = queue.node.getTimestamp();
     const trackDuration =
       timestamp.progress == "Infinity" ? "infinity (live)" : track.duration;
 
@@ -45,7 +42,7 @@ module.exports = {
           value: `\`${methods[queue.repeatMode]}\``,
           inline: true,
         },
-        { name: "Progress ", value: `${GuildQueue.createProgressBar()}` },
+        { name: "Progress ", value: `${queue.node.createProgressBar()}` },
         { name: "Requested by ", value: `${track.requestedBy}` }
       )
       .setColor("Red");

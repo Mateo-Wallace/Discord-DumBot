@@ -10,7 +10,7 @@ module.exports = {
   execute({ client, inter, queue }) {
     const tracksData = queue.tracks.data;
 
-    if (!queue)
+    if (!queue || !queue.node.isPlaying())
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
         ephemeral: true,

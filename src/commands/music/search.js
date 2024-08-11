@@ -1,5 +1,5 @@
 const { ApplicationCommandOptionType, EmbedBuilder } = require("discord.js");
-const { QueryType } = require("discord-player");
+const { QueryType, useMainPlayer, QueueRepeatMode } = require("discord-player");
 
 module.exports = {
   name: "search",
@@ -12,40 +12,55 @@ module.exports = {
       type: ApplicationCommandOptionType.String,
       required: true,
     },
+    {
+      name: "source",
+      description: "The search engine you want to use.",
+      type: ApplicationCommandOptionType.String,
+      required: false,
+      choices: [
+        {
+          name: "YouTube",
+          value: QueryType.YOUTUBE_SEARCH,
+        },
+        {
+          name: "SoundCloud",
+          value: QueryType.SOUNDCLOUD_SEARCH,
+        },
+        {
+          name: "Spotify",
+          value: QueryType.SPOTIFY_SEARCH,
+        },
+        {
+          name: "Apple Music",
+          value: QueryType.APPLE_MUSIC_SEARCH,
+        },
+      ],
+    },
   ],
   musicCommand: true,
   enabled: client.config.enabledCommands.search,
 
   async execute({ client, inter }) {
     const song = inter.options.getString("song");
+    const channel = inter.member?.voice?.channel;
+    const player = useMainPlayer();
+
+    let searchEngine = inter.options.getString("source", false);
+    const urlRegex =
+      /^(https?):\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/\S*)?$/;
+    if (!searchEngine || urlRegex.test(song)) searchEngine = QueryType.AUTO;
 
     const res = await player.search(song, {
       requestedBy: inter.member,
-      searchEngine: QueryType.AUTO,
+      searchEngine,
     });
 
-    if (!res || !res.tracks.length)
+    if (!res.hasTracks())
       return inter.reply({
         content: `No results found ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
 
-    const queue = await player.createQueue(inter.guild, {
-      metadata: inter.channel,
-      initialVolume: client.config.opt.defaultvolume,
-      leaveOnEnd: client.config.opt.leaveOnEnd,
-
-      async onBeforeCreateStream(track, source, _queue) {
-        // only trap youtube source
-        if (source === "youtube") {
-          // track here would be youtube track
-          return (
-            await playdl.stream(track.url, { discordPlayerCompatibility: true })
-          ).stream;
-          // we must return readable stream or void (returning void means telling discord-player to look for default extractor)
-        }
-      },
-    });
     const maxTracks = res.tracks.slice(0, 10);
 
     const embed = new EmbedBuilder()
@@ -88,21 +103,32 @@ module.exports = {
       collector.stop();
 
       try {
-        if (!queue.connection) await queue.connect(inter.member.voice.channel);
-      } catch {
-        await player.deleteQueue(inter.guildId);
+        const { queue, track, searchResult } = await player.play(
+          channel,
+          res.tracks[query.content - 1],
+          {
+            nodeOptions: {
+              metadata: { channel: inter.channel },
+              volume: client.config.opt.defaultvolume,
+              leaveOnEnd: client.config.opt.leaveOnEnd,
+              repeatMode: QueueRepeatMode.OFF,
+            },
+            requestedBy: inter.user,
+            connectionOptions: { deaf: true },
+          }
+        );
+
         return inter.followUp({
-          content: `I can't join the voice channel ${inter.member}... try again ? ❌`,
-          ephemeral: true,
+          content: `Track ${
+            res.tracks[query.content - 1].title
+          } added in the queue ✅`,
+        });
+      } catch (e) {
+        console.error(e);
+        return inter.followUp({
+          content: `Something went wrong while playing \`${query}\``,
         });
       }
-
-      queue.addTrack(res.tracks[query.content - 1]);
-
-      if (!queue.playing) await queue.play();
-      await inter.followUp(
-        `Track ${res.tracks[query.content - 1].title} added in the queue ✅`
-      );
     });
 
     collector.on("end", (msg, reason) => {

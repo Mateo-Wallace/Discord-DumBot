@@ -43,7 +43,7 @@ module.exports = {
   async execute({ inter, queue }) {
     await inter.deferReply();
 
-    if (!queue)
+    if (!queue || !queue.node.isPlaying())
       return inter.editReply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
         ephemeral: true,
@@ -53,7 +53,7 @@ module.exports = {
     let searchEngine = inter.options.getString("source", false);
     const urlRegex =
       /^(https?):\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/\S*)?$/;
-    if (!searchEngine || urlRegex.test(query)) searchEngine = QueryType.AUTO;
+    if (!searchEngine || urlRegex.test(song)) searchEngine = QueryType.AUTO;
 
     const player = useMainPlayer();
 
