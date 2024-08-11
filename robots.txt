@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mateo-wallace.github.io/MP2-Discord-DumBot-V2/sitemap.xml.gz
+Sitemap: https://mateo-wallace.github.io/Discord-DumBot/sitemap.xml.gz
