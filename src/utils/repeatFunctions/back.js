@@ -3,7 +3,7 @@ import { useHistory } from "discord-player";
 export default async (inter, queue) => {
   const history = useHistory(inter.guildId);
 
-  if (!queue || !queue.node.isPlaying()) {
+  if (!queue) {
     return inter.reply({
       content: `No music currently playing ${inter.member}... try again? ❌`,
       ephemeral: true,
