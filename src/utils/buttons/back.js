@@ -1,6 +1,5 @@
-// actual functionality is in repeatFunctions
-const back = require("../../utils/repeatFunctions/back");
+import back from "../../utils/repeatFunctions/back.js";
 
-module.exports = async ({ inter, queue }) => {
+export default async ({ inter, queue }) => {
   back(inter, queue);
 };

@@ -1,19 +1,19 @@
-const { ApplicationCommandOptionType } = require("discord.js");
+import { ApplicationCommandOptionType } from "discord.js";
 
-module.exports = {
+export default {
   name: "remove",
-  description: "remove a song from the queue",
+  description: "Remove a song from the queue",
   voiceChannel: true,
   options: [
     {
       name: "song",
-      description: "the name/url of the track you want to remove",
+      description: "The name/url of the track you want to remove",
       type: ApplicationCommandOptionType.String,
       required: false,
     },
     {
       name: "number",
-      description: "the place in the queue the song is in",
+      description: "The position in the queue of the song to remove",
       type: ApplicationCommandOptionType.Number,
       required: false,
     },
@@ -25,44 +25,48 @@ module.exports = {
     const number = inter.options.getNumber("number");
     const track = inter.options.getString("song");
 
-    if (!queue || !queue.node.isPlaying())
+    if (!queue || !queue.node.isPlaying()) {
       return inter.reply({
-        content: `No music currently playing ${inter.member}... try again ? ❌`,
+        content: `No music currently playing ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
-    if (!track && !number)
-      inter.reply({
-        content: `You have to use one of the options to remove a song ${inter.member}... try again ? ❌`,
+    }
+
+    if (!track && !number) {
+      return inter.reply({
+        content: `You need to specify either a song name/url or a number to remove a song ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
+    }
 
     if (track) {
-      for (let song of queue.tracks.data) {
+      for (const song of queue.tracks.data) {
         if (song.title === track || song.url === track) {
           queue.node.remove(song);
-          return inter.reply({ content: `removed ${track} from the queue ✅` });
+          return inter.reply({ content: `Removed ${track} from the queue ✅` });
         }
       }
 
       return inter.reply({
-        content: `could not find ${track} ${inter.member}... try using the url or the full name of the song ? ❌`,
+        content: `Could not find ${track} ${inter.member}... try using the full name or URL of the song? ❌`,
         ephemeral: true,
       });
     }
 
     if (number) {
       const index = number - 1;
-      const trackname = queue.tracks.data[index].title;
+      const trackName = queue.tracks.data[index]?.title;
 
-      if (!trackname)
+      if (!trackName) {
         return inter.reply({
-          content: `This track dose not seem to exist ${inter.member}...  try again ?❌`,
+          content: `This track does not seem to exist ${inter.member}... try again? ❌`,
           ephemeral: true,
         });
+      }
 
       queue.node.remove(index);
 
-      return inter.reply({ content: `removed ${trackname} from the queue ✅` });
+      return inter.reply({ content: `Removed ${trackName} from the queue ✅` });
     }
   },
 };

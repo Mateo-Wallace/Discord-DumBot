@@ -1,8 +1,7 @@
-const { ApplicationCommandOptionType } = require("discord.js");
-// actual functionality is in repeat functions
-const roll = require("../../utils/repeatFunctions/roll");
+import { ApplicationCommandOptionType } from "discord.js";
+import roll from "../../utils/repeatFunctions/roll.js";
 
-module.exports = {
+export default {
   name: "roll",
   description: "Rolls dice based on user input",
   options: [
@@ -14,7 +13,7 @@ module.exports = {
   ],
   enabled: client.config.enabledCommands.roll,
 
-  execute({ inter }) {
-    roll(inter, false);
+  async execute({ inter }) {
+    await roll(inter, false);
   },
 };

@@ -1,14 +1,14 @@
-const { QueryType, useMainPlayer, QueueRepeatMode } = require("discord-player");
-const { ApplicationCommandOptionType } = require("discord.js");
+import { QueryType, useMainPlayer, QueueRepeatMode } from "discord-player";
+import { ApplicationCommandOptionType } from "discord.js";
 
-module.exports = {
+export default {
   name: "play",
-  description: "play a song!",
+  description: "Play a song!",
   voiceChannel: true,
   options: [
     {
       name: "song",
-      description: "the song you want to play",
+      description: "The song you want to play",
       type: ApplicationCommandOptionType.String,
       required: true,
     },
@@ -59,29 +59,25 @@ module.exports = {
 
     if (!result.hasTracks()) {
       return inter.editReply({
-        content: `No results found ${inter.member}... try again ? ❌`,
+        content: `No results found ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
     }
 
     try {
-      const { queue, track, searchResult } = await player.play(
-        channel,
-        result,
-        {
-          nodeOptions: {
-            metadata: { channel: inter.channel },
-            volume: client.config.opt.defaultvolume,
-            leaveOnEnd: client.config.opt.leaveOnEnd,
-            repeatMode: QueueRepeatMode.OFF,
-          },
-          requestedBy: inter.user,
-          connectionOptions: { deaf: true },
-        }
-      );
+      const { queue } = await player.play(channel, result, {
+        nodeOptions: {
+          metadata: { channel: inter.channel },
+          volume: client.config.opt.defaultvolume,
+          leaveOnEnd: client.config.opt.leaveOnEnd,
+          repeatMode: QueueRepeatMode.OFF,
+        },
+        requestedBy: inter.user,
+        connectionOptions: { deaf: true },
+      });
 
       return inter.editReply({
-        content: `Track ${result.tracks[0].title} added in the queue ✅`,
+        content: `Track ${result.tracks[0].title} added to the queue ✅`,
       });
     } catch (e) {
       console.error(e);

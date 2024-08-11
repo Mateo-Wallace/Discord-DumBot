@@ -1,39 +1,27 @@
-const { ApplicationCommandOptionType, EmbedBuilder } = require("discord.js");
-const { QueryType, useMainPlayer, QueueRepeatMode } = require("discord-player");
+import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js";
+import { QueryType, useMainPlayer, QueueRepeatMode } from "discord-player";
 
-module.exports = {
+export default {
   name: "search",
-  description: "search a track",
+  description: "Search for a track",
   voiceChannel: true,
   options: [
     {
       name: "song",
-      description: "the song you want to search",
+      description: "The song you want to search",
       type: ApplicationCommandOptionType.String,
       required: true,
     },
     {
       name: "source",
-      description: "The search engine you want to use.",
+      description: "The search engine you want to use",
       type: ApplicationCommandOptionType.String,
       required: false,
       choices: [
-        {
-          name: "YouTube",
-          value: QueryType.YOUTUBE_SEARCH,
-        },
-        {
-          name: "SoundCloud",
-          value: QueryType.SOUNDCLOUD_SEARCH,
-        },
-        {
-          name: "Spotify",
-          value: QueryType.SPOTIFY_SEARCH,
-        },
-        {
-          name: "Apple Music",
-          value: QueryType.APPLE_MUSIC_SEARCH,
-        },
+        { name: "YouTube", value: QueryType.YOUTUBE_SEARCH },
+        { name: "SoundCloud", value: QueryType.SOUNDCLOUD_SEARCH },
+        { name: "Spotify", value: QueryType.SPOTIFY_SEARCH },
+        { name: "Apple Music", value: QueryType.APPLE_MUSIC_SEARCH },
       ],
     },
   ],
@@ -55,11 +43,12 @@ module.exports = {
       searchEngine,
     });
 
-    if (!res.hasTracks())
+    if (!res.hasTracks()) {
       return inter.reply({
-        content: `No results found ${inter.member}... try again ? ❌`,
+        content: `No results found ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
+    }
 
     const maxTracks = res.tracks.slice(0, 10);
 
@@ -72,7 +61,7 @@ module.exports = {
       .setDescription(
         `${maxTracks
           .map((track, i) => `**${i + 1}**. ${track.title} | ${track.author}`)
-          .join("\n")}\n\nSelect choice between **1** and **${
+          .join("\n")}\n\nSelect a choice between **1** and **${
           maxTracks.length
         }** or **cancel** ⬇️`
       );
@@ -87,25 +76,27 @@ module.exports = {
     });
 
     collector.on("collect", async (query) => {
-      if (query.content.toLowerCase() === "cancel")
+      if (query.content.toLowerCase() === "cancel") {
         return (
           inter.followUp({ content: `Search cancelled ✅`, ephemeral: true }),
           collector.stop()
         );
+      }
 
-      const value = parseInt(query);
-      if (!value || value <= 0 || value > maxTracks.length)
+      const value = parseInt(query.content);
+      if (!value || value <= 0 || value > maxTracks.length) {
         return inter.followUp({
-          content: `Invalid response, try a value between **1** and **${maxTracks.length}** or **cancel**... try again ? ❌`,
+          content: `Invalid response, try a value between **1** and **${maxTracks.length}** or **cancel**... try again? ❌`,
           ephemeral: true,
         });
+      }
 
       collector.stop();
 
       try {
-        const { queue, track, searchResult } = await player.play(
+        const { queue, track } = await player.play(
           channel,
-          res.tracks[query.content - 1],
+          res.tracks[value - 1],
           {
             nodeOptions: {
               metadata: { channel: inter.channel },
@@ -119,24 +110,23 @@ module.exports = {
         );
 
         return inter.followUp({
-          content: `Track ${
-            res.tracks[query.content - 1].title
-          } added in the queue ✅`,
+          content: `Track ${res.tracks[value - 1].title} added to the queue ✅`,
         });
       } catch (e) {
         console.error(e);
         return inter.followUp({
-          content: `Something went wrong while playing \`${query}\``,
+          content: `Something went wrong while playing \`${query.content}\``,
         });
       }
     });
 
     collector.on("end", (msg, reason) => {
-      if (reason === "time")
+      if (reason === "time") {
         return inter.followUp({
-          content: `Search timed out ${inter.member}... try again ? ❌`,
+          content: `Search timed out ${inter.member}... try again? ❌`,
           ephemeral: true,
         });
+      }
     });
   },
 };

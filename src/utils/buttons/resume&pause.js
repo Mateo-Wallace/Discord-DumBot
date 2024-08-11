@@ -1,9 +1,10 @@
-module.exports = async ({ inter, queue }) => {
-  if (!queue)
+export default async ({ inter, queue }) => {
+  if (!queue) {
     return inter.reply({
-      content: `No music currently playing... try again ? ❌`,
+      content: `No music currently playing... try again? ❌`,
       ephemeral: true,
     });
+  }
 
   queue.node.isPaused() ? queue.node.resume() : queue.node.pause();
 

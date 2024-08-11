@@ -1,6 +1,6 @@
-const { Dice } = require("@mateo-wallace/rpg-dice-js");
+import { Dice } from "@mateo-wallace/rpg-dice-js";
 
-module.exports = async (inter, hidden) => {
+export default async (inter, hidden) => {
   const userInput = inter.options.getString("dice");
 
   const d20 = new Dice({ isBoldCrit: true });
@@ -24,7 +24,8 @@ module.exports = async (inter, hidden) => {
         ephemeral: true,
       });
     }
-  } catch {
+  } catch (error) {
+    console.error(error);
     await inter.reply({
       content: `FATAL ERROR executing ${inter.commandName}`,
       ephemeral: true,

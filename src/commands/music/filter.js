@@ -1,19 +1,20 @@
-const { ApplicationCommandOptionType } = require("discord.js");
+import { ApplicationCommandOptionType } from "discord.js";
+import { AudioFilters } from "discord-player";
 
-module.exports = {
+export default {
   name: "filter",
-  description: "add a filter to your track",
+  description: "Add a filter to your track",
   voiceChannel: true,
   options: [
     {
       name: "filter",
-      description: "filter you want to add",
+      description: "Filter you want to add",
       type: ApplicationCommandOptionType.String,
       required: true,
       choices: [
-        ...Object.keys(require("discord-player").AudioFilters.filters)
-          .map((m) => Object({ name: m, value: m }))
-          .splice(0, 25),
+        ...Object.keys(AudioFilters.filters)
+          .map((filter) => ({ name: filter, value: filter }))
+          .slice(0, 25),
       ],
     },
   ],
@@ -21,51 +22,47 @@ module.exports = {
   enabled: client.config.enabledCommands.filter,
 
   async execute({ inter, queue }) {
-    if (!queue || !queue.node.isPlaying())
+    if (!queue || !queue.node.isPlaying()) {
       return inter.reply({
-        content: `No music currently playing ${inter.member}... try again ? ❌`,
+        content: `No music currently playing ${inter.member}... try again? ❌`,
         ephemeral: true,
       });
+    }
 
-    const ffmpeg = queue.filters.ffmpeg;
+    const { ffmpeg } = queue.filters;
+    const activeFilter = ffmpeg.getFiltersEnabled()[0];
+    const selectedFilter = inter.options.getString("filter");
 
-    const actualFilter = ffmpeg.getFiltersEnabled()[0];
+    const availableFilters = [
+      ...ffmpeg.getFiltersEnabled(),
+      ...ffmpeg.getFiltersDisabled(),
+    ];
 
-    const infilter = inter.options.getString("filter");
-
-    const filters = [];
-
-    ffmpeg.getFiltersEnabled().map((x) => filters.push(x));
-    ffmpeg.getFiltersDisabled().map((x) => filters.push(x));
-
-    const filter = filters.find(
-      (x) => x.toLowerCase() === infilter.toLowerCase()
+    const filter = availableFilters.find(
+      (f) => f.toLowerCase() === selectedFilter.toLowerCase()
     );
 
-    if (!filter)
+    if (!filter) {
       return inter.reply({
-        content: `This filter doesn't exist ${
-          inter.member
-        }... try again ? ❌\n${
-          actualFilter ? `Filter currently active ${actualFilter}.\n` : ""
-        }List of available filters ${filters
-          .map((x) => `**${x}**`)
+        content: `This filter doesn't exist ${inter.member}... try again? ❌\n${
+          activeFilter ? `Filter currently active: ${activeFilter}.\n` : ""
+        }List of available filters: ${availableFilters
+          .map((f) => `**${f}**`)
           .join(", ")}.`,
         ephemeral: true,
       });
+    }
 
-    const filtersUpdated = {};
+    const filtersToUpdate = {
+      [filter]: !ffmpeg.getFiltersEnabled().includes(filter),
+    };
 
-    filtersUpdated[filter] = ffmpeg.getFiltersEnabled().includes(filter)
-      ? false
-      : true;
-
-    await ffmpeg.setFilters(filtersUpdated);
+    await ffmpeg.setFilters(filtersToUpdate);
 
     inter.reply({
       content: `The filter ${filter} is now **${
         ffmpeg.getFiltersEnabled().includes(filter) ? "enabled" : "disabled"
-      }** ✅\n*Reminder the longer the music is, the longer this will take.*`,
+      }** ✅\n*Reminder: the longer the music, the longer this will take.*`,
     });
   },
 };
