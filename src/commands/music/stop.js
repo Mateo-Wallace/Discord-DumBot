@@ -6,13 +6,13 @@ module.exports = {
   enabled: client.config.enabledCommands.stop,
 
   execute({ inter }) {
-    const queue = player.getQueue(inter.guildId);
+    const queue = player.nodes.get(inter.guildId);
 
     try {
-      queue.destroy();
+      queue.delete();
 
       inter.reply({
-        content: `Music stopped intero this server, see you next time ✅`,
+        content: `Music stopped in this server, see you next time ✅`,
       });
     } catch {
       inter.reply({

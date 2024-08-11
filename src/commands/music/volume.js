@@ -19,7 +19,7 @@ module.exports = {
   enabled: client.config.enabledCommands.volume,
 
   execute({ inter }) {
-    const queue = player.getQueue(inter.guildId);
+    const queue = player.nodes.get(inter.guildId);
 
     if (!queue)
       return inter.reply({
@@ -33,8 +33,9 @@ module.exports = {
         content: `The volume you want to change is already the current one ${inter.member}... try again ? ❌`,
         ephemeral: true,
       });
-
-    const success = queue.setVolume(vol);
+console.log(vol)
+console.log(typeof vol)
+    const success = queue.node.setVolume(vol);
 
     return inter.reply({
       content: success

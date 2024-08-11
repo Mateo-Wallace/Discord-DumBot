@@ -10,6 +10,7 @@ module.exports = {
 
   execute({ inter }) {
     const queue = player.nodes.get(inter.guildId);
+    console.log(queue);
 
     if (!queue)
       return inter.reply({
@@ -34,7 +35,7 @@ module.exports = {
       .addFields(
         {
           name: ":speaker: Volume",
-          value: `\`${queue.options.volume}\``,
+          value: `\`${queue.filters._lastFiltersCache.volume}\``,
           inline: true,
         },
         {

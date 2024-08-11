@@ -1,4 +1,4 @@
-const { QueryType, useMainPlayer } = require("discord-player");
+const { QueryType, useMainPlayer, QueueRepeatMode } = require("discord-player");
 const { ApplicationCommandOptionType } = require("discord.js");
 
 module.exports = {
@@ -42,8 +42,8 @@ module.exports = {
 
   async execute({ inter }) {
     await inter.deferReply();
-    
-    const query = inter.options.getString("song");
+
+    const query = inter.options.getString("song", true);
     const channel = inter.member?.voice?.channel;
     const player = useMainPlayer();
 
@@ -59,7 +59,8 @@ module.exports = {
 
     if (!result.hasTracks()) {
       return inter.editReply({
-        content: `No results found`,
+        content: `No results found ${inter.member}... try again ? ❌`,
+        ephemeral: true,
       });
     }
 
@@ -72,6 +73,7 @@ module.exports = {
             metadata: { channel: inter.channel },
             volume: client.config.opt.defaultvolume,
             leaveOnEnd: client.config.opt.leaveOnEnd,
+            repeatMode: QueueRepeatMode.OFF,
           },
           requestedBy: inter.user,
           connectionOptions: { deaf: true },
@@ -79,12 +81,12 @@ module.exports = {
       );
 
       return inter.editReply({
-        content: "Added",
+        content: `Track ${result.tracks[0].title} added in the queue ✅`,
       });
     } catch (e) {
       console.error(e);
       return inter.editReply({
-        content: "error",
+        content: `Something went wrong while playing \`${query}\``,
       });
     }
   },
