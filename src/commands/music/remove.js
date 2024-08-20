@@ -1,19 +1,19 @@
-import { ApplicationCommandOptionType } from "discord.js";
+import { ApplicationCommandOptionType } from 'discord.js';
 
 export default {
-  name: "remove",
-  description: "Remove a song from the queue",
+  name: 'remove',
+  description: 'Remove a song from the queue',
   voiceChannel: true,
   options: [
     {
-      name: "song",
-      description: "The name/url of the track you want to remove",
+      name: 'song',
+      description: 'The name/url of the track you want to remove',
       type: ApplicationCommandOptionType.String,
       required: false,
     },
     {
-      name: "number",
-      description: "The position in the queue of the song to remove",
+      name: 'number',
+      description: 'The position in the queue of the song to remove',
       type: ApplicationCommandOptionType.Number,
       required: false,
     },
@@ -22,8 +22,8 @@ export default {
   enabled: client.config.enabledCommands.remove,
 
   async execute({ inter, queue }) {
-    const number = inter.options.getNumber("number");
-    const track = inter.options.getString("song");
+    const number = inter.options.getNumber('number');
+    const track = inter.options.getString('song');
 
     if (!queue || !queue.node.isPlaying()) {
       return inter.reply({

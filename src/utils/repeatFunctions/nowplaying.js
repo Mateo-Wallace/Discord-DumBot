@@ -1,37 +1,37 @@
-import { EmbedBuilder, ActionRowBuilder, ButtonBuilder } from "discord.js";
+import { EmbedBuilder, ActionRowBuilder, ButtonBuilder } from 'discord.js';
 
 const row = () => {
   const saveButton = new ButtonBuilder()
-    .setLabel("Save this track")
-    .setCustomId(JSON.stringify({ ffb: "savetrack" }))
-    .setStyle("Danger");
+    .setLabel('Save this track')
+    .setCustomId(JSON.stringify({ ffb: 'savetrack' }))
+    .setStyle('Danger');
 
   const volumeup = new ButtonBuilder()
-    .setLabel("Volume up")
-    .setCustomId(JSON.stringify({ ffb: "volumeup" }))
-    .setStyle("Primary");
+    .setLabel('Volume up')
+    .setCustomId(JSON.stringify({ ffb: 'volumeup' }))
+    .setStyle('Primary');
 
   const volumedown = new ButtonBuilder()
-    .setLabel("Volume Down")
-    .setCustomId(JSON.stringify({ ffb: "volumedown" }))
-    .setStyle("Primary");
+    .setLabel('Volume Down')
+    .setCustomId(JSON.stringify({ ffb: 'volumedown' }))
+    .setStyle('Primary');
 
   const loop = new ButtonBuilder()
-    .setLabel("Loop")
-    .setCustomId(JSON.stringify({ ffb: "loop" }))
-    .setStyle("Danger");
+    .setLabel('Loop')
+    .setCustomId(JSON.stringify({ ffb: 'loop' }))
+    .setStyle('Danger');
 
   const resumepause = new ButtonBuilder()
-    .setLabel("Resume & Pause")
-    .setCustomId(JSON.stringify({ ffb: "resume&pause" }))
-    .setStyle("Success");
+    .setLabel('Resume & Pause')
+    .setCustomId(JSON.stringify({ ffb: 'resume&pause' }))
+    .setStyle('Success');
 
   return new ActionRowBuilder().addComponents(
     volumedown,
     saveButton,
     resumepause,
     loop,
-    volumeup
+    volumeup,
   );
 };
 
@@ -45,11 +45,11 @@ export default async (inter, queue, isButton) => {
 
   const track = queue.currentTrack;
 
-  const methods = ["disabled", "track", "queue"];
+  const methods = ['disabled', 'track', 'queue'];
 
   const timestamp = queue.node.getTimestamp();
   const trackDuration =
-    timestamp.progress === "Infinity" ? "infinity (live)" : track.duration;
+    timestamp.progress === 'Infinity' ? 'infinity (live)' : track.duration;
 
   const embed = new EmbedBuilder()
     .setTitle(`:arrow_forward: ${track.title}`)
@@ -57,24 +57,24 @@ export default async (inter, queue, isButton) => {
     .setThumbnail(track.thumbnail)
     .addFields(
       {
-        name: ":speaker: Volume",
+        name: ':speaker: Volume',
         value: `\`${queue.filters._lastFiltersCache.volume}\``,
         inline: true,
       },
       {
-        name: ":hourglass: Duration:",
+        name: ':hourglass: Duration:',
         value: `\`${trackDuration}\``,
         inline: true,
       },
       {
-        name: ":infinity: Loop mode:",
+        name: ':infinity: Loop mode:',
         value: `\`${methods[queue.repeatMode]}\``,
         inline: true,
       },
-      { name: "Progress", value: `${queue.node.createProgressBar()}` },
-      { name: "Requested by", value: `${track.requestedBy}` }
+      { name: 'Progress', value: `${queue.node.createProgressBar()}` },
+      { name: 'Requested by', value: `${track.requestedBy}` },
     )
-    .setColor("Red");
+    .setColor('Red');
 
   if (isButton) {
     return inter.reply({ embeds: [embed], ephemeral: true });

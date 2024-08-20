@@ -1,8 +1,8 @@
-import nowPlaying from "../../utils/repeatFunctions/nowplaying.js";
+import nowPlaying from '../../utils/repeatFunctions/nowplaying.js';
 
 export default {
-  name: "nowplaying",
-  description: "View what is playing!",
+  name: 'nowplaying',
+  description: 'View what is playing!',
   voiceChannel: true,
   musicCommand: true,
   enabled: client.config.enabledCommands.nowplaying,

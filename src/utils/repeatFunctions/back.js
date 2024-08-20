@@ -1,4 +1,4 @@
-import { useHistory } from "discord-player";
+import { useHistory } from 'discord-player';
 
 export default async (inter, queue) => {
   const history = useHistory(inter.guildId);
@@ -19,5 +19,5 @@ export default async (inter, queue) => {
 
   await history.previous();
 
-  inter.reply({ content: `Playing the **previous** track ✅` });
+  inter.reply({ content: 'Playing the **previous** track ✅' });
 };

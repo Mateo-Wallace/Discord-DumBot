@@ -3,7 +3,7 @@ const maxVol = client.config.opt.maxVol;
 export default async ({ inter, queue }) => {
   if (!queue) {
     return inter.reply({
-      content: `No music currently playing... try again? ❌`,
+      content: 'No music currently playing... try again? ❌',
       ephemeral: true,
     });
   }

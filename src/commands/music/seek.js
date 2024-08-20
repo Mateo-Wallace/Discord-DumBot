@@ -1,14 +1,14 @@
-import ms from "ms";
-import { ApplicationCommandOptionType } from "discord.js";
+import ms from 'ms';
+import { ApplicationCommandOptionType } from 'discord.js';
 
 export default {
-  name: "seek",
-  description: "Skip back or forward in a song",
+  name: 'seek',
+  description: 'Skip back or forward in a song',
   voiceChannel: true,
   options: [
     {
-      name: "time",
-      description: "Time that you want to skip to",
+      name: 'time',
+      description: 'Time that you want to skip to',
       type: ApplicationCommandOptionType.String,
       required: true,
     },
@@ -25,7 +25,7 @@ export default {
     }
 
     try {
-      const timeToMS = ms(inter.options.getString("time"));
+      const timeToMS = ms(inter.options.getString('time'));
       if (timeToMS >= queue.currentTrack.durationMS) {
         return inter.reply({
           content: `The indicated time is higher than the total time of the current song ${inter.member}... try again? ❌\n*Try for example a valid time like **5s, 10s, 20 seconds, 1m**...*`,
@@ -43,7 +43,7 @@ export default {
     } catch (e) {
       console.error(e);
       inter.reply({
-        content: `Something went wrong. Try again.`,
+        content: 'Something went wrong. Try again.',
         ephemeral: true,
       });
     }

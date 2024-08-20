@@ -1,37 +1,37 @@
-import { ApplicationCommandOptionType } from "discord.js";
-import { QueryType, useMainPlayer } from "discord-player";
+import { ApplicationCommandOptionType } from 'discord.js';
+import { QueryType, useMainPlayer } from 'discord-player';
 
 export default {
-  name: "playnext",
-  description: "Play a song next in the queue",
+  name: 'playnext',
+  description: 'Play a song next in the queue',
   voiceChannel: true,
   options: [
     {
-      name: "song",
-      description: "The song you want to play next",
+      name: 'song',
+      description: 'The song you want to play next',
       type: ApplicationCommandOptionType.String,
       required: true,
     },
     {
-      name: "source",
-      description: "The search engine you want to use.",
+      name: 'source',
+      description: 'The search engine you want to use.',
       type: ApplicationCommandOptionType.String,
       required: false,
       choices: [
         {
-          name: "YouTube",
+          name: 'YouTube',
           value: QueryType.YOUTUBE_SEARCH,
         },
         {
-          name: "SoundCloud",
+          name: 'SoundCloud',
           value: QueryType.SOUNDCLOUD_SEARCH,
         },
         {
-          name: "Spotify",
+          name: 'Spotify',
           value: QueryType.SPOTIFY_SEARCH,
         },
         {
-          name: "Apple Music",
+          name: 'Apple Music',
           value: QueryType.APPLE_MUSIC_SEARCH,
         },
       ],
@@ -50,11 +50,13 @@ export default {
       });
     }
 
-    const song = inter.options.getString("song");
-    let searchEngine = inter.options.getString("source", false);
+    const song = inter.options.getString('song');
+    let searchEngine = inter.options.getString('source', false);
     const urlRegex =
       /^(https?):\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/\S*)?$/;
-    if (!searchEngine || urlRegex.test(song)) searchEngine = QueryType.AUTO;
+    if (!searchEngine || urlRegex.test(song)) {
+      searchEngine = QueryType.AUTO;
+    }
 
     const player = useMainPlayer();
 

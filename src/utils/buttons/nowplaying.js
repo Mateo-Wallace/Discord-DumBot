@@ -1,4 +1,4 @@
-import nowPlaying from "../repeatFunctions/nowplaying.js";
+import nowPlaying from '../repeatFunctions/nowplaying.js';
 
 export default async ({ inter, queue }) => {
   const isButton = true;
