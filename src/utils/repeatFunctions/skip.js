@@ -1,7 +1,7 @@
 export default async (inter, queue) => {
   if (!queue || !queue.node.isPlaying()) {
     return inter.reply({
-      content: `No music currently playing... try again? ❌`,
+      content: 'No music currently playing... try again? ❌',
       ephemeral: true,
     });
   }

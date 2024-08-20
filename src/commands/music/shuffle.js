@@ -1,6 +1,6 @@
 export default {
-  name: "shuffle",
-  description: "Shuffle the track",
+  name: 'shuffle',
+  description: 'Shuffle the track',
   voiceChannel: true,
   musicCommand: true,
   enabled: client.config.enabledCommands.shuffle,
@@ -23,7 +23,7 @@ export default {
     const mode = queue.toggleShuffle();
 
     return inter.reply({
-      content: `${mode ? "Enabled" : "Disabled"} shuffle mode.`,
+      content: `${mode ? 'Enabled' : 'Disabled'} shuffle mode.`,
     });
   },
 };

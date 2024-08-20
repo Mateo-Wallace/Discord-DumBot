@@ -1,27 +1,27 @@
-import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js";
-import { QueryType, useMainPlayer, QueueRepeatMode } from "discord-player";
+import { ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
+import { QueryType, useMainPlayer, QueueRepeatMode } from 'discord-player';
 
 export default {
-  name: "search",
-  description: "Search for a track",
+  name: 'search',
+  description: 'Search for a track',
   voiceChannel: true,
   options: [
     {
-      name: "song",
-      description: "The song you want to search",
+      name: 'song',
+      description: 'The song you want to search',
       type: ApplicationCommandOptionType.String,
       required: true,
     },
     {
-      name: "source",
-      description: "The search engine you want to use",
+      name: 'source',
+      description: 'The search engine you want to use',
       type: ApplicationCommandOptionType.String,
       required: false,
       choices: [
-        { name: "YouTube", value: QueryType.YOUTUBE_SEARCH },
-        { name: "SoundCloud", value: QueryType.SOUNDCLOUD_SEARCH },
-        { name: "Spotify", value: QueryType.SPOTIFY_SEARCH },
-        { name: "Apple Music", value: QueryType.APPLE_MUSIC_SEARCH },
+        { name: 'YouTube', value: QueryType.YOUTUBE_SEARCH },
+        { name: 'SoundCloud', value: QueryType.SOUNDCLOUD_SEARCH },
+        { name: 'Spotify', value: QueryType.SPOTIFY_SEARCH },
+        { name: 'Apple Music', value: QueryType.APPLE_MUSIC_SEARCH },
       ],
     },
   ],
@@ -29,14 +29,16 @@ export default {
   enabled: client.config.enabledCommands.search,
 
   async execute({ client, inter }) {
-    const song = inter.options.getString("song");
+    const song = inter.options.getString('song');
     const channel = inter.member?.voice?.channel;
     const player = useMainPlayer();
 
-    let searchEngine = inter.options.getString("source", false);
+    let searchEngine = inter.options.getString('source', false);
     const urlRegex =
       /^(https?):\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/\S*)?$/;
-    if (!searchEngine || urlRegex.test(song)) searchEngine = QueryType.AUTO;
+    if (!searchEngine || urlRegex.test(song)) {
+      searchEngine = QueryType.AUTO;
+    }
 
     const res = await player.search(song, {
       requestedBy: inter.member,
@@ -53,7 +55,7 @@ export default {
     const maxTracks = res.tracks.slice(0, 10);
 
     const embed = new EmbedBuilder()
-      .setColor("#ff0000")
+      .setColor('#ff0000')
       .setAuthor({
         name: `Results for ${song}`,
         iconURL: client.user.displayAvatarURL({ size: 1024, dynamic: true }),
@@ -61,9 +63,9 @@ export default {
       .setDescription(
         `${maxTracks
           .map((track, i) => `**${i + 1}**. ${track.title} | ${track.author}`)
-          .join("\n")}\n\nSelect a choice between **1** and **${
+          .join('\n')}\n\nSelect a choice between **1** and **${
           maxTracks.length
-        }** or **cancel** ⬇️`
+        }** or **cancel** ⬇️`,
       );
 
     inter.reply({ embeds: [embed] });
@@ -71,14 +73,14 @@ export default {
     const collector = inter.channel.createMessageCollector({
       time: 15000,
       max: 1,
-      errors: ["time"],
+      errors: ['time'],
       filter: (m) => m.author.id === inter.member.id,
     });
 
-    collector.on("collect", async (query) => {
-      if (query.content.toLowerCase() === "cancel") {
+    collector.on('collect', async (query) => {
+      if (query.content.toLowerCase() === 'cancel') {
         return (
-          inter.followUp({ content: `Search cancelled ✅`, ephemeral: true }),
+          inter.followUp({ content: 'Search cancelled ✅', ephemeral: true }),
           collector.stop()
         );
       }
@@ -94,20 +96,16 @@ export default {
       collector.stop();
 
       try {
-        const { queue, track } = await player.play(
-          channel,
-          res.tracks[value - 1],
-          {
-            nodeOptions: {
-              metadata: { channel: inter.channel },
-              volume: client.config.opt.defaultvolume,
-              leaveOnEnd: client.config.opt.leaveOnEnd,
-              repeatMode: QueueRepeatMode.OFF,
-            },
-            requestedBy: inter.user,
-            connectionOptions: { deaf: true },
-          }
-        );
+        await player.play(channel, res.tracks[value - 1], {
+          nodeOptions: {
+            metadata: { channel: inter.channel },
+            volume: client.config.opt.defaultvolume,
+            leaveOnEnd: client.config.opt.leaveOnEnd,
+            repeatMode: QueueRepeatMode.OFF,
+          },
+          requestedBy: inter.user,
+          connectionOptions: { deaf: true },
+        });
 
         return inter.followUp({
           content: `Track ${res.tracks[value - 1].title} added to the queue ✅`,
@@ -120,8 +118,8 @@ export default {
       }
     });
 
-    collector.on("end", (msg, reason) => {
-      if (reason === "time") {
+    collector.on('end', (msg, reason) => {
+      if (reason === 'time') {
         return inter.followUp({
           content: `Search timed out ${inter.member}... try again? ❌`,
           ephemeral: true,

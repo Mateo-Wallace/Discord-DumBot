@@ -1,8 +1,8 @@
-import q from "../../utils/repeatFunctions/queue.js";
+import q from '../../utils/repeatFunctions/queue.js';
 
 export default {
-  name: "queue",
-  description: "Get the songs in the queue",
+  name: 'queue',
+  description: 'Get the songs in the queue',
   voiceChannel: true,
   musicCommand: true,
   enabled: client.config.enabledCommands.queue,

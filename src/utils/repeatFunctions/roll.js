@@ -1,7 +1,7 @@
-import { Dice } from "@mateo-wallace/rpg-dice-js";
+import { Dice } from '@mateo-wallace/rpg-dice-js';
 
 export default async (inter, hidden) => {
-  const userInput = inter.options.getString("dice");
+  const userInput = inter.options.getString('dice');
 
   const d20 = new Dice({ isBoldCrit: true });
 
@@ -12,7 +12,7 @@ export default async (inter, hidden) => {
     if (r.ok) {
       await inter.reply({
         content: `${inter.user} :game_die: ${
-          r.input ? "\n **Input**: " + r.input + " \n" : "\n"
+          r.input ? '\n **Input**: ' + r.input + ' \n' : '\n'
         } **Result**: ${r.result} \n **Total**: ${
           r.total
         }     **Crit Total**: ${r.totalCrit}`,
