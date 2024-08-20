@@ -1,6 +1,6 @@
 export default {
-  name: "resume",
-  description: "Resume the currently paused track",
+  name: 'resume',
+  description: 'Resume the currently paused track',
   voiceChannel: true,
   musicCommand: true,
   enabled: client.config.enabledCommands.resume,

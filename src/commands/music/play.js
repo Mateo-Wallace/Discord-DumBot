@@ -1,37 +1,37 @@
-import { QueryType, useMainPlayer, QueueRepeatMode } from "discord-player";
-import { ApplicationCommandOptionType } from "discord.js";
+import { QueryType, useMainPlayer, QueueRepeatMode } from 'discord-player';
+import { ApplicationCommandOptionType } from 'discord.js';
 
 export default {
-  name: "play",
-  description: "Play a song!",
+  name: 'play',
+  description: 'Play a song!',
   voiceChannel: true,
   options: [
     {
-      name: "song",
-      description: "The song you want to play",
+      name: 'song',
+      description: 'The song you want to play',
       type: ApplicationCommandOptionType.String,
       required: true,
     },
     {
-      name: "source",
-      description: "The search engine you want to use.",
+      name: 'source',
+      description: 'The search engine you want to use.',
       type: ApplicationCommandOptionType.String,
       required: false,
       choices: [
         {
-          name: "YouTube",
+          name: 'YouTube',
           value: QueryType.YOUTUBE_SEARCH,
         },
         {
-          name: "SoundCloud",
+          name: 'SoundCloud',
           value: QueryType.SOUNDCLOUD_SEARCH,
         },
         {
-          name: "Spotify",
+          name: 'Spotify',
           value: QueryType.SPOTIFY_SEARCH,
         },
         {
-          name: "Apple Music",
+          name: 'Apple Music',
           value: QueryType.APPLE_MUSIC_SEARCH,
         },
       ],
@@ -43,14 +43,16 @@ export default {
   async execute({ inter }) {
     await inter.deferReply();
 
-    const query = inter.options.getString("song", true);
+    const query = inter.options.getString('song', true);
     const channel = inter.member?.voice?.channel;
     const player = useMainPlayer();
 
-    let searchEngine = inter.options.getString("source", false);
+    let searchEngine = inter.options.getString('source', false);
     const urlRegex =
       /^(https?):\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/\S*)?$/;
-    if (!searchEngine || urlRegex.test(query)) searchEngine = QueryType.AUTO;
+    if (!searchEngine || urlRegex.test(query)) {
+      searchEngine = QueryType.AUTO;
+    }
 
     const result = await player.search(query, {
       searchEngine,
@@ -65,7 +67,7 @@ export default {
     }
 
     try {
-      const { queue } = await player.play(channel, result, {
+      await player.play(channel, result, {
         nodeOptions: {
           metadata: { channel: inter.channel },
           volume: client.config.opt.defaultvolume,

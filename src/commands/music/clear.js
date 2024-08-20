@@ -1,8 +1,8 @@
-import { useHistory } from "discord-player";
+import { useHistory } from 'discord-player';
 
 export default {
-  name: "clear",
-  description: "Clear all the music in the queue",
+  name: 'clear',
+  description: 'Clear all the music in the queue',
   voiceChannel: true, // Requires user to be in a voice channel
   musicCommand: true, // Marks this command as music-related
   enabled: client.config.enabledCommands.clear,
@@ -17,9 +17,13 @@ export default {
       });
     }
 
-    if (!queue.isEmpty()) queue.tracks.clear();
-    if (!history.isEmpty()) history.clear();
+    if (!queue.isEmpty()) {
+      queue.tracks.clear();
+    }
+    if (!history.isEmpty()) {
+      history.clear();
+    }
 
-    inter.reply("The queue has just been cleared 🗑️");
+    inter.reply('The queue has just been cleared 🗑️');
   },
 };

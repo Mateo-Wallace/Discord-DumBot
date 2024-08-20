@@ -1,6 +1,6 @@
 export default {
-  name: "pause",
-  description: "Pause the track",
+  name: 'pause',
+  description: 'Pause the track',
   voiceChannel: true,
   musicCommand: true,
   enabled: client.config.enabledCommands.pause,

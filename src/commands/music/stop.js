@@ -1,6 +1,6 @@
 export default {
-  name: "stop",
-  description: "Stop the track",
+  name: 'stop',
+  description: 'Stop the track',
   voiceChannel: true,
   musicCommand: true,
   enabled: client.config.enabledCommands.stop,
@@ -10,7 +10,7 @@ export default {
       queue.delete();
 
       await inter.reply({
-        content: "Music stopped in this server, see you next time ✅",
+        content: 'Music stopped in this server, see you next time ✅',
       });
     } catch {
       await inter.reply({

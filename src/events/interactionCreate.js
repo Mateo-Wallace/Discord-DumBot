@@ -1,5 +1,5 @@
-import { EmbedBuilder, InteractionType } from "discord.js";
-import { useQueue } from "discord-player";
+import { EmbedBuilder, InteractionType } from 'discord.js';
+import { useQueue } from 'discord-player';
 
 export default (client, inter) => {
   const queue = useQueue(inter.guildId);
@@ -12,8 +12,8 @@ export default (client, inter) => {
       inter.reply({
         embeds: [
           new EmbedBuilder()
-            .setColor("#ff0000")
-            .setDescription("❌ | Error! Please contact Developers!"),
+            .setColor('#ff0000')
+            .setDescription('❌ | Error! Please contact Developers!'),
         ],
         ephemeral: true,
       });
@@ -28,9 +28,9 @@ export default (client, inter) => {
       return inter.reply({
         embeds: [
           new EmbedBuilder()
-            .setColor("#ff0000")
+            .setColor('#ff0000')
             .setDescription(
-              "❌ | You do not have the proper permissions to execute this command"
+              '❌ | You do not have the proper permissions to execute this command',
             ),
         ],
         ephemeral: true,
@@ -41,15 +41,15 @@ export default (client, inter) => {
       DJ.enabled &&
       DJ.commands.includes(command.name) &&
       !inter.member._roles.includes(
-        inter.guild.roles.cache.find((role) => role.name === DJ.roleName)?.id
+        inter.guild.roles.cache.find((role) => role.name === DJ.roleName)?.id,
       )
     ) {
       return inter.reply({
         embeds: [
           new EmbedBuilder()
-            .setColor("#ff0000")
+            .setColor('#ff0000')
             .setDescription(
-              `❌ | This command is reserved for members with \`${DJ.roleName}\``
+              `❌ | This command is reserved for members with \`${DJ.roleName}\``,
             ),
         ],
         ephemeral: true,
@@ -61,8 +61,8 @@ export default (client, inter) => {
         return inter.reply({
           embeds: [
             new EmbedBuilder()
-              .setColor("#ff0000")
-              .setDescription("❌ | You are not in a Voice Channel"),
+              .setColor('#ff0000')
+              .setDescription('❌ | You are not in a Voice Channel'),
           ],
           ephemeral: true,
         });
@@ -76,8 +76,8 @@ export default (client, inter) => {
         return inter.reply({
           embeds: [
             new EmbedBuilder()
-              .setColor("#ff0000")
-              .setDescription("❌ | You are not in the same Voice Channel"),
+              .setColor('#ff0000')
+              .setDescription('❌ | You are not in the same Voice Channel'),
           ],
           ephemeral: true,
         });
@@ -103,7 +103,7 @@ export default (client, inter) => {
         .catch((error) => {
           console.error(
             `Failed to import button module from path: ${buttonPath}`,
-            error
+            error,
           );
         });
     }

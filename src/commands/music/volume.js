@@ -1,15 +1,15 @@
-import { ApplicationCommandOptionType } from "discord.js";
+import { ApplicationCommandOptionType } from 'discord.js';
 
 const maxVol = client.config.opt.maxVol;
 
 export default {
-  name: "volume",
-  description: "Adjust the volume",
+  name: 'volume',
+  description: 'Adjust the volume',
   voiceChannel: true,
   options: [
     {
-      name: "volume",
-      description: "The amount of volume",
+      name: 'volume',
+      description: 'The amount of volume',
       type: ApplicationCommandOptionType.Number,
       required: true,
       minValue: 1,
@@ -27,7 +27,7 @@ export default {
       });
     }
 
-    const vol = inter.options.getNumber("volume");
+    const vol = inter.options.getNumber('volume');
 
     if (queue.node.volume === vol) {
       return await inter.reply({

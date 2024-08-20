@@ -1,9 +1,9 @@
-import { QueueRepeatMode } from "discord-player";
+import { QueueRepeatMode } from 'discord-player';
 
 export default async (inter, queue, repeatMode) => {
   if (!queue || !queue.node.isPlaying()) {
     return inter.reply({
-      content: `No music currently playing... try again? ❌`,
+      content: 'No music currently playing... try again? ❌',
       ephemeral: true,
     });
   }
@@ -16,7 +16,7 @@ export default async (inter, queue, repeatMode) => {
     queue.setRepeatMode(QueueRepeatMode.OFF);
   }
 
-  const methods = ["disabled", "track", "queue"];
+  const methods = ['disabled', 'track', 'queue'];
   return inter.reply({
     content: `Loop mode has been set to **${methods[queue.repeatMode]}**. ✅`,
   });

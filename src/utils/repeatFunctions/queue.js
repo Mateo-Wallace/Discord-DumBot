@@ -1,4 +1,4 @@
-import { EmbedBuilder } from "discord.js";
+import { EmbedBuilder } from 'discord.js';
 
 export default async (client, inter, queue) => {
   if (!queue || !queue.node.isPlaying()) {
@@ -17,7 +17,7 @@ export default async (client, inter, queue) => {
     });
   }
 
-  const methods = ["", "🔁", "🔂"];
+  const methods = ['', '🔁', '🔂'];
 
   const songs = tracksData.length;
 
@@ -30,11 +30,11 @@ export default async (client, inter, queue) => {
     (track, i) =>
       `**${i + 1}** - ${track.title} | ${track.author} (requested by: ${
         track.requestedBy.username
-      })`
+      })`,
   );
 
   const embed = new EmbedBuilder()
-    .setColor("#ff0000")
+    .setColor('#ff0000')
     .setThumbnail(inter.guild.iconURL({ size: 2048, dynamic: true }))
     .setAuthor({
       name: `Server queue - ${inter.guild.name} ${methods[queue.repeatMode]}`,
@@ -43,7 +43,7 @@ export default async (client, inter, queue) => {
     .setDescription(
       `Current ${queue.currentTrack.title}\n\n${tracks
         .slice(0, 5)
-        .join("\n")}\n\n${nextSongs}`
+        .join('\n')}\n\n${nextSongs}`,
     );
 
   await inter.reply({ embeds: [embed] });

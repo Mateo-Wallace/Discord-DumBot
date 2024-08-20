@@ -1,8 +1,8 @@
-import back from "../../utils/repeatFunctions/back.js";
+import back from '../../utils/repeatFunctions/back.js';
 
 export default {
-  name: "back",
-  description: "Go back to the previous song",
+  name: 'back',
+  description: 'Go back to the previous song',
   voiceChannel: true, // Requires user to be in a voice channel
   musicCommand: true, // Marks this command as music-related
   enabled: client.config.enabledCommands.back,

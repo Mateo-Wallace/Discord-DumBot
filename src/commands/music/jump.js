@@ -1,19 +1,19 @@
-import { ApplicationCommandOptionType } from "discord.js";
+import { ApplicationCommandOptionType } from 'discord.js';
 
 export default {
-  name: "jump",
-  description: "Jumps to a particular track in the queue",
+  name: 'jump',
+  description: 'Jumps to a particular track in the queue',
   voiceChannel: true,
   options: [
     {
-      name: "song",
-      description: "The name or URL of the track you want to jump to",
+      name: 'song',
+      description: 'The name or URL of the track you want to jump to',
       type: ApplicationCommandOptionType.String,
       required: false,
     },
     {
-      name: "number",
-      description: "The position in the queue of the track",
+      name: 'number',
+      description: 'The position in the queue of the track',
       type: ApplicationCommandOptionType.Number,
       required: false,
     },
@@ -22,8 +22,8 @@ export default {
   enabled: client.config.enabledCommands.jump,
 
   async execute({ inter, queue }) {
-    const track = inter.options.getString("song");
-    const number = inter.options.getNumber("number");
+    const track = inter.options.getString('song');
+    const number = inter.options.getNumber('number');
 
     if (!queue || !queue.node.isPlaying()) {
       return inter.reply({
@@ -48,7 +48,7 @@ export default {
 
     if (track) {
       const song = queue.tracks.data.find(
-        (s) => s.title === track || s.url === track
+        (s) => s.title === track || s.url === track,
       );
 
       if (song) {
