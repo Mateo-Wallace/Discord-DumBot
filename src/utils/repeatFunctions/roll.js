@@ -1,12 +1,10 @@
-import { Dice } from '@mateo-wallace/rpg-dice-js';
+import roll from '@mateo-wallace/rpg-dice-js';
 
 export default async (inter, hidden) => {
   const userInput = inter.options.getString('dice');
 
-  const d20 = new Dice({ isBoldCrit: true });
-
   // short format roll
-  const r = d20.roll(userInput);
+  const r = roll(userInput, { isBoldCrit: true });
 
   try {
     if (r.ok) {
