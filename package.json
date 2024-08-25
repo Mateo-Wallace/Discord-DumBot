@@ -1,15 +1,16 @@
 {
   "name": "discord-dumbot",
   "version": "1.0.0",
-  "description": "DumBot v2, trying to make a diceroller and a music player",
+  "description": "Discord Dumbot is a bot that can play music and roll dice.",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "node test.js",
-    "lint": "npx eslint **/*.js",
-    "pretty": "npx prettier . --write"
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "lint:fix": "eslint --fix . && npm run format"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,7 @@
   },
   "dependencies": {
     "@discord-player/extractor": "^4.5.0",
-    "@mateo-wallace/rpg-dice-js": "^1.0.3",
+    "@mateo-wallace/rpg-dice-js": "^2.0.1",
     "discord-player": "6.7.1",
     "discord-player-youtubei": "^1.2.6",
     "discord.js": "^14.1.2",
