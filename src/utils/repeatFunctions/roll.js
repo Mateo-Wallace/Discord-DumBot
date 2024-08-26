@@ -1,12 +1,12 @@
 import roll from '@mateo-wallace/rpg-dice-js';
 
 export default async (inter, hidden) => {
-  const userInput = inter.options.getString('dice');
-
-  // short format roll
-  const r = roll(userInput, { isBoldCrit: true });
-
   try {
+    let userInput = inter.options.getString('dice');
+    userInput = userInput ? userInput : '';
+    // short format roll
+    const r = roll(userInput, { isBoldCrit: true });
+
     if (r.ok) {
       await inter.reply({
         content: `${inter.user} :game_die: ${
