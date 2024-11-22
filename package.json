@@ -1,6 +1,6 @@
 {
   "name": "discord-dumbot",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "Discord Dumbot is a bot that can play music and roll dice.",
   "main": "index.js",
   "type": "module",
