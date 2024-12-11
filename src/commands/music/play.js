@@ -54,6 +54,13 @@ export default {
       searchEngine = QueryType.AUTO;
     }
 
+    if (client.config.app.noYoutube && searchEngine === 'youtubeSearch') {
+      return inter.editReply({
+        content: 'Youtube non functional at the moment. Sorry ❌',
+        ephemeral: true,
+      });
+    }
+
     const result = await player.search(query, {
       searchEngine,
       requestedBy: inter.user,

@@ -40,6 +40,13 @@ export default {
       searchEngine = QueryType.AUTO;
     }
 
+    if (client.config.app.noYoutube && searchEngine === 'youtubeSearch') {
+      return inter.editReply({
+        content: 'Youtube non functional at the moment. Sorry ❌',
+        ephemeral: true,
+      });
+    }
+
     const res = await player.search(song, {
       requestedBy: inter.member,
       searchEngine,
