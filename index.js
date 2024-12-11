@@ -25,7 +25,8 @@ client.config = config;
 const player = new Player(client, client.config.opt.discordPlayer);
 
 await player.extractors.register(YoutubeiExtractor, {
-  authentication: process.env.YT_CREDENTIAL,
+  // authentication: process.env.YT_CREDENTIAL,
+  authentication: undefined,
   streamOptions: {
     useClient: 'ANDROID',
   },

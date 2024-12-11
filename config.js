@@ -4,6 +4,7 @@ export default {
     global: 1, // Determines if bot works in all servers or just 1 server
     playing: '/help',
     doubleSongError: 1, // Discord-player has an issue with skipping two songs. I've handled this by making it so when a song ends, the player loads the next song in queue a second time. If discord-player resolves this issue and you begin getting double songs in your queue, simply turn this on.
+    noYoutube: 0, // When turned on, any request from youtube will be immediately stopped
   },
 
   opt: {
