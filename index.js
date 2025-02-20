@@ -1,6 +1,6 @@
 import { Player } from 'discord-player';
+import { DefaultExtractors } from '@discord-player/extractor';
 import { Client, GatewayIntentBits } from 'discord.js';
-import { YoutubeiExtractor } from 'discord-player-youtubei';
 import dotenv from 'dotenv';
 import { loader } from './src/utils/loader.js';
 import { events } from './src/utils/events.js';
@@ -24,15 +24,7 @@ client.config = config;
 
 const player = new Player(client, client.config.opt.discordPlayer);
 
-await player.extractors.register(YoutubeiExtractor, {
-  // authentication: process.env.YT_CREDENTIAL,
-  authentication: undefined,
-  streamOptions: {
-    useClient: 'ANDROID',
-  },
-});
-
-await player.extractors.loadDefault((ext) => ext !== 'YouTubeExtractor');
+await player.extractors.loadMulti(DefaultExtractors);
 
 loader();
 events();

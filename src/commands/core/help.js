@@ -42,6 +42,6 @@ export default {
       .setDescription(client.config.text.helpDescription)
       .addFields(commandList);
 
-    inter.reply({ embeds: [embed], ephemeral: true });
+    inter.reply({ embeds: [embed], flags: 64 });
   },
 };

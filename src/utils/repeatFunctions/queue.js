@@ -4,7 +4,7 @@ export default async (client, inter, queue) => {
   if (!queue || !queue.node.isPlaying()) {
     return inter.reply({
       content: `No music currently playing ${inter.member}... try again? ❌`,
-      ephemeral: true,
+      flags: 64,
     });
   }
 
@@ -13,7 +13,7 @@ export default async (client, inter, queue) => {
   if (!tracksData[0]) {
     return inter.reply({
       content: `No music in the queue after the current one ${inter.member}... try again? ❌`,
-      ephemeral: true,
+      flags: 64,
     });
   }
 

@@ -28,7 +28,7 @@ export default {
     if (channel.type !== 0) {
       return inter.reply({
         content: 'You have to send it to a text channel.. ❌',
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -39,7 +39,7 @@ export default {
 
     await inter.reply({
       content: `Sending controller to ${channel}... ✅`,
-      ephemeral: true,
+      flags: 64,
     });
 
     const back = new ButtonBuilder()

@@ -28,14 +28,14 @@ export default {
     if (!queue || !queue.node.isPlaying()) {
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
     if (!track && !number) {
       return inter.reply({
         content: `You need to specify either a song name/url or a number to remove a song ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -49,7 +49,7 @@ export default {
 
       return inter.reply({
         content: `Could not find ${track} ${inter.member}... try using the full name or URL of the song? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -60,7 +60,7 @@ export default {
       if (!trackName) {
         return inter.reply({
           content: `This track does not seem to exist ${inter.member}... try again? ❌`,
-          ephemeral: true,
+          flags: 64,
         });
       }
 
