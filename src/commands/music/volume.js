@@ -23,7 +23,7 @@ export default {
     if (!queue || !queue.node.isPlaying()) {
       return await inter.reply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -32,7 +32,7 @@ export default {
     if (queue.node.volume === vol) {
       return await inter.reply({
         content: `The volume you want to change is already the current one ${inter.member}... try again ? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 

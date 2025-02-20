@@ -9,14 +9,14 @@ export default {
     if (!queue || !queue.node.isPlaying()) {
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
     if (queue.isEmpty()) {
       return inter.reply({
         content: `No music in the queue after the current one ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 

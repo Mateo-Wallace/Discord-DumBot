@@ -9,14 +9,14 @@ export default {
     if (!queue) {
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
     if (!queue.node.isPaused()) {
       return inter.reply({
         content: `The track is already running, ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 

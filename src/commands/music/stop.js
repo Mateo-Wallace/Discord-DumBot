@@ -15,7 +15,7 @@ export default {
     } catch {
       await inter.reply({
         content: `No music currently playing ${inter.member}... try again ? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
   },

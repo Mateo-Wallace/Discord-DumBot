@@ -28,21 +28,21 @@ export default {
     if (!queue || !queue.node.isPlaying()) {
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
     if (queue.isEmpty()) {
       return inter.reply({
         content: `No music in the queue after the current one ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
     if (!track && !number) {
       return inter.reply({
         content: `You need to provide either a song name/URL or a queue number ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -58,7 +58,7 @@ export default {
 
       return inter.reply({
         content: `Could not find ${track} ${inter.member}... try using the URL or full name of the song? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -69,7 +69,7 @@ export default {
       if (!trackName) {
         return inter.reply({
           content: `This track does not seem to exist ${inter.member}... try again? ❌`,
-          ephemeral: true,
+          flags: 64,
         });
       }
 

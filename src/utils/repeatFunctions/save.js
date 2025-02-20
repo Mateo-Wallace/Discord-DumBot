@@ -4,7 +4,7 @@ export default async (inter, queue) => {
   if (!queue) {
     return inter.reply({
       content: `No music currently playing ${inter.member}... try again? ❌`,
-      ephemeral: true,
+      flags: 64,
     });
   }
 
@@ -46,14 +46,14 @@ export default async (inter, queue) => {
       return inter.reply({
         content:
           'I have sent you the title of the music by private messages ✅',
-        ephemeral: true,
+        flags: 64,
       });
     })
     .catch((error) => {
       console.error(error);
       return inter.reply({
         content: 'Unable to send you a private message... try again? ❌',
-        ephemeral: true,
+        flags: 64,
       });
     });
 };

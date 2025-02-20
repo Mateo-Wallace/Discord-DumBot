@@ -14,19 +14,19 @@ export default async (inter, hidden) => {
         } **Result**: ${r.result} \n **Total**: ${
           r.total
         }     **Crit Total**: ${r.totalCrit}`,
-        ephemeral: hidden ? true : false,
+        ...(hidden ? { flags: 64 } : {}),
       });
     } else {
       await inter.reply({
         content: `Invalid input executing ${inter.commandName}`,
-        ephemeral: true,
+        flags: 64,
       });
     }
   } catch (error) {
     console.error(error);
     await inter.reply({
       content: `FATAL ERROR executing ${inter.commandName}`,
-      ephemeral: true,
+      flags: 64,
     });
   }
 };
