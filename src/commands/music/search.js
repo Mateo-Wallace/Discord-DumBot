@@ -37,7 +37,7 @@ export default {
     const urlRegex =
       /^(https?):\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/\S*)?$/;
     if (!searchEngine || urlRegex.test(song)) {
-      searchEngine = QueryType.AUTO;
+      searchEngine = QueryType.SPOTIFY_SEARCH;
     }
 
     if (client.config.app.noYoutube && searchEngine === 'youtubeSearch') {
