@@ -4,7 +4,7 @@ export default async (inter, queue, repeatMode) => {
   if (!queue || !queue.node.isPlaying()) {
     return inter.reply({
       content: 'No music currently playing... try again? ❌',
-      ephemeral: true,
+      flags: 64,
     });
   }
 

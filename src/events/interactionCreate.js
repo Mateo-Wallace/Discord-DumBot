@@ -15,7 +15,7 @@ export default (client, inter) => {
             .setColor('#ff0000')
             .setDescription('❌ | Error! Please contact Developers!'),
         ],
-        ephemeral: true,
+        flags: 64,
       });
       client.slash.delete(inter.commandName);
       return;
@@ -33,7 +33,7 @@ export default (client, inter) => {
               '❌ | You do not have the proper permissions to execute this command',
             ),
         ],
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -52,7 +52,7 @@ export default (client, inter) => {
               `❌ | This command is reserved for members with \`${DJ.roleName}\``,
             ),
         ],
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -64,7 +64,7 @@ export default (client, inter) => {
               .setColor('#ff0000')
               .setDescription('❌ | You are not in a Voice Channel'),
           ],
-          ephemeral: true,
+          flags: 64,
         });
       }
 
@@ -79,7 +79,7 @@ export default (client, inter) => {
               .setColor('#ff0000')
               .setDescription('❌ | You are not in the same Voice Channel'),
           ],
-          ephemeral: true,
+          flags: 64,
         });
       }
     }

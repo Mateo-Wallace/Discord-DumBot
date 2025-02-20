@@ -46,7 +46,7 @@ export default {
     if (!queue || !queue.node.isPlaying()) {
       return inter.editReply({
         content: `No music currently playing ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -61,7 +61,7 @@ export default {
     if (client.config.app.noYoutube && searchEngine === 'youtubeSearch') {
       return inter.editReply({
         content: 'Youtube non functional at the moment. Sorry ❌',
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -75,14 +75,14 @@ export default {
     if (!result.hasTracks()) {
       return inter.editReply({
         content: `No results found ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
     if (result.playlist) {
       return inter.editReply({
         content: `This command does not support playlists ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 

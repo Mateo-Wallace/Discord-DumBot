@@ -2,7 +2,7 @@ export default async ({ inter, queue }) => {
   if (!queue) {
     return inter.reply({
       content: 'No music currently playing... try again? ❌',
-      ephemeral: true,
+      flags: 64,
     });
   }
 
@@ -10,6 +10,6 @@ export default async ({ inter, queue }) => {
 
   return inter.reply({
     content: `${queue.node.isPaused() ? 'Paused' : 'Resumed'} the playback.`,
-    ephemeral: true,
+    flags: 64,
   });
 };

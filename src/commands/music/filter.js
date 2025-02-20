@@ -25,7 +25,7 @@ export default {
     if (!queue || !queue.node.isPlaying()) {
       return inter.reply({
         content: `No music currently playing ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -49,7 +49,7 @@ export default {
         }List of available filters: ${availableFilters
           .map((f) => `**${f}**`)
           .join(', ')}.`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 

@@ -43,7 +43,7 @@ export default {
     if (client.config.app.noYoutube && searchEngine === 'youtubeSearch') {
       return inter.editReply({
         content: 'Youtube non functional at the moment. Sorry ❌',
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -55,7 +55,7 @@ export default {
     if (!res.hasTracks()) {
       return inter.reply({
         content: `No results found ${inter.member}... try again? ❌`,
-        ephemeral: true,
+        flags: 64,
       });
     }
 
@@ -87,7 +87,7 @@ export default {
     collector.on('collect', async (query) => {
       if (query.content.toLowerCase() === 'cancel') {
         return (
-          inter.followUp({ content: 'Search cancelled ✅', ephemeral: true }),
+          inter.followUp({ content: 'Search cancelled ✅', flags: 64 }),
           collector.stop()
         );
       }
@@ -96,7 +96,7 @@ export default {
       if (!value || value <= 0 || value > maxTracks.length) {
         return inter.followUp({
           content: `Invalid response, try a value between **1** and **${maxTracks.length}** or **cancel**... try again? ❌`,
-          ephemeral: true,
+          flags: 64,
         });
       }
 
@@ -129,7 +129,7 @@ export default {
       if (reason === 'time') {
         return inter.followUp({
           content: `Search timed out ${inter.member}... try again? ❌`,
-          ephemeral: true,
+          flags: 64,
         });
       }
     });

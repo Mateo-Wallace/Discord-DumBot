@@ -39,7 +39,7 @@ export default async (inter, queue, isButton) => {
   if (!queue) {
     return inter.reply({
       content: `No music currently playing ${inter.member}... try again? ❌`,
-      ephemeral: true,
+      flags: 64,
     });
   }
 
@@ -77,7 +77,7 @@ export default async (inter, queue, isButton) => {
     .setColor('Red');
 
   if (isButton) {
-    return inter.reply({ embeds: [embed], ephemeral: true });
+    return inter.reply({ embeds: [embed], flags: 64 });
   }
 
   return inter.reply({ embeds: [embed], components: [row()] });
