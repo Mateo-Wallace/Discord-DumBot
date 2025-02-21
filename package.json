@@ -34,6 +34,7 @@
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@mateo-wallace/rpg-dice-js": "^2.0.2",
     "discord-player": "^7.1.0",
+    "discord-player-youtubei": "^1.4.2",
     "discord.js": "^14.18.0",
     "dotenv": "^16.4.7",
     "ms": "^2.1.3"

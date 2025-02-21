@@ -2,6 +2,7 @@ import { Player } from 'discord-player';
 import { DefaultExtractors } from '@discord-player/extractor';
 import { Client, GatewayIntentBits } from 'discord.js';
 import dotenv from 'dotenv';
+import { YoutubeiExtractor } from 'discord-player-youtubei';
 import { loader } from './src/utils/loader.js';
 import { events } from './src/utils/events.js';
 import config from './config.js';
@@ -25,6 +26,7 @@ client.config = config;
 const player = new Player(client, client.config.opt.discordPlayer);
 
 await player.extractors.loadMulti(DefaultExtractors);
+await player.extractors.register(YoutubeiExtractor, {});
 
 loader();
 events();
