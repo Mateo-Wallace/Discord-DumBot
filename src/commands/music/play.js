@@ -50,8 +50,10 @@ export default {
     let searchEngine = inter.options.getString('source', false);
     const urlRegex =
       /^(https?):\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/\S*)?$/;
-    if (!searchEngine || urlRegex.test(query)) {
-      searchEngine = QueryType.SPOTIFY_SEARCH;
+    if (!searchEngine) {
+      searchEngine = urlRegex.test(query)
+        ? QueryType.AUTO
+        : QueryType.SPOTIFY_SEARCH;
     }
 
     if (client.config.app.noYoutube && searchEngine === 'youtubeSearch') {
