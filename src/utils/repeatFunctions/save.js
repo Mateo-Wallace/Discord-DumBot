@@ -14,33 +14,36 @@ export default async (inter, queue) => {
   const trackDuration =
     timestamp.progress === 'Infinity' ? 'infinity (live)' : track.duration;
 
+  const embed = new EmbedBuilder()
+    .setTitle(`:arrow_forward: ${track.title}`)
+    .setThumbnail(track.thumbnail)
+    .addFields(
+      {
+        name: ':hourglass: Duration:',
+        value: `\`${trackDuration}\``,
+        inline: true,
+      },
+      {
+        name: 'Song by:',
+        value: `\`${track.author}\``,
+        inline: true,
+      },
+      { name: 'Progress', value: `${queue.node.createProgressBar()}` },
+      { name: 'Requested by', value: `${track.requestedBy}` },
+    )
+    .setFooter({
+      text: `from the server ${inter.member.guild.name}`,
+      iconURL: inter.member.guild.iconURL({ dynamic: false }),
+    })
+    .setColor('Red');
+
+  if (track.url.slice(0, 2) !== './') {
+    embed.setURL(track.url);
+  }
+
   inter.member
     .send({
-      embeds: [
-        new EmbedBuilder()
-          .setTitle(`:arrow_forward: ${track.title}`)
-          .setURL(track.url)
-          .setThumbnail(track.thumbnail)
-          .addFields(
-            {
-              name: ':hourglass: Duration:',
-              value: `\`${trackDuration}\``,
-              inline: true,
-            },
-            {
-              name: 'Song by:',
-              value: `\`${track.author}\``,
-              inline: true,
-            },
-            { name: 'Progress', value: `${queue.node.createProgressBar()}` },
-            { name: 'Requested by', value: `${track.requestedBy}` },
-          )
-          .setFooter({
-            text: `from the server ${inter.member.guild.name}`,
-            iconURL: inter.member.guild.iconURL({ dynamic: false }),
-          })
-          .setColor('Red'),
-      ],
+      embeds: [embed],
     })
     .then(() => {
       return inter.reply({

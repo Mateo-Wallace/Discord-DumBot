@@ -53,7 +53,6 @@ export default async (inter, queue, isButton) => {
 
   const embed = new EmbedBuilder()
     .setTitle(`:arrow_forward: ${track.title}`)
-    .setURL(track.url)
     .setThumbnail(track.thumbnail)
     .addFields(
       {
@@ -75,6 +74,10 @@ export default async (inter, queue, isButton) => {
       { name: 'Requested by', value: `${track.requestedBy}` },
     )
     .setColor('Red');
+
+  if (track.url.slice(0, 2) !== './') {
+    embed.setURL(track.url);
+  }
 
   if (isButton) {
     return inter.reply({ embeds: [embed], flags: 64 });
