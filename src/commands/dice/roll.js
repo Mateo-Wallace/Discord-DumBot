@@ -11,6 +11,11 @@ export default {
       description: "The amount and type of dice you'd like to roll plus mods",
       type: ApplicationCommandOptionType.String,
     },
+    {
+      name: 'message',
+      description: 'A message you would like printed with your dice result',
+      type: ApplicationCommandOptionType.String,
+    },
   ],
   enabled: client.config.enabledCommands.roll,
 

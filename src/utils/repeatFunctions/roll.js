@@ -7,10 +7,13 @@ export default async (inter, hidden) => {
     // short format roll
     const r = roll(userInput, { isBoldCrit: true });
 
+    let message = inter.options.getString('message');
+    message = message ? message : '';
+
     if (r.ok) {
       await inter.reply({
-        content: `${inter.user} :game_die: ${
-          r.input ? '\n **Input**: ' + r.input + ' \n' : '\n'
+        content: `${inter.user} :game_die: ${message} ${
+          r.input ? `\n **Input**: ${r.input} \n` : '\n'
         } **Result**: ${r.result} \n **Total**: ${
           r.total
         }     **Crit Total**: ${r.totalCrit}`,
