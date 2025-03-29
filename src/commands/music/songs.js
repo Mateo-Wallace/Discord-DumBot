@@ -7,8 +7,9 @@ function getFilesInFolder(folderPath) {
   try {
     const files = fs.readdirSync(folderPath);
     return files.map((file) => {
+      const songTitle = file.replace(/\.mp3$/i, '');
       const pathToFile = `${folderPath}/${file}`;
-      return { name: file, value: pathToFile };
+      return { name: songTitle, value: pathToFile };
     });
   } catch (err) {
     console.error('Error reading folder:', err);
