@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-<!-- SHIELDS -->
+<!-- SHIELD -->
 
 [![Contributors](https://img.shields.io/github/contributors/Mateo-Wallace/DISCORD-DUMBOT.svg?style=for-the-badge&color=success)](https://github.com/Mateo-Wallace/DISCORD-DUMBOT/graphs/contributors)
 [![Forks Shield](https://img.shields.io/github/forks/Mateo-Wallace/DISCORD-DUMBOT.svg?style=for-the-badge)](https://github.com/Mateo-Wallace/DISCORD-DUMBOT/network/members)
